@@ -19,7 +19,7 @@ class Location {
 		// ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		string getBuilding();
 		string getRoom();
-		string setCode();
+		string getCode();
 
 };
 

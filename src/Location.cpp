@@ -19,6 +19,6 @@ string getRoom() {
 	return mRoom;
 }
 
-string setCode() {
+string getCode() {
 	return mCode;
 }
