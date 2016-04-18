@@ -7,13 +7,16 @@ using namespace std;
 class User {
 
 	private:
-		
-	
-	protected:
-		
+		String mName, mUsername, mPassword;
 	
 	public:
+		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		User(string name, string username, string password);
 		
+		// ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		string getName();
+		string getUserName();
+		string getPassword();
 
 };
 
