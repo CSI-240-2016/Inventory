@@ -1,5 +1,5 @@
-#ifndef ACCOUNT_H
-#define ACCOUNT_H
+#ifndef CLUB_H
+#define CLUB_H
 
 #include <iostream>
 #include <string>
