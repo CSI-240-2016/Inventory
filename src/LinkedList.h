@@ -10,11 +10,11 @@ class LinkedList {
 
 	private:
 		/** Pointer to the first node in the sequence. Can be NULL. */
-		Node *mHead;
+		Node 	*mHead;
 		/** Pointer to the last node in the sequence. Can be NULL. */
-		Node *mTail;
+		Node 	*mTail;
 		/** The quantity of nodes in the sequence. */
-		int mCount;
+		int 	mCount;
 	public:
 	
 		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,7 +57,7 @@ class LinkedList {
 		 * Pre:		the index
 		 * Post:	the data at the index (after it has been removed)
 		 */
-		int		remove(int index);
+		//int		remove(int index);
 		
 		// ~~~~~ Utility ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
