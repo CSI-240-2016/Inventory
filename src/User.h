@@ -17,6 +17,11 @@ class User {
 		string getName();
 		string getUserName();
 		string getPassword();
+		
+		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		void setName(string);
+		void setUserName(string);
+		void setPassword(string);
 
 };
 
