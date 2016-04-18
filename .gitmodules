@@ -1,0 +1,3 @@
+[submodule "master"]
+	path = master
+	url = https://github.com/CSI-240-2016/Inventory.git
