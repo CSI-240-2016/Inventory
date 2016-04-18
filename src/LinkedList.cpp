@@ -108,15 +108,27 @@ void LinkedList::insert(int data) {
  * Post:	returns true if the data was put in the list
  */
 bool LinkedList::append(int data) {
+	// Create a new node for the data
+	Node *newNode = new Node(data);
 	
-}
-
-/** Purpose: Remove the data at the index
- * Pre:		the index
- * Post:	the data at the index (after it has been removed)
- */
-int LinkedList::remove(int index) {
+	// If the node is NULL (not enough memory to create node)
+	if (newNode == NULL)
+		return false;
 	
+	if (isEmpty()) { // If the list is empty, then the head must be set
+		mHead = newNode;
+	}
+	else { // if not empty, then the new node is the current tail's next node
+		mTail->mNext = newNode;
+	}
+	
+	// set the current tail to the new node
+	mTail = newNode;
+	// increase the count
+	mCount++;
+	
+	// node was successfully created
+	return true;
 }
 
 // ~~~~~ Utility ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
