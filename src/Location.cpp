@@ -3,7 +3,7 @@
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Location(string building, string room, string code) {
+Location::Location(string building, string room, string code) {
 	mBuilding = building;
 	mRoom = room;
 	mCode = code;
@@ -11,14 +11,14 @@ Location(string building, string room, string code) {
 
 // ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-string getBuilding() {
+string	Location::getBuilding() {
 	return mBuilding;
 }
 
-string getRoom() {
+string	Location::getRoom() {
 	return mRoom;
 }
 
-string getCode() {
+string	Location::getCode() {
 	return mCode;
 }
