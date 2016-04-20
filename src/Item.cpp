@@ -2,7 +2,7 @@
 #include "Item.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Item::Item(int serial, String name) {
+Item::Item(int serial, string name) {
 	mSerialNumber = serial;
 	mName = name;
 	
@@ -16,15 +16,15 @@ int 		Item::getSerial() {
 	return mSerialNumber;
 }
 
-String 		Item::getName() {
+string 		Item::getName() {
 	return mName;
 }
 
-String 		Item::getNameType() {
+string 		Item::getNameType() {
 	return mType;
 }
 
-String 		Item::getNameOwner() {
+string 		Item::getNameOwner() {
 	return mOwner;
 }
 
@@ -49,15 +49,15 @@ void 	Item::setSerial(int serial) {
 	mSerialNumber = serial;
 }
 
-void 	Item::setName(String name) {
+void 	Item::setName(string name) {
 	mName = name;
 }
 
-void 	Item::setNameType(String name) {
+void 	Item::setNameType(string name) {
 	mType = name;
 }
 
-void 	Item::setNameOwner(String name) {
+void 	Item::setNameOwner(string name) {
 	mOwner = name;
 }
 

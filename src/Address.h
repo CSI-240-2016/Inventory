@@ -9,30 +9,30 @@ using namespace std;
 class Address {
 	
 	private:
-		String mNumberStreet, mStreet, mNumberApartment, mCity, mState, mCountry, mZipCode;
+		string mNumberStreet, mStreet, mNumberApartment, mCity, mState, mCountry, mZipCode;
 	
 	public:
 		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		Address();
 		
 		// ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		String 	getNumberStreet();
-		String 	getStreet();
-		String 	getNumberApartment();
-		String 	getCity();
-		String 	getState();
-		String 	getCountry();
-		String 	getZipCode();
+		string 	getNumberStreet();
+		string 	getStreet();
+		string 	getNumberApartment();
+		string 	getCity();
+		string 	getState();
+		string 	getCountry();
+		string 	getZipCode();
 		
 		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		void 	setNumberStreet(String);
-		void 	setStreet(String);
-		void 	setNumberApartment(String);
-		void 	setCity(String);
-		void 	setState(String);
-		void 	setCountry(String);
-		void 	setZipCode(String);
+		void 	setNumberStreet(string);
+		void 	setStreet(string);
+		void 	setNumberApartment(string);
+		void 	setCity(string);
+		void 	setState(string);
+		void 	setCountry(string);
+		void 	setZipCode(string);
 	
-}
+};
 
 #endif
