@@ -171,6 +171,16 @@ bool operator != (Date& dateOne, Date& dateTwo)
 * Post: Sets mDay, mMonth, and Myear values for date object
 * Purpose: To allow for easy changing of all date values
 *********************************************************/
+void operator = (Date& dateOne, Date& dateTwo)
+{
+	dateOne.setDate(dateTwo.getDay(),dateTwo.getMonth(),dateTwo.getYear());
+}
+
+
+/* Pre: Given three ints
+* Post: Sets mDay, mMonth, and Myear values for date object
+* Purpose: To allow for easy changing of all date values
+*********************************************************/
 void Date::setDate(int day, int month, int year)
 {
 	mDay = day;
