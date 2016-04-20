@@ -10,17 +10,35 @@ class Item {
 
 	private:
 		int mSerialNumber;
-		String mName, mType, mOwnerName;
+		String mName, mType, mOwner;
 		Source mSource;
 		Location mLocation;
 		bool mIsIn;
 	
-	protected:
-		
-	
 	public:
+		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Item(int, String);
 		
-
+		// ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		int 		getSerial();
+		String 		getName();
+		String 		getNameType();
+		String 		getNameOwner();
+		Source 		getSource();
+		Location 	getLocation();
+		bool 		canBeCheckedOut();
+		bool 		isCheckedIn();
+		
+		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		void 	setSerial(int);
+		void 	setName(String);
+		void 	setNameType(String);
+		void 	setNameOwner(String);
+		void 	setSource(Source);
+		void 	setLocation(Location);
+		bool 	checkOut();
+		bool 	checkIn();
+	
 };
 
 #endif
