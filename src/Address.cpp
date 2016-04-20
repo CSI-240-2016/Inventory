@@ -15,60 +15,60 @@ Address::Address() {
 
 // ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-String 	Address::getNumberStreet() {
+string 	Address::getNumberStreet() {
 	return mNumberStreet;
 }
 
-String 	Address::getStreet() {
+string 	Address::getStreet() {
 	return mStreet;
 }
 
-String 	Address::getNumberApartment() {
+string 	Address::getNumberApartment() {
 	return mNumberApartment;
 }
 
-String 	Address::getCity() {
+string 	Address::getCity() {
 	return mCity;
 }
 
-String 	Address::getState() {
+string 	Address::getState() {
 	return mState;
 }
 
-String 	Address::getCountry() {
+string 	Address::getCountry() {
 	return mCountry;
 }
 
-String 	Address::getZipCode() {
+string 	Address::getZipCode() {
 	return mZipCode;
 }
 
 // ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void 	Address::setNumberStreet(String str) {
+void 	Address::setNumberStreet(string str) {
 	mNumberStreet = str;
 }
 
-void 	Address::setStreet(String str) {
+void 	Address::setStreet(string str) {
 	mStreet = str;
 }
 
-void 	Address::setNumberApartment(String str) {
+void 	Address::setNumberApartment(string str) {
 	mNumberApartment = str;
 }
 
-void 	Address::setCity(String str) {
+void 	Address::setCity(string str) {
 	mCity = str;
 }
 
-void 	Address::setState(String str) {
+void 	Address::setState(string str) {
 	mState = str;
 }
 
-void 	Address::setCountry(String str) {
+void 	Address::setCountry(string str) {
 	mCountry = str;
 }
 
-void 	Address::setZipCode(String str) {
+void 	Address::setZipCode(string str) {
 	mZipCode = str;
 }
