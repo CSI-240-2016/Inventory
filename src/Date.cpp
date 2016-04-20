@@ -167,16 +167,6 @@ bool operator != (Date& dateOne, Date& dateTwo)
 }
 
 
-/* Pre: Two Date objects compared with = operator
-* Post: Sets object one to object two
-* Purpose: To allow for easy changing of all date values
-*********************************************************/
-void operator = (Date& dateOne, Date& dateTwo)
-{
-	dateOne.setDate(dateTwo.getDay(),dateTwo.getMonth(),dateTwo.getYear());
-}
-
-
 /* Pre: Given three ints
 * Post: Sets mDay, mMonth, and Myear values for date object
 * Purpose: To allow for easy changing of all date values
