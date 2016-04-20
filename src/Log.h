@@ -2,6 +2,7 @@
 #define LOG_H_
 #include <string>
 #include <istream>
+#include <ostream>
 using namespace std;
 class Log
 {
@@ -20,7 +21,8 @@ public:
 	string getInByName();
 	string getInByUsername();
 	string getInFromName();
-	friend std::istream& operator>>(std::istream& in, Log& targ);
+	friend istream& operator>>(istream& in, Log& targ);
+	friend ostream& operator<<(ostream& out, Log& targ);
 private:
 	int mItemSerial;
 	string mItemName;
@@ -35,5 +37,4 @@ private:
 	string mInByUsername;
 	string mInFromName;
 };
-Date parseDate(string datestring);
 #endif
