@@ -22,7 +22,6 @@ public:
 	friend bool operator > (Date& dateOne, Date& dateTwo);
 	friend bool operator < (Date& dateOne, Date& dateTwo);
 	friend bool operator != (Date& dateOne, Date& dateTwo);
-	friend void operator = (Date& dateOne, Date& dateTwo);
 
 	//Mutators
 	void setDate(int day, int month, int year);
