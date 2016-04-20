@@ -7,6 +7,7 @@
  */
 Log::Log()
 {
+
 }
 
 /* Pre: none
@@ -125,10 +126,14 @@ string Log::getInFromName()
 	return mInFromName;
 }
 
+/* Pre: in is an open istream from a data file, targ is a referance to the Log to write the info from in to
+ * Post: writes the info found in in to targ and returns in
+ * Purpose: overloaded form of >> for Log
+ */
 istream& operator>>(istream& in, Log& targ)
 {
 	in >> targ.mItemSerial >> targ.mItemName;
-	in >> targ.mOutDate >> targ.mExpectedInDate >> targ.mInDate;
+	in >> targ.mOutDate >> targ.mExpectedInDate >> targ.mInDate; // Assume here that there's an overloaded form of >> for Date
 	in >> targ.mClubName;
 	in >> targ.mOutByUsername >> targ.mOutByName;
 	in >> targ.mOutTo;
@@ -136,11 +141,14 @@ istream& operator>>(istream& in, Log& targ)
 	in >> targ.mInFromName;
 	return in;
 }
-
+/* Pre: out is an ostream to a data file (I would assume), targ is a referance to a Log to write to out
+ * Post: writes the info found in targ to out, and reeturns out
+ * Purpose: overloaded form of << for Log
+ */
 ostream& operator<<(ostream& out, Log& targ)
 {
 	out << targ.mItemSerial << " " << targ.mItemName << endl;
-	out << targ.mOutDate << " " << targ.mExpectedInDate << " " << targ.mInDate << endl;
+	out << targ.mOutDate << " " << targ.mExpectedInDate << " " << targ.mInDate << endl; // Assume here that there's an overloaded form of >> for Date
 	out << targ.mClubName << endl;
 	out << targ.mOutByUsername << " " << targ.mOutByName << endl;
 	out << targ.mOutTo << endl;
