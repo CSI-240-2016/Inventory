@@ -1,27 +1,32 @@
+#include <string>
+
 class Date
 {
-	private:
-		int mMonth, mDay, mYear;
+private:
+	int mMonth, mDay, mYear;
 
-	public:
-		//Constructors
-		Date();
-		Date(int day, int month, int year);
-		~Date();
+public:
+	//Constructors
+	Date();
+	Date(int day, int month, int year);
+	~Date();
 
-		//Accessors
-		int getDay();
-		int getMonth();
-		int getYear();
+	//Accessors
+	std::string getDate();
+	int getDay();
+	int getMonth();
+	int getYear();
 
-		//Mutators
-		void setDay(int day);
-		void setMonth(int month);
-		void setYear(int year);
+	//Overloaded Operators
+	friend bool operator == (Date& dateOne, Date& dateTwo);
+	friend bool operator > (Date& dateOne, Date& dateTwo);
+	friend bool operator < (Date& dateOne, Date& dateTwo);
+	friend bool operator != (Date& dateOne, Date& dateTwo);
 
-		//Overloaded Operators
-		friend bool operator == (Date& dateOne,Date& dateTwo);
-		friend bool operator >= (Date& dateOne, Date& dateTwo);
-		friend bool operator <= (Date& dateOne, Date& dateTwo);
-		friend bool operator != (Date& dateOne, Date& dateTwo);
+	//Mutators
+	void setDate(int day, int month, int year);
+	void setDay(int day);
+	void setMonth(int month);
+	void setYear(int year);
+
 };
