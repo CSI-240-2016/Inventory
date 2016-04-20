@@ -167,8 +167,8 @@ bool operator != (Date& dateOne, Date& dateTwo)
 }
 
 
-/* Pre: Given three ints
-* Post: Sets mDay, mMonth, and Myear values for date object
+/* Pre: Two Date objects compared with = operator
+* Post: Sets object one to object two
 * Purpose: To allow for easy changing of all date values
 *********************************************************/
 void operator = (Date& dateOne, Date& dateTwo)
