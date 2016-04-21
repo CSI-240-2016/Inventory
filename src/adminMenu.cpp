@@ -180,10 +180,6 @@ void exportExcel()
 {
 }
 
-void logOut()
-{
-}
-
 void removeClub()
 {
 }

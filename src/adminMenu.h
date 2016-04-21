@@ -15,7 +15,6 @@ void displayAdminItem();
 void displayAdminSearch();
 void displayAdminUser();
 void exportExcel();
-void logOut();
 void removeClub();
 void removeItem();
 void removeUser();

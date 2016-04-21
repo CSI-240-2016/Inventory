@@ -5,9 +5,6 @@ Assignment: SGA Inventory (Final Project)
 Date Assigned:
 Due Date:
 
-A program working with 2 Dimensional dynamic arrays. Creates a 2D Dynamic array and fills and sorts the array.
-Then the array is displayed to the screen
-
 Certification of Authenticity:  I certify that this is entirely my own work, except where
 I have given fully-documented references to the work of others.
 I understand the definition and consequences of plagiarism and acknowledge that the assessor
@@ -38,6 +35,9 @@ void clearScreen()
 void displayAdminMenu()
 {
 	int choice = 0;
+
+	clearScreen();
+	displayLogo();
 
 	cout << setw(29) << right << "Administrator Menu:\n\n\n";
 	cout << setw(12) << right << "1.) " << left << "Check In and Check Out\n";
@@ -78,13 +78,16 @@ void displayAdminMenu()
 		exportExcel();
 		break;
 	case 7:
-		logOut();
+		displayGeneralMenu();
 	}
 }
 
 void displayGeneralMenu()
 {
 	int choice = 0;
+
+	clearScreen();
+	displayLogo();
 
 	cout << setw(22) << right << "Public Menu:\n\n\n";
 	cout << setw(12) << right << "1.) " << left << "Items\n";
