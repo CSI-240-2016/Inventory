@@ -17,7 +17,7 @@ public:
 	~Seller();
 
 	//Accessors
-	Address getAddress();
+	Address& getAddress();
 	std::string getName();
 	std::string getURL();
 
