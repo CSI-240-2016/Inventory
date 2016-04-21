@@ -72,7 +72,7 @@ void displaySearchMenu()
 
 void login()
 {
-	string pass, user;
+	string password, username;
 	ifstream datafile;
 	datafile.open("users.txt");
 
@@ -101,7 +101,7 @@ void login()
 		else
 		{
 			cout << "This is not a valid login." << endl;
-			login(username, password);
+			login();
 			return;
 		}
 	}
@@ -143,7 +143,7 @@ bool checkWords(string username, string password)
 	{
 		cout << "One of the files does not exist." << endl;
 		system("pause");
-		login(username, password);
+		login();
 	}
 	else
 	{
