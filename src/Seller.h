@@ -1,26 +1,31 @@
-//Not Stable
+#ifndef SELLER_H
+#define SELLER_H
+
 #include <string>
+#include "Address.h"
 
 class Seller
 {
-	private: 
-		std::string mName, mURL;
-		Address mAddress;
+private:
+	std::string mName, mURL;
+	Address mAddress;
 
-	public:
-		//Accessors
-		Address getAddress();
-		std::string getName();
-		std::string getURL();
+public:	
+	//Constuctors:
+	Seller();
+	Seller(std::string name, std::string URL, Address address);
+	~Seller();
 
-		//Constructors
-		Seller();
-		Seller(std::string name, std::string URL, Address address);
-		~Seller();
+	//Accessors
+	Address getAddress();
+	std::string getName();
+	std::string getURL();
 
-		//Mutators
-		void setAddress(Address address);
-		void setName(string name);
-		void setURL(string URL);
-
+	//Mutators
+	void setSeller(std::string name, std::string URL, Address address);
+	void setAddress(Address address);
+	void setName(std::string name);
+	void setURL(std::string URL);
 };
+
+#endif
