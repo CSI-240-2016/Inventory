@@ -33,7 +33,7 @@ public:
 	void 	setZipCode(string);
 
 	// ~~~~~ Overloaded Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	Address operator=(const Address &address);
+	Address& operator=(const Address& addressTwo);
 
 };
 
