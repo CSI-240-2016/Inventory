@@ -69,10 +69,46 @@ void displaySearchMenu()
 	}
 }
 
-void logIn()
-{
 
+void login(string username, string password)
+{
+	string pass, user;
+	ifstream datafile;
+	datafile.open("users.txt");
+
+	if (!datafile.is_open())
+	{
+		cout << "One of the files does not exist." << endl;
+		system("pause");
+
+	}
+
+	else
+	{
+		cout << "Input username" << endl;
+		getline(cin, username);
+		cout << "Input password" << endl;
+		getline(cin, password);
+
+		if (checkWords(username, password) == true)
+		{
+			clearScreen();
+			cout << "You logged in!" << endl;
+			displayAdminMenu();
+			system("pause");
+		}
+
+		else
+		{
+			cout << "This is not a valid login." << endl;
+			login(username, password);
+			return;
+		}
+	}
 }
+
+	
+
 
 void searchClub()
 {
@@ -91,5 +127,42 @@ void showInItems()
 
 void showOutItems()
 {
+
+}
+
+bool checkWords(string username, string password)
+{
+	ifstream datafile;
+	datafile.open("datafile.txt");
+	string tempName;
+	string tempPass;
+
+
+
+	if (!datafile.is_open())
+	{
+		cout << "One of the files does not exist." << endl;
+		system("pause");
+		login(username, password);
+	}
+	else
+	{
+		datafile >> tempName;
+		while (!datafile.eof())
+		{
+			datafile >> tempPass;
+			if (username == tempName && password == tempPass)
+			{
+				datafile.close();
+				return true;
+			}
+			else
+			{
+				datafile >> tempName;
+			}
+		}
+		datafile.close();
+		return false;
+	}
 
 }
