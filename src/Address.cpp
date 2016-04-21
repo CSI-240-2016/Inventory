@@ -72,3 +72,20 @@ void 	Address::setCountry(string str) {
 void 	Address::setZipCode(string str) {
 	mZipCode = str;
 }
+
+// ~~~~~ Overloaded Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Address Address::operator=(const Address&)
+{
+	Address address;
+
+	address.setCity(this->getCity());
+	address.setCountry(this->getCountry());
+	address.setNumberApartment(this->getNumberApartment());
+	address.setNumberStreet(this->getNumberStreet());
+	address.setState(this->getState());
+	address.setStreet(this->getState());
+	address.setZipCode(this->getZipCode());
+	
+	return address;	
+}
