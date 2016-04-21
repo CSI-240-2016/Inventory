@@ -39,7 +39,7 @@ Seller::~Seller()
 * Post: Date object created. Default date is January 1st 2000
 * Purpose: To create Date object
 *********************************************************/
-Address Seller::getAddress()
+Address& Seller::getAddress()
 {
 	return mAddress;
 }
