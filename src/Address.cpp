@@ -77,7 +77,6 @@ void 	Address::setZipCode(string str) {
 
 Address& Address::operator=(const Address& addressTwo)
 {
-	Address address = *this;
 	this->mCity = addressTwo.mCity;
 	this->mCountry = addressTwo.mCountry;
 	this->mNumberApartment = addressTwo.mNumberApartment;
