@@ -8,8 +8,8 @@
 
 using namespace std;
 
-void displayClubMenu();
 void displayItemMenu();
+void displaySearchMenu();
 void logIn();
 void searchClub();
 void searchItem();

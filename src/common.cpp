@@ -19,6 +19,8 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 */
 
 #include "common.h"
+#include "publicMenu.h"
+#include "adminMenu.h"
 
 void clearScreen()
 {
@@ -35,6 +37,8 @@ void clearScreen()
 
 void displayAdminMenu()
 {
+	int choice = 0;
+
 	cout << setw(29) << right << "Administrator Menu:\n\n\n";
 	cout << setw(12) << right << "1.) " << left << "Check In and Check Out\n";
 	cout << setw(12) << right << "2.) " << left << "Items\n";
@@ -43,15 +47,74 @@ void displayAdminMenu()
 	cout << setw(12) << right << "5.) " << left << "Search\n";
 	cout << setw(12) << right << "6.) " << left << "Export\n";
 	cout << setw(12) << right << "7.) " << left << "Log Out\n";
+
+	cout << setw(28) << right << "Please enter a choice: ";
+	cin >> choice;
+
+	while ((choice < 1) || (choice > 7))
+	{
+		cout << setw(28) << right << "Invalid... Enter choice: ";
+		cin >> choice;
+	}
+
+	switch (choice)
+	{
+	case 1:
+		checkInOut();
+		break;
+	case 2:
+		displayAdminItem();
+		break;
+	case 3:
+		displayAdminClub();
+		break;
+	case 4:
+		displayAdminUser();
+		break;
+	case 5:
+		displayAdminSearch();
+		break;
+	case 6:
+		exportExcel();
+		break;
+	case 7:
+		logOut();
+	}
 }
 
 void displayGeneralMenu()
 {
+	int choice = 0;
+
 	cout << setw(22) << right << "Public Menu:\n\n\n";
 	cout << setw(12) << right << "1.) " << left << "Items\n";
 	cout << setw(12) << right << "2.) " << left << "Search\n";
 	cout << setw(12) << right << "3.) " << left << "Log In as Admin\n";
 	cout << setw(12) << right << "4.) " << left << "Shutdown\n\n";
+
+	cout << setw(28) << right << "Please enter a choice: ";
+	cin >> choice;
+
+	while ((choice < 1) || (choice > 4))
+	{
+		cout << setw(28) << right << "Invalid... Enter choice: ";
+		cin >> choice;
+	}
+
+	switch (choice)
+	{
+	case 1:
+		displayItemMenu();
+		break;
+	case 2:
+		displaySearchMenu();
+		break;
+	case 3:
+		logIn();
+		break;
+	default:
+		//Shutdown
+	}
 }
 
 void displayLogo()
