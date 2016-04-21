@@ -1,5 +1,5 @@
-
 #include "Address.h"
+#include <iostream>
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -75,17 +75,15 @@ void 	Address::setZipCode(string str) {
 
 // ~~~~~ Overloaded Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Address Address::operator=(const Address&)
+Address& Address::operator=(const Address& addressTwo)
 {
-	Address address;
-
-	address.setCity(this->getCity());
-	address.setCountry(this->getCountry());
-	address.setNumberApartment(this->getNumberApartment());
-	address.setNumberStreet(this->getNumberStreet());
-	address.setState(this->getState());
-	address.setStreet(this->getState());
-	address.setZipCode(this->getZipCode());
-	
-	return address;	
+	Address address = *this;
+	this->mCity = addressTwo.mCity;
+	this->mCountry = addressTwo.mCountry;
+	this->mNumberApartment = addressTwo.mNumberApartment;
+	this->mNumberStreet = addressTwo.mNumberStreet;
+	this->mState = addressTwo.mState;
+	this->mStreet = addressTwo.mStreet;
+	this->mZipCode = addressTwo.mZipCode;
+	return *this;
 }
