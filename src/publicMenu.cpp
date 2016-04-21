@@ -70,7 +70,7 @@ void displaySearchMenu()
 }
 
 
-void login(string username, string password)
+void login()
 {
 	string pass, user;
 	ifstream datafile;

@@ -10,7 +10,7 @@ using namespace std;
 
 void displayItemMenu();
 void displaySearchMenu();
-void logIn(string username, string password);
+void login();
 void searchClub();
 void searchItem();
 void showInItems();
