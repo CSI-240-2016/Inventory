@@ -99,3 +99,15 @@ void  Seller::setURL(string URL)
 {
 	mURL = URL;
 }
+
+/* Pre: None
+* Post: Sets seller equal to another
+* Purpose: To easily set seller values equal to one another
+*********************************************************/
+Seller& Seller::operator=(const Seller& sellerTwo)
+{
+	this->mAddress = sellerTwo.mAddress;
+	this->mName = sellerTwo.mName;
+	this->mURL = sellerTwo.mURL;
+	return *this;
+}
