@@ -10,8 +10,9 @@ private:
 	std::string mName, mURL;
 	Address mAddress;
 
+
 public:	
-	//Constuctors:
+	//Constuctors
 	Seller();
 	Seller(std::string name, std::string URL, Address address);
 	~Seller();
@@ -26,6 +27,9 @@ public:
 	void setAddress(Address address);
 	void setName(std::string name);
 	void setURL(std::string URL);
+
+	//Overloaded Operators
+	Seller& Seller::operator=(const Seller&);
 };
 
 #endif
