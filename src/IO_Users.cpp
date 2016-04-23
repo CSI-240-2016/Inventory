@@ -74,4 +74,5 @@ void saveUsers(LinkedList<User> mData)
 	{
 		cout << "Error opening the file." << endl;
 	}
+	file.close();
 }
