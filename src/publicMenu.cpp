@@ -35,7 +35,8 @@ void displayItemMenu()
 	}
 }
 
-void displaySearchMenu()
+template <typename T>
+void displaySearchMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -59,10 +60,10 @@ void displaySearchMenu()
 	switch (choice)
 	{
 	case 1:
-		searchClub();
+		searchClub(listOfItems);
 		break;
 	case 2:
-		searchItem();
+		searchItem(listOfItems);
 		break;
 	case 3:
 		displayGeneralMenu();
@@ -74,14 +75,72 @@ void logIn()
 
 }
 
-void searchClub()
+template <typename T>
+void searchClub(LinkedList<Item> *listOfItems)
 {
+	/*
 
+	string desiredClub;
+	Node<T> *tmp;
+
+	cout << "Please enter the name of the club:\n\n"
+		<< "Club: ";
+	cin >> desiredClub; //Error check will be added later
+	cout << endl;
+
+	tmp = listOfItems->mHead;
+
+	while (tmp != NULL)
+	{
+		if (tmp club name is equal to desiredClub)
+		{
+			cout << mName of item; 			
+			tmp = tmp->mNext;
+		}
+		else
+		{
+			tmp = tmp->mNext;
+		}
+	}
+
+	*/
 }
 
-void searchItem()
+template <typename T>
+void searchItem(LinkedList<Item> *listOfItems)
 {
+	string desiredItem;
+	Node<T> *tmp;
 
+	cout << "Please enter the name of the item:\n\n"
+		 << "Item: ";
+	cin >> desiredItem; //Error check will be added later
+	cout << endl;
+
+	tmp = listOfItems->mHead;
+
+	while (tmp != NULL)
+	{
+		if (tmp->mName == desiredItem)
+		{
+			break;
+		}
+		else
+		{
+			tmp = tmp->mNext;
+		}
+	}
+
+	if (tmp == NULL)
+	{
+		cout << "The item does not exist\n\n";
+	}
+	else
+	{
+		cout << "Name: " << tmp->mName
+			 << "Serial Number: " << tmp->mSerialNumber;
+			 << "Status: " << tmp->IsIn << "\n\n";
+	}
 }
 
 void showInItems()

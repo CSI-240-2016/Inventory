@@ -5,14 +5,23 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include "LinkedList.h"
 
 using namespace std;
 
 void displayItemMenu();
-void displaySearchMenu();
+
+template <typename T>
+void displaySearchMenu(LinkedList<Item> *listOfItems);
+
 void logIn();
-void searchClub();
-void searchItem();
+
+template <typename T>
+void searchClub(LinkedList<Item> *listOfItems);
+
+template <typename T>
+void searchItem(LinkedList<Item> *listOfItems);
+
 void showInItems();
 void showOutItems();
 
