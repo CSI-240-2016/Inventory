@@ -1,13 +1,13 @@
-#include "master.h"
+#include "LinkedList.h"
+#include <iostream>
 
-
-void LinkedList::searchSerial(string searchKey)
+void searchSerial(string searchKey, LinkedList mData)
 {
 	Node *tmp;
 	Node *before;
 
-	tmp = mHead;
-	before = mHead;
+	tmp = mData.getHead();
+	before = mData.getHead();
 
 	while (tmp != NULL && tmp->data.getSerial() != searchKey) // while tmp is not NULL and serial is not equal to search key, go to the next
 	{
@@ -26,13 +26,13 @@ void LinkedList::searchSerial(string searchKey)
 	}
 }
 
-void LinkedList::searchByClub(string searchKey)
+void searchByClub(string searchKey, LinkedList mData)
 {
 	Node *tmp;
 	Node *before;
 
-	tmp = mHead;
-	before = mHead;
+	tmp = mData.getHead();
+	before = mData.getHead();
 
 	while (tmp != NULL)
 	{
