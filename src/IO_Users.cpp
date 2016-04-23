@@ -1,10 +1,11 @@
 
 #include "LinkedList.h"
+#include "User.h"
 #include <string>
 #include <fstream>
 #include <iostream>
 
-void loadUsers(linkedList &mData)
+void loadUsers(LinkedList<User> &mData)
 {
 	string junk;
 	string tmpName;
@@ -47,7 +48,7 @@ void loadUsers(linkedList &mData)
 	file.close();
 }
 
-void saveUsers(LinkedList mData)
+void saveUsers(LinkedList<User> mData)
 {
 	ifstream file;
 
