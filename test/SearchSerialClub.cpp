@@ -1,7 +1,8 @@
 #include "LinkedList.h"
+#include "Item.h"
 #include <iostream>
 
-void searchSerial(string searchKey, LinkedList mData)
+void searchSerial(string searchKey, LinkedList<Item> mData)
 {
 	Node *tmp;
 	Node *before;

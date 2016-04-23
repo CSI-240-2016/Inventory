@@ -117,6 +117,7 @@ void displayGeneralMenu()
 		break;
 	default:
 		//Shutdown
+		break;
 	}
 }
 

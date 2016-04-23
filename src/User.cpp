@@ -1,4 +1,5 @@
 
+#include "User.h"
 #include "Location.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,11 +45,7 @@ void	User::setPassword(string password) {
  * POST: loads variables from stream, returns the stream
  */
 ifstream& operator>>(ifstream& stream, User& obj) {
-	getline(stream, obj.mID);
-	obj.setIDValue();
-	getline(stream, obj.mName);
-	getline(stream, obj.mAddress);
-	getline(stream, obj.mPhoneNumber);
+	
 	return stream;
 }
 
@@ -57,19 +54,6 @@ ifstream& operator>>(ifstream& stream, User& obj) {
  * POST: outputs prompts, loads variables from stream, returns the stream
  */
 istream& operator>>(istream& stream, User& obj) {
-	
-	cout << "Enter name: ";
-	getline(stream, obj.mName);
-	
-	cout << "Enter ID: ";
-	getline(stream, obj.mID);
-	obj.setIDValue();
-	
-	cout << "Enter address: ";
-	getline(stream, obj.mAddress);
-	
-	cout << "Enter phone number: ";
-	getline(stream, obj.mPhoneNumber);
 	
 	return stream;
 }
