@@ -1,7 +1,9 @@
-//Get user from file
-// Make sure User LinkedList is created prior of using function
 
-void loadUsers()
+#include <string>
+#include <fstream>
+#include <iostream>
+
+void loadUsers(linkedList &mData)
 {
 	string junk;
 	string tmpName;
@@ -21,16 +23,16 @@ void loadUsers()
 			getline(tmpName);
 			
 			//Change LinkedList by name of the list
-			//LinkedList.append(tmpName)
+			mData.append(tmpName)
 
 			//Second line is username and password
 			
 			cin >> tmpUserName >> tmpPassword;
 			//Change LinkedList by name of the list
-			//LinkedList.append(tmpUserName)
+			mData.append(tmpUserName)
 
 			//Change LinkedList by name of the list
-			//LinkedList append(tmpPassword)
+			mData.append(tmpPassword)
 			getline(junk);
 		}
 
@@ -44,7 +46,7 @@ void loadUsers()
 	file.close();
 }
 
-void saveUsers()
+void saveUsers(LinkedList mData)
 {
 	ifstream file;
 
