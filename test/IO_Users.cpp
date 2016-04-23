@@ -5,7 +5,7 @@
 #include <fstream>
 #include <iostream>
 
-void loadUsers(LinkedList<User> &mData)
+void loadUsers(LinkedList<string> &mData)
 {
 	string junk;
 	string tmpName;
@@ -22,20 +22,20 @@ void loadUsers(LinkedList<User> &mData)
 		{
 			
 			//First line is Name
-			getline(tmpName);
+			getline(cin, tmpName);
 			
 			//Change LinkedList by name of the list
-			mData.append(tmpName)
+			mData.append(tmpName);
 
 			//Second line is username and password
 			
-			cin >> tmpUserName >> tmpPassword;
+			cin >> tmpUsername >> tmpPassword;
 			//Change LinkedList by name of the list
-			mData.append(tmpUserName)
+			mData.append(tmpUsername);
 
 			//Change LinkedList by name of the list
-			mData.append(tmpPassword)
-			getline(junk);
+			mData.append(tmpPassword);
+			getline(cin, junk);
 		}
 
 	}
@@ -52,7 +52,7 @@ void saveUsers(LinkedList<User> mData)
 {
 	ifstream file;
 
-	file.open("user.dat",ios::in)
+	file.open("user.dat",ios::in);
 	Node *tmp;
 	Node *before;
 
