@@ -29,7 +29,7 @@ public:
 	void setURL(std::string URL);
 
 	//Overloaded Operators
-	Seller& Seller::operator=(const Seller&);
+	Seller& operator=(const Seller&);
 };
 
 #endif

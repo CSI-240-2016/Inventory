@@ -3,6 +3,7 @@
 #define ITEM_H
 
 #include "Source.h"
+#include "Location.h"
 
 using namespace std;
 
