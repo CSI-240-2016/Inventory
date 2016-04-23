@@ -9,7 +9,7 @@ void LinkedList::searchSerial(string searchKey)
 	tmp = mHead;
 	before = mHead;
 
-	while (tmp != NULL && tmp->data.mSerialNumber != searchKey) // while tmp is not NULL and serial is not equal to search key, go to the next
+	while (tmp != NULL && tmp->data.getSerial() != searchKey) // while tmp is not NULL and serial is not equal to search key, go to the next
 	{
 		before = tmp;
 		tmp = tmp->mNext;
@@ -36,7 +36,7 @@ void LinkedList::searchByClub(string searchKey)
 
 	while (tmp != NULL)
 	{
-		if (tmp->data.mOwner == searchKey)
+		if (tmp->data.getNameOwner() == searchKey)
 		{
 			cout << data << endl;
 		}
