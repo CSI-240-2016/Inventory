@@ -4,7 +4,7 @@
 #include <fstream>
 #include <iostream>
 
-void loadUsers(linkedList &mData)
+void loadUsers(LinkedList &mData)
 {
 	string junk;
 	string tmpName;
