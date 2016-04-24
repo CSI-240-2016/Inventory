@@ -19,7 +19,11 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 #define COMMON_H
 
 #include <iostream>
-#include <iomanip>
+#include <string>
+#include<fstream>
+#include<iomanip>
+#include <cctype>
+
 
 using namespace std;
 
@@ -28,6 +32,7 @@ void displayAdminMenu();
 void displayGeneralMenu();
 void displayLogo();
 void pause();
+
 
 #endif
 

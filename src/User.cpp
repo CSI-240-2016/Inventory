@@ -1,4 +1,5 @@
 
+#include "User.h"
 #include "Location.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,4 +36,24 @@ void	User::setUserName(string username) {
 
 void	User::setPassword(string password) {
 	mPassword = password;
+}
+
+// ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/** Purpose: OVERLOAD Loads variables from a file stream
+ * PRE:  the file stream, the class instance
+ * POST: loads variables from stream, returns the stream
+ */
+ifstream& operator>>(ifstream& stream, User& obj) {
+	
+	return stream;
+}
+
+/** Purpose: OVERLOAD Loads variables from a console stream
+ * PRE:  the stream, the class instance
+ * POST: outputs prompts, loads variables from stream, returns the stream
+ */
+istream& operator>>(istream& stream, User& obj) {
+	
+	return stream;
 }

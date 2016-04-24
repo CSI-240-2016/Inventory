@@ -24,5 +24,6 @@ void searchItem(LinkedList<Item> *listOfItems);
 
 void showInItems();
 void showOutItems();
+bool checkWords(string username, string password);
 
 #endif 

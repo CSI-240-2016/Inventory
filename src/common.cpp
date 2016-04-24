@@ -113,10 +113,11 @@ void displayGeneralMenu()
 		displaySearchMenu();
 		break;
 	case 3:
-		logIn();
+		login();
 		break;
 	default:
 		//Shutdown
+		break;
 	}
 }
 
