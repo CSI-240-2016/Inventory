@@ -122,7 +122,7 @@ void login()
 
 
 template <typename T>
-void searchClub(LinkedList<Item> *listOfItems);
+void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
 	Node<T> *tmp;
@@ -138,6 +138,7 @@ void searchClub(LinkedList<Item> *listOfItems);
 
 	while (tmp != NULL) //Check the entire list for the club's items
 	{
+		/*
 		if (tmp club name is equal to nameOfClub)
 		{
 			cout << name of item << endl; 			
@@ -147,6 +148,7 @@ void searchClub(LinkedList<Item> *listOfItems);
 		{
 			tmp = tmp->mNext;
 		}
+		*/
 	}
 
 	cout << "\n\n";

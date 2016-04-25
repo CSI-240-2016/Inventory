@@ -2,14 +2,9 @@
 #define PUBLICMENU_H
 
 #include "common.h"
-#include <iostream>
 #include <iomanip>
-#include <string>
-<<<<<<< HEAD
 #include <conio.h>
-=======
 #include "LinkedList.h"
->>>>>>> 1af67a2af313c05b2bf26e878ce61daa8dc3ab6e
 
 using namespace std;
 
