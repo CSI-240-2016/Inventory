@@ -26,15 +26,16 @@ void displayItemMenu()
 	switch (choice)
 	{
 	case 1:
-		template <typename T>
-		showInItems(LinkedList<Item> *listOfItems);
+		//showInItems(LinkedList<Item> *listOfItems);
 		break;
 	case 2:
-		template <typename T>
-		showOutItems(LinkedList<Item> *listOfItems);
+		//showOutItems(LinkedList<Item> *listOfItems);
 		break;
 	case 3:
-		displayGeneralMenu();
+		//displayGeneralMenu();
+		break;
+		default:
+			break;
 	}
 }
 
