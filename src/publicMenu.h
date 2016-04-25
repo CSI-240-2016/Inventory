@@ -12,15 +12,12 @@ using namespace std;
 
 void displayItemMenu();
 
-template <typename T>
 void displaySearchMenu(LinkedList<Item> *listOfItems);
 
 void login();
 
-template <typename T>
 void searchClub(LinkedList<Item> *listOfItems);
 
-template <typename T>
 void searchItem(LinkedList<Item> *listOfItems);
 
 void showInItems();
