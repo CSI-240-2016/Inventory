@@ -75,7 +75,6 @@ void displaySearchMenu(LinkedList<Item> *listOfItems)
 void login()
 {
 	string password, username;
-	char temp;
 	ifstream datafile;
 	datafile.open("users.txt");
 
@@ -91,23 +90,7 @@ void login()
 		cout << "Input username" << endl;
 		getline(cin, username);
 		cout << "Input password" << endl;
-
-		//Password masking
-
-		//initscr(); // enable ncurses
-		//noecho();  // disable character echoing
-
-
-		// does not compile on unix
-		//temp = _getch();
-		while (temp != '\r')
-		{
-			if (temp == '\r')
-				break;
-			cout << "*";
-			password += temp;
-			//temp = _getch();
-		}
+		getline(cin, password);
 
 		if (checkWords(username, password) == true)
 		{
