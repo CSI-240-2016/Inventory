@@ -2,6 +2,16 @@
 #include "Item.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Item::Item() {
+	mSerialNumber = 0;
+	mName = "";
+	
+	mType = "";
+	mOwner = "";
+	mIsIn = false;
+}
+
 Item::Item(int serial, string name) {
 	mSerialNumber = serial;
 	mName = name;
