@@ -209,7 +209,9 @@ void showInItems(LinkedList<Item> *listOfItems)
 	{
 		if (tmp->mData.isCheckedIn() == true)
 		{
-			cout << tmp << endl;
+			cout << "Name: " << tmp->mData.getName()
+				<< "\nSerial Number: " << tmp->mData.getSerial()
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 		}
 		tmp = tmp->mNext;
 	}
@@ -227,7 +229,9 @@ void showOutItems(LinkedList<Item> *listOfItems)
 	{
 		if (tmp->mData.isCheckedIn() == false)
 		{
-			cout << tmp << endl;
+			cout << "Name: " << tmp->mData.getName()
+				<< "\nSerial Number: " << tmp->mData.getSerial()
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 		}
 		tmp = tmp->mNext;
 	}
