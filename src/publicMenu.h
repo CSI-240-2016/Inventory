@@ -4,7 +4,7 @@
 #include "common.h"
 #include <iomanip>
 #include <string>
-// doesnt compile on unix #include <conio.h>
+//#include <curses.h>
 #include "LinkedList.h"
 #include "Item.h"
 

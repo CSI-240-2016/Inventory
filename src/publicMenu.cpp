@@ -1,6 +1,5 @@
 #include "publicMenu.h"
 #include "common.h"
-#include "Item.h"
 
 void displayItemMenu()
 {
@@ -26,21 +25,18 @@ void displayItemMenu()
 	switch (choice)
 	{
 	case 1:
-		//showInItems(LinkedList<Item> *listOfItems);
+		//showInItems();
 		break;
 	case 2:
-		//showOutItems(LinkedList<Item> *listOfItems);
+		//showOutItems();
 		break;
 	case 3:
-		//displayGeneralMenu();
-		break;
-		default:
-			break;
+		displayGeneralMenu();
 	}
 }
 
 
-
+template <typename T>
 void displaySearchMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
@@ -97,6 +93,11 @@ void login()
 		cout << "Input password" << endl;
 
 		//Password masking
+
+		//initscr(); // enable ncurses
+		//noecho();  // disable character echoing
+
+
 		// does not compile on unix
 		//temp = _getch();
 		while (temp != '\r')
@@ -126,11 +127,11 @@ void login()
 }
 
 
-
+template <typename T>
 void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
-	Node<Item> *tmp;
+	Node<T> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
 		<< "Club: ";
@@ -160,11 +161,11 @@ void searchClub(LinkedList<Item> *listOfItems)
 }
 
 
-
+template <typename T>
 void searchItem(LinkedList<Item> *listOfItems)
 {
 	string nameOfItem;
-	Node<Item> *tmp;
+	Node<T> *tmp;
 
 	cout << "Please enter the name of the item:\n\n"
 		 << "Item: ";
@@ -177,7 +178,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	{
 		//If found, exit from the loop and print the information
 		//As long as it isn't found, check the next item
-		if (tmp->mData.getName() == nameOfItem)
+		if (tmp->mName == nameOfItem)
 		{
 			break;
 		}
@@ -193,44 +194,20 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 	else
 	{
-		cout << "Name: " << tmp->mData.getName()
-			<< "\nSerial Number: " << tmp->mData.getSerial()
-			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+		cout << "Name: " << tmp->mName
+			 << "\nSerial Number: " << tmp->mSerialNumber
+			 << "\nStatus: " << tmp->IsIn << "\n\n";
 	}
 }
 
-void showInItems(LinkedList<Item> *listOfItems)
+void showInItems()
 {
-	Node<Item> *tmp;
-	
-	tmp = listOfItems->mHead;
-
-	while (tmp != NULL)
-	{
-		if (tmp->mData.isCheckedIn() == true)
-		{
-			cout << tmp << endl;
-		}
-		tmp = tmp->mNext;
-	}
 
 }
 
-
-void showOutItems(LinkedList<Item> *listOfItems)
+void showOutItems()
 {
-	Node<Item> *tmp;
 
-	tmp = listOfItems->mHead;
-
-	while (tmp != NULL)
-	{
-		if (tmp->mData.isCheckedIn() == false)
-		{
-			cout << tmp << endl;
-		}
-		tmp = tmp->mNext;
-	}
 }
 
 bool checkWords(string username, string password)
