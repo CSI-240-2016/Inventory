@@ -110,7 +110,7 @@ void displayGeneralMenu()
 		displayItemMenu();
 		break;
 	case 2:
-		displaySearchMenu();
+		//displaySearchMenu();
 		break;
 	case 3:
 		login();
