@@ -15,16 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="master\src\Address.h">
+    <ClInclude Include="master\src\Building.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="master\src\club.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="master\src\Item.h">
@@ -36,103 +30,24 @@
     <ClInclude Include="master\src\Location.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="master\src\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\Seller.h">
+    <ClInclude Include="master\src\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="master\src\User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="src\searchLogs.h">
-=======
-    <ClInclude Include="master\src\Address.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\adminMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\Date.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\publicMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="master\src\Seller.h">
->>>>>>> 5b21dcd8c368909168d10be34c8a13865de790ee
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="master\src\Address.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="master\src\club.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="master\src\common.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Log.cpp">
+    <ClCompile Include="master\src\LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="master\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="master\src\Seller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\User.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\searchLogs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\User.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Address.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\adminMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Date.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Location.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\publicMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\Seller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="master\src\common.cpp">
+    <ClCompile Include="master\src\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
