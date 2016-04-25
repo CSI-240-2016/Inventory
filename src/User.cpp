@@ -57,3 +57,17 @@ istream& operator>>(istream& stream, User& obj) {
 	
 	return stream;
 }
+
+/** PURPOSE: OVERLOAD Outputs variables to file stream
+ */
+ofstream& operator<<(ofstream& stream, User& obj) {
+	
+	return stream;
+}
+
+/** PURPOSE: OVERLOAD Outputs variables to console stream
+ */
+ostream& operator<<( ostream& stream, User& obj) {
+	
+	return stream;
+}
