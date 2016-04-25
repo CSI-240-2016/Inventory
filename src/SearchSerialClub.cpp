@@ -2,15 +2,15 @@
 #include "Item.h"
 #include <iostream>
 
-void searchSerial(string searchKey, LinkedList<Item> mData)
+void searchSerial(int searchKey, LinkedList<Item> data)
 {
-	Node *tmp;
-	Node *before;
+	Node<Item> *tmp;
+	Node<Item> *before;
 
-	tmp = mData.getHead();
-	before = mData.getHead();
+	tmp = data.mHead;
+	before = data.mHead;
 
-	while (tmp != NULL && tmp->data.getSerial() != searchKey) // while tmp is not NULL and serial is not equal to search key, go to the next
+	while (tmp != NULL && tmp->mData.getSerial() != searchKey) // while tmp is not NULL and serial is not equal to search key, go to the next
 	{
 		before = tmp;
 		tmp = tmp->mNext;
@@ -23,23 +23,23 @@ void searchSerial(string searchKey, LinkedList<Item> mData)
 
 	else //if serial is equal to the searchkey, return data
 	{
-		cout << data << endl;
+		//cout << tmp->mData << endl;
 	}
 }
 
-void searchByClub(string searchKey, LinkedList mData)
+void searchByClub(string searchKey, LinkedList<Item> data)
 {
-	Node *tmp;
-	Node *before;
+	Node<Item> *tmp;
+	Node<Item> *before;
 
-	tmp = mData.getHead();
-	before = mData.getHead();
+	tmp = data.mHead;
+	before = data.mHead;
 
 	while (tmp != NULL)
 	{
-		if (tmp->data.getNameOwner() == searchKey)
+		if (tmp->mData.getNameOwner() == searchKey)
 		{
-			cout << data << endl;
+			//cout << data << endl;
 		}
 		before = tmp;
 		tmp = tmp->mNext;
@@ -52,6 +52,6 @@ void searchByClub(string searchKey, LinkedList mData)
 
 	else //if serial is equal to the searchkey, return true
 	{
-		cout << data << endl;
+		//cout << data << endl;
 	}
 }
