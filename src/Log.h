@@ -3,6 +3,7 @@
 #include <string>
 #include <istream>
 #include <ostream>
+#include "Date.h"
 using namespace std;
 class Log
 {

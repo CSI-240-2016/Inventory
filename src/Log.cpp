@@ -141,6 +141,7 @@ istream& operator>>(istream& in, Log& targ)
 	in >> targ.mInFromName;
 	return in;
 }
+
 /* Pre: out is an ostream to a data file (I would assume), targ is a referance to a Log to write to out
  * Post: writes the info found in targ to out, and reeturns out
  * Purpose: overloaded form of << for Log
