@@ -25,10 +25,12 @@ void displayItemMenu()
 	switch (choice)
 	{
 	case 1:
-		showInItems();
+		template <typename T>
+		showInItems(LinkedList<Item> *listOfItems);
 		break;
 	case 2:
-		showOutItems();
+		template <typename T>
+		showOutItems(LinkedList<Item> *listOfItems);
 		break;
 	case 3:
 		displayGeneralMenu();
@@ -192,6 +194,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 }
 
+template <typename T>
 void showInItems(LinkedList<Item> *listOfItems)
 {
 	Node* current = mHead;
@@ -206,6 +209,7 @@ void showInItems(LinkedList<Item> *listOfItems)
 
 }
 
+template <typename T>
 void showOutItems(LinkedList<Item> *listOfItems)
 {
 	Node* current = mHead;
