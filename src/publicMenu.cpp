@@ -203,10 +203,12 @@ void searchItem(LinkedList<Item> *listOfItems)
 void showInItems()
 {
 
+
 }
 
 void showOutItems()
 {
+
 
 }
 

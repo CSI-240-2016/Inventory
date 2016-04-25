@@ -28,3 +28,17 @@ string	Location::getRoom() {
 string	Location::getCode() {
 	return mCode;
 }
+
+// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void	Location::setBuilding(string str) {
+	mBuilding = str;
+}
+
+void	Location::setRoom(string str) {
+	mRoom = str;
+}
+
+void	Location::setCode(string str) {
+	mCode = str;
+}

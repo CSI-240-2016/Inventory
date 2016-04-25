@@ -1,7 +1,18 @@
 
 #include "Item.h"
+#include "Address.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Item::Item() {
+	mSerialNumber = 0;
+	mName = "";
+	
+	mType = "";
+	mOwner = "";
+	mIsIn = false;
+}
+
 Item::Item(int serial, string name) {
 	mSerialNumber = serial;
 	mName = name;
@@ -75,5 +86,39 @@ bool 	Item::checkIn() {
 	if (!isCheckedIn())
 		mIsIn = true;
 	return mIsIn;
+}
+
+// ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+/** PURPOSE: OVERLOAD Outputs variables to console stream
+ */
+ostream& operator<<( ostream& stream, Item& obj) {
+	string del = "\n";
+	Address address = obj.mSource.getSeller().getAddress();
+	stream
+		<< obj.mSerialNumber << del
+		<< obj.mName << del
+		<< obj.mType << del
+		<< obj.mOwner << del
+		
+		<< obj.mLocation.getBuilding() << " "
+		<< obj.mLocation.getRoom() << " "
+		<< obj.getLocation().getCode() << del
+		
+		<< obj.mSource.getSeller().getName() << del
+		
+		<< "#" << address.getNumberStreet() << del
+			<< address.getNumberApartment()
+			<< address.getStreet()
+		<< del
+		<< address.getCity()
+			<< ", " << address.getState()
+			<< " " << address.getZipCode()
+		<< del
+		
+		<< obj.mSource.getUnitPrice() << del
+		<< obj.mIsIn
+	;
+	return stream;
 }
 
