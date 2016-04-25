@@ -66,7 +66,7 @@ void 	Item::setLocation(Location location) {
 }
 
 bool 	Item::checkOut() {
-	if (canBeCheckedOut())
+	if (isCheckedIn())
 		mIsIn = false;
 	return !mIsIn;
 }
