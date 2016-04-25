@@ -82,10 +82,10 @@ void displayAdminItem()
 	switch (choice)
 	{
 	case 1:
-		showInItems();
+		//showInItems();
 		break;
 	case 2:
-		showOutItems();
+		//showOutItems();
 		break;
 	case 3:
 		showAllItems();
@@ -128,10 +128,10 @@ void displayAdminSearch()
 	switch (choice)
 	{
 	case 1:
-		searchClub();
+		//searchClub();
 		break;
 	case 2:
-		searchItem();
+		//searchItem();
 		break;
 	case 3:
 		displayAdminMenu();
