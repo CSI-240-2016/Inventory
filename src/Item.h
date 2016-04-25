@@ -27,7 +27,6 @@ class Item {
 		string 		getNameOwner();
 		Source 		getSource();
 		Location 	getLocation();
-		bool 		canBeCheckedOut();
 		bool 		isCheckedIn();
 		
 		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

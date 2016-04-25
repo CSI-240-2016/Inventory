@@ -36,10 +36,6 @@ Location 	Item::getLocation() {
 	return mLocation;
 }
 
-bool 		Item::canBeCheckedOut() {
-	return !mIsIn;
-}
-
 bool 		Item::isCheckedIn() {
 	return mIsIn;
 }
