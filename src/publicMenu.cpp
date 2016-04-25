@@ -122,7 +122,7 @@ void login()
 
 
 template <typename T>
-void searchClub(LinkedList<Item> *listOfItems);
+void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
 	Node<T> *tmp;
