@@ -3,20 +3,18 @@
 
 #include "common.h"
 #include <iomanip>
-
 #include <string>
-#include <conio.h>
+// doesnt compile on unix #include <conio.h>
 #include "LinkedList.h"
+#include "Item.h"
 
 using namespace std;
 
 void displayItemMenu();
 
-
 void displaySearchMenu(LinkedList<Item> *listOfItems);
 
 void login();
-
 
 void searchClub(LinkedList<Item> *listOfItems);
 
