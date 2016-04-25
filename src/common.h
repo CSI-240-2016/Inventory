@@ -20,8 +20,8 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 
 #include <iostream>
 #include <string>
-#include<fstream>
-#include<iomanip>
+#include <fstream>
+#include <iomanip>
 #include <cctype>
 
 

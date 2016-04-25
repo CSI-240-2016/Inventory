@@ -1,5 +1,6 @@
 #include "publicMenu.h"
 #include "common.h"
+#include "Item.h"
 
 void displayItemMenu()
 {
@@ -38,7 +39,7 @@ void displayItemMenu()
 }
 
 
-template <typename T>
+
 void displaySearchMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
@@ -95,14 +96,14 @@ void login()
 		cout << "Input password" << endl;
 
 		//Password masking
-		temp = _getch();
+		//temp = _getch();
 		while (temp != '\r')
 		{
 			if (temp == '\r')
 				break;
 			cout << "*";
 			password += temp;
-			temp = _getch();
+		//	temp = _getch();
 		}
 
 		if (checkWords(username, password) == true)
@@ -123,11 +124,11 @@ void login()
 }
 
 
-template <typename T>
+
 void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
-	Node<T> *tmp;
+	Node<Item> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
 		<< "Club: ";
@@ -140,6 +141,7 @@ void searchClub(LinkedList<Item> *listOfItems)
 
 	while (tmp != NULL) //Check the entire list for the club's items
 	{
+		/*
 		if (tmp club name is equal to nameOfClub)
 		{
 			cout << name of item << endl; 			
@@ -149,17 +151,18 @@ void searchClub(LinkedList<Item> *listOfItems)
 		{
 			tmp = tmp->mNext;
 		}
+		*/
 	}
 
 	cout << "\n\n";
 }
 
 
-template <typename T>
+
 void searchItem(LinkedList<Item> *listOfItems)
 {
 	string nameOfItem;
-	Node<T> *tmp;
+	Node<Item> *tmp;
 
 	cout << "Please enter the name of the item:\n\n"
 		 << "Item: ";
@@ -172,7 +175,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	{
 		//If found, exit from the loop and print the information
 		//As long as it isn't found, check the next item
-		if (tmp->mName == nameOfItem)
+		if (tmp->mData.getName() == nameOfItem)
 		{
 			break;
 		}
@@ -188,38 +191,43 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 	else
 	{
-		cout << "Name: " << tmp->mName
-			 << "\nSerial Number: " << tmp->mSerialNumber
-			 << "\nStatus: " << tmp->IsIn << "\n\n";
+		cout << "Name: " << tmp->mData.getName()
+			<< "\nSerial Number: " << tmp->mData.getSerial()
+			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 	}
 }
 
-template <typename T>
 void showInItems(LinkedList<Item> *listOfItems)
 {
-	Node* current = mHead;
-	for (int i = 0; i < mCount; i++)
+	Node<Item> *tmp;
+	
+	tmp = listOfItems->mHead;
+
+	while (tmp != NULL)
 	{
-		if (current->mStatus == true)
+		if (tmp->mData.isCheckedIn() == true)
 		{
-			cout << current << endl;
+			cout << tmp << endl;
 		}
-		current = current->mNext;
+		tmp = tmp->mNext;
 	}
 
 }
 
-template <typename T>
+
 void showOutItems(LinkedList<Item> *listOfItems)
 {
-	Node* current = mHead;
-	for (int i = 0; i < mCount; i++)
+	Node<Item> *tmp;
+
+	tmp = listOfItems->mHead;
+
+	while (tmp != NULL)
 	{
-		if (current->mStatus == false)
+		if (tmp->mData.isCheckedIn() == false)
 		{
-			cout << current << endl;
+			cout << tmp << endl;
 		}
-		current = current->mNext;
+		tmp = tmp->mNext;
 	}
 }
 
