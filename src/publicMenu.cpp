@@ -122,7 +122,7 @@ void login()
 
 
 template <typename T>
-void searchClub(LinkedList<Item> *listOfItems);
+void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
 	Node<T> *tmp;
@@ -192,7 +192,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 }
 
-void showInItems()
+void showInItems(LinkedList<Item> *listOfItems)
 {
 	Node* current = mHead;
 	for (int i = 0; i < mCount; i++)
@@ -206,7 +206,7 @@ void showInItems()
 
 }
 
-void showOutItems()
+void showOutItems(LinkedList<Item> *listOfItems)
 {
 	Node* current = mHead;
 	for (int i = 0; i < mCount; i++)

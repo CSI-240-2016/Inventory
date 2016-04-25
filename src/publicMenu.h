@@ -18,7 +18,7 @@ void displayItemMenu();
 template <typename T>
 void displaySearchMenu(LinkedList<Item> *listOfItems);
 
-void logIn();
+void login();
 
 template <typename T>
 void searchClub(LinkedList<Item> *listOfItems);
@@ -26,8 +26,10 @@ void searchClub(LinkedList<Item> *listOfItems);
 template <typename T>
 void searchItem(LinkedList<Item> *listOfItems);
 
-void showInItems();
-void showOutItems();
+template <typename T>
+void showInItems(LinkedList<Item> *listOfItems);
+template <typename T>
+void showOutItems(LinkedList<Item> *listOfItems);
 bool checkWords(string username, string password);
 
 #endif 
