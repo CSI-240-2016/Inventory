@@ -61,15 +61,12 @@ void saveUsers(LinkedList<User> mData)
 
 	if (file.is_open())
 	{
-		///*
 		while (tmp != NULL) //While list not empty or not at the end
 		{
 			file << tmp->mData << endl;
 			before = tmp;
 			tmp = tmp->mNext;
 		}
-		//*/
-		//file << mData << endl;
 	}
 
 	else
