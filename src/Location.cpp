@@ -3,6 +3,12 @@
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Location::Location() {
+	mBuilding = "";
+	mRoom = "";
+	mCode = "";
+}
+
 Location::Location(string building, string room, string code) {
 	mBuilding = building;
 	mRoom = room;

@@ -3,6 +3,7 @@
 #define ITEM_H
 
 #include "Source.h"
+#include "Location.h"
 
 using namespace std;
 
@@ -26,7 +27,6 @@ class Item {
 		string 		getNameOwner();
 		Source 		getSource();
 		Location 	getLocation();
-		bool 		canBeCheckedOut();
 		bool 		isCheckedIn();
 		
 		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

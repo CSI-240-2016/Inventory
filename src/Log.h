@@ -1,8 +1,8 @@
 #ifndef LOG_H_
 #define LOG_H_
 #include <string>
-#include <istream>
-#include <ostream>
+#include <fstream>
+#include <iostream>
 #include "Date.h"
 using namespace std;
 class Log

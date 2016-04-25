@@ -133,7 +133,7 @@ string Log::getInFromName()
 istream& operator>>(istream& in, Log& targ)
 {
 	in >> targ.mItemSerial >> targ.mItemName;
-	in >> targ.mOutDate >> targ.mExpectedInDate >> targ.mInDate; // Assume here that there's an overloaded form of >> for Date
+	// TODO in >> targ.mOutDate >> targ.mExpectedInDate >> targ.mInDate; // Assume here that there's an overloaded form of >> for Date
 	in >> targ.mClubName;
 	in >> targ.mOutByUsername >> targ.mOutByName;
 	in >> targ.mOutTo;
@@ -149,7 +149,7 @@ istream& operator>>(istream& in, Log& targ)
 ostream& operator<<(ostream& out, Log& targ)
 {
 	out << targ.mItemSerial << " " << targ.mItemName << endl;
-	out << targ.mOutDate << " " << targ.mExpectedInDate << " " << targ.mInDate << endl; // Assume here that there's an overloaded form of >> for Date
+	// TODO out << targ.mOutDate << " " << targ.mExpectedInDate << " " << targ.mInDate << endl; // Assume here that there's an overloaded form of >> for Date
 	out << targ.mClubName << endl;
 	out << targ.mOutByUsername << " " << targ.mOutByName << endl;
 	out << targ.mOutTo << endl;
