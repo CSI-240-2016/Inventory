@@ -200,16 +200,40 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 }
 
-void showInItems()
+void showInItems(LinkedList<Item> *listOfItems)
 {
+	Node<Item> *tmp;
 
+	tmp = listOfItems->mHead;
 
+	while (tmp != NULL)
+	{
+		if (tmp->mData.isCheckedIn() == true)
+		{
+			cout << "Name: " << tmp->mData.getName()
+				<< "\nSerial Number: " << tmp->mData.getSerial()
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+		}
+		tmp = tmp->mNext;
+	}
 }
 
-void showOutItems()
+void showOutItems(LinkedList<Item> *listOfItems)
 {
+	Node<Item> *tmp;
+	
+	tmp = listOfItems->mHead;
 
-
+	while (tmp != NULL)
+	{
+		if (tmp->mData.isCheckedIn() == false)
+		{
+			cout << "Name: " << tmp->mData.getName()
+				<< "\nSerial Number: " << tmp->mData.getSerial()
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+		}
+		tmp = tmp->mNext;
+	}
 }
 
 bool checkWords(string username, string password)
