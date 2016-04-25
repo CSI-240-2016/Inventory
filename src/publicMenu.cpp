@@ -113,23 +113,23 @@ void login()
 template <typename T>
 void searchClub(LinkedList<Item> *listOfItems);
 {
-	/*
-
-	string desiredClub;
+	string nameOfClub;
 	Node<T> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
 		<< "Club: ";
-	cin >> desiredClub; //Error check will be added later
+	cin >> nameOfClub; //Error check will be added later
 	cout << endl;
 
-	tmp = listOfItems->mHead;
+	tmp = listOfItems->mHead; //Set tmp to the first element of the list
 
-	while (tmp != NULL)
+	cout << "Items for " << nameOfClub << "\n\n";
+
+	while (tmp != NULL) //Check the entire list for the club's items
 	{
-		if (tmp club name is equal to desiredClub)
+		if (tmp club name is equal to nameOfClub)
 		{
-			cout << mName of item; 			
+			cout << name of item << endl; 			
 			tmp = tmp->mNext;
 		}
 		else
@@ -138,26 +138,28 @@ void searchClub(LinkedList<Item> *listOfItems);
 		}
 	}
 
-	*/
+	cout << "\n\n";
 }
 
 
 template <typename T>
 void searchItem(LinkedList<Item> *listOfItems)
 {
-	string desiredItem;
+	string nameOfItem;
 	Node<T> *tmp;
 
 	cout << "Please enter the name of the item:\n\n"
 		 << "Item: ";
-	cin >> desiredItem; //Error check will be added later
+	cin >> nameOfItem; //Error check will be added later
 	cout << endl;
 
-	tmp = listOfItems->mHead;
+	tmp = listOfItems->mHead; //Set tmp to the first element of the list
 
-	while (tmp != NULL)
+	while (tmp != NULL) //Check the entire list until the item is found
 	{
-		if (tmp->mName == desiredItem)
+		//If found, exit from the loop and print the information
+		//As long as it isn't found, check the next item
+		if (tmp->mName == nameOfItem)
 		{
 			break;
 		}
@@ -167,15 +169,15 @@ void searchItem(LinkedList<Item> *listOfItems)
 		}
 	}
 
-	if (tmp == NULL)
+	if (tmp == NULL) //This is true if the item does not exist
 	{
 		cout << "The item does not exist\n\n";
 	}
 	else
 	{
 		cout << "Name: " << tmp->mName
-			 << "Serial Number: " << tmp->mSerialNumber;
-			 << "Status: " << tmp->IsIn << "\n\n";
+			 << "\nSerial Number: " << tmp->mSerialNumber
+			 << "\nStatus: " << tmp->IsIn << "\n\n";
 	}
 }
 
