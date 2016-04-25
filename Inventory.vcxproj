@@ -110,19 +110,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="master\src\Address.h" />
+    <ClInclude Include="master\src\adminMenu.h" />
     <ClInclude Include="master\src\Building.h" />
     <ClInclude Include="master\src\club.h" />
+    <ClInclude Include="master\src\common.h" />
+    <ClInclude Include="master\src\Date.h" />
     <ClInclude Include="master\src\Item.h" />
     <ClInclude Include="master\src\LinkedList.h" />
     <ClInclude Include="master\src\Location.h" />
+    <ClInclude Include="master\src\Log.h" />
     <ClInclude Include="master\src\Node.h" />
+    <ClInclude Include="master\src\publicMenu.h" />
+    <ClInclude Include="master\src\Seller.h" />
     <ClInclude Include="master\src\User.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="master\src\Address.cpp" />
+    <ClCompile Include="master\src\adminMenu.cpp" />
     <ClCompile Include="master\src\club.cpp" />
+    <ClCompile Include="master\src\common.cpp" />
+    <ClCompile Include="master\src\Date.cpp" />
+    <ClCompile Include="master\src\Item.cpp" />
     <ClCompile Include="master\src\LinkedList.cpp" />
+    <ClCompile Include="master\src\Location.cpp" />
+    <ClCompile Include="master\src\Log.cpp" />
     <ClCompile Include="master\src\main.cpp" />
     <ClCompile Include="master\src\Node.cpp" />
+    <ClCompile Include="master\src\publicMenu.cpp" />
+    <ClCompile Include="master\src\Seller.cpp" />
+    <ClCompile Include="master\src\User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
