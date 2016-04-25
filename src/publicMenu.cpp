@@ -101,7 +101,7 @@ void login()
 				break;
 			cout << "*";
 			password += temp;
-			temp = _getch();
+			//temp = _getch();
 		}
 
 		if (checkWords(username, password) == true)
