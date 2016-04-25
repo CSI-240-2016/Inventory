@@ -93,14 +93,15 @@ void login()
 		cout << "Input password" << endl;
 
 		//Password masking
-		temp = _getch();
+		// does not compile on unix
+		//temp = _getch();
 		while (temp != '\r')
 		{
 			if (temp == '\r')
 				break;
 			cout << "*";
 			password += temp;
-			temp = _getch();
+			//temp = _getch();
 		}
 
 		if (checkWords(username, password) == true)
