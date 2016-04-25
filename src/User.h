@@ -3,6 +3,8 @@
 #define USER_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -30,10 +32,6 @@ class User {
 		/** PURPOSE: OVERLOAD Loads variables from a file stream
 		 */
 		friend ifstream& operator>>(ifstream& stream, User& obj);
-		
-		/** PURPOSE: OVERLOAD Loads variables from a console stream
-		 */
-		friend  istream& operator>>( istream& stream, User& obj);
 		
 		/** PURPOSE: OVERLOAD Outputs variables to file stream
 		 */

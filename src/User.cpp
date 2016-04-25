@@ -45,29 +45,23 @@ void	User::setPassword(string password) {
  * POST: loads variables from stream, returns the stream
  */
 ifstream& operator>>(ifstream& stream, User& obj) {
-	
-	return stream;
-}
-
-/** Purpose: OVERLOAD Loads variables from a console stream
- * PRE:  the stream, the class instance
- * POST: outputs prompts, loads variables from stream, returns the stream
- */
-istream& operator>>(istream& stream, User& obj) {
-	
+	getline(stream, obj.mName);
+	stream >> obj.mUsername >> obj.mPassword;
+	string tmp;
+	getline(stream, tmp);
 	return stream;
 }
 
 /** PURPOSE: OVERLOAD Outputs variables to file stream
  */
 ofstream& operator<<(ofstream& stream, User& obj) {
-	
+	stream << obj.mName << "\n" << obj.mUsername << " " << obj.mPassword;
 	return stream;
 }
 
 /** PURPOSE: OVERLOAD Outputs variables to console stream
  */
 ostream& operator<<( ostream& stream, User& obj) {
-	
+	stream << obj.mName + " (" + obj.mUsername << ")";
 	return stream;
 }
