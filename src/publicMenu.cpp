@@ -122,12 +122,29 @@ void searchItem()
 
 void showInItems()
 {
+	Node* current = mHead;
+	for (int i = 0; i < mCount; i++)
+	{
+		if (current->mStatus == true)
+		{
+			cout << current << endl;
+		}
+		current = current->mNext;
+	}
 
 }
 
 void showOutItems()
 {
-
+	Node* current = mHead;
+	for (int i = 0; i < mCount; i++)
+	{
+		if (current->mStatus == false)
+		{
+			cout << current << endl;
+		}
+		current = current->mNext;
+	}
 }
 
 bool checkWords(string username, string password)
