@@ -5,42 +5,42 @@
 
 using namespace std;
 
+template <typename R>
+struct Node {
+	
+	// ~~~~~ Variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+	/** The next node in the list. Can be NULL. */
+	Node<R> *mNext;
+	/** The data this node contains */
+	R mData;
+	
+	// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	Node() {
+		mNext = NULL;
+		mData = R();
+	}
+	
+	Node(R data) {
+		mNext = NULL;
+		mData = data;
+	}
+	
+};
+
 template <typename T>
 class LinkedList {
 	
 	private:
-		template <typename R>
-		struct Node {
-			
-			// ~~~~~ Variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-			
-			/** The next node in the list. Can be NULL. */
-			Node<R> *mNext;
-			/** The data this node contains */
-			R mData;
-			
-			// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-			Node() {
-				mNext = NULL;
-				mData = R();
-			}
-			
-			Node(R data) {
-				mNext = NULL;
-				mData = data;
-			}
-			
-		};
-		
-		/** Pointer to the first node in the sequence. Can be NULL. */
-		Node<T> 	*mHead;
 		/** Pointer to the last node in the sequence. Can be NULL. */
 		Node<T> 	*mTail;
 		/** The quantity of nodes in the sequence. */
 		int 		mCount;
 	
 	public:
+		/** Pointer to the first node in the sequence. Can be NULL. */
+		Node<T> 	*mHead;
 		
 		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
@@ -91,6 +91,7 @@ class LinkedList {
 		* Post:	_
 		*/
 		void display();
+		//friend ofstream& operator<<(ofstream& stream, LinkedList<T>& obj);
 };
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -245,5 +246,15 @@ void LinkedList<T>::display() {
 		tmp = tmp->mNext;
 	}
 }
+
+/*
+template<class T>
+ostream& operator<<(ostream& os, const LinkedList<T>& data ) {
+	Node<T> *tmp = data.mHead;
+	while (tmp != NULL)
+		os << tmp->mData << endl;
+	return os;
+}
+*/
 
 #endif

@@ -1,4 +1,3 @@
-
 #include "Address.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -71,4 +70,18 @@ void 	Address::setCountry(string str) {
 
 void 	Address::setZipCode(string str) {
 	mZipCode = str;
+}
+
+// ~~~~~ Overloaded Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Address& Address::operator=(const Address& addressTwo)
+{
+	this->mCity = addressTwo.mCity;
+	this->mCountry = addressTwo.mCountry;
+	this->mNumberApartment = addressTwo.mNumberApartment;
+	this->mNumberStreet = addressTwo.mNumberStreet;
+	this->mState = addressTwo.mState;
+	this->mStreet = addressTwo.mStreet;
+	this->mZipCode = addressTwo.mZipCode;
+	return *this;
 }
