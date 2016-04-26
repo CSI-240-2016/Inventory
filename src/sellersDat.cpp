@@ -5,7 +5,8 @@
 #include "Seller.h"
 using namespace std;
 
-void sellerInput() {
+void sellerInput() 
+{
 	string name, url, street, city, state, country, stNumber, aptNumber, zipcode;
 	Seller seller;
 	const string fileName = "sellers.dat";
