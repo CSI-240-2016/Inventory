@@ -2,6 +2,11 @@
 
 void addClub()
 {
+	string nameOfClub;
+	cout << "What is the name of the club you wish to add?"; // ask for the name of the club
+	getline(cin, nameOfClub); // take the whole line as the name
+
+	clubsOutput(nameOfClub); // send the name to the output club function
 }
 
 void addItem()

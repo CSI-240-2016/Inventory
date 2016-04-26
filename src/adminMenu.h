@@ -4,7 +4,8 @@
 #include "publicMenu.h"
 #include "common.h"
 #include "Item.h"
-
+#include "club.h"
+#include "clubsDat.h"
 using namespace std;
 
 void addClub();
