@@ -36,7 +36,7 @@ void addItem()
 	cout << "What shelf slot is the item being stored in? ";
 	getline(cin, shelfSlot);
 
-	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
+	//itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
 }
 
 void addUser()
