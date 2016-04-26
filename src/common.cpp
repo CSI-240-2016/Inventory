@@ -32,7 +32,8 @@ void clearScreen()
 	#endif
 }
 
-void displayAdminMenu()
+
+void displayAdminMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -60,29 +61,29 @@ void displayAdminMenu()
 	switch (choice)
 	{
 	case 1:
-		checkInOut();
+		checkInOut(listOfItems);
 		break;
 	case 2:
-		displayAdminItem();
+		displayAdminItem(listOfItems);
 		break;
 	case 3:
-		displayAdminClub();
+		displayAdminClub(listOfItems);
 		break;
 	case 4:
-		displayAdminUser();
+		displayAdminUser(listOfItems);
 		break;
 	case 5:
-		displayAdminSearch();
+		displayAdminSearch(listOfItems);
 		break;
 	case 6:
 		exportExcel();
 		break;
 	case 7:
-		displayGeneralMenu();
+		displayGeneralMenu(listOfItems);
 	}
 }
 
-void displayGeneralMenu()
+void displayGeneralMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -107,13 +108,13 @@ void displayGeneralMenu()
 	switch (choice)
 	{
 	case 1:
-		displayItemMenu();
+		displayItemMenu(listOfItems);
 		break;
 	case 2:
 		//displaySearchMenu();
 		break;
 	case 3:
-		login();
+		login(listOfItems);
 		break;
 	default:
 		//Shutdown

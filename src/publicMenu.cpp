@@ -1,7 +1,7 @@
 #include "publicMenu.h"
 #include "common.h"
 
-void displayItemMenu()
+void displayItemMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -31,7 +31,7 @@ void displayItemMenu()
 		//showOutItems();
 		break;
 	case 3:
-		displayGeneralMenu();
+		displayGeneralMenu(listOfItems);
 	}
 }
 
@@ -72,7 +72,7 @@ void displaySearchMenu(LinkedList<Item> *listOfItems)
 }
 
 
-void login()
+void login(LinkedList<Item> *listOfItems)
 {
 	string password, username;
 	char temp;
@@ -113,18 +113,18 @@ void login()
 			password = getpass("Input password");
 		#endif
 
-		if (checkWords(username, password) == true)
+		if (checkWords(username, password, listOfItems) == true)
 		{
 			clearScreen();
 			cout << "You logged in!" << endl;
-			displayAdminMenu();
+			displayAdminMenu(listOfItems);
 			system("pause");
 		}
 
 		else
 		{
 			cout << "This is not a valid login." << endl;
-			login();
+			login(listOfItems);
 			return;
 		}
 	}
@@ -238,7 +238,7 @@ void showOutItems(LinkedList<Item> *listOfItems)
 	}
 }
 
-bool checkWords(string username, string password)
+bool checkWords(string username, string password, LinkedList<Item> *listOfItems)
 {
 	ifstream datafile;
 	datafile.open("datafile.txt");
@@ -251,7 +251,7 @@ bool checkWords(string username, string password)
 	{
 		cout << "One of the files does not exist." << endl;
 		system("pause");
-		login();
+		login(listOfItems);
 	}
 	else
 	{

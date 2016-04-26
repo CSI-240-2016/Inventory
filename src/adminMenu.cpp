@@ -11,6 +11,10 @@ void addClub()
 
 void addItem()
 {
+	clearScreen();
+	displayLogo();
+
+
 }
 
 void addUser()
@@ -60,7 +64,7 @@ void checkInOut(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminClub()
+void displayAdminClub(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -94,7 +98,7 @@ void displayAdminClub()
 		modifyClub();
 		break;
 	case 4:
-		displayAdminMenu();
+		displayAdminMenu(listOfItems);
 	}
 }
 
@@ -144,11 +148,11 @@ void displayAdminItem(LinkedList<Item> *listOfItems)
 		modifyItem();
 		break;
 	case 7:
-		displayAdminMenu();
+		displayAdminMenu(listOfItems);
 	}
 }
 
-void displayAdminSearch()
+void displayAdminSearch(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -178,11 +182,11 @@ void displayAdminSearch()
 		//searchItem();
 		break;
 	case 3:
-		displayAdminMenu();
+		displayAdminMenu(listOfItems);
 	}
 }
 
-void displayAdminUser()
+void displayAdminUser(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -216,7 +220,7 @@ void displayAdminUser()
 		modifyUser();
 		break;
 	case 4:
-		displayAdminMenu();
+		displayAdminMenu(listOfItems);
 	}
 }
 
