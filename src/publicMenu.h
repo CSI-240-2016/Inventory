@@ -20,7 +20,6 @@ void searchClub(LinkedList<Item> *listOfItems);
 
 void searchItem(LinkedList<Item> *listOfItems);
 
-
 void showInItems(LinkedList<Item> *listOfItems);
 
 void showOutItems(LinkedList<Item> *listOfItems);

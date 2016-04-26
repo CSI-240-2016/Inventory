@@ -54,7 +54,7 @@ void displayAdminClub()
 	}
 }
 
-void displayAdminItem()
+void displayAdminItem(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
 
@@ -88,7 +88,7 @@ void displayAdminItem()
 		//showOutItems();
 		break;
 	case 3:
-		showAllItems();
+		showAllItems(listOfItems);
 		break;
 	case 4:
 		addItem();
@@ -204,6 +204,20 @@ void modifyUser()
 {
 }
 
-void showAllItems()
+void showAllItems(LinkedList<Item> *listOfItems)
 {
+	Node<Item> *tmp;
+
+	tmp = listOfItems->mHead;
+
+	cout << "All items:\n\n";
+
+	while (tmp != NULL)
+	{
+		cout << tmp->mData.getName() << endl;
+
+		tmp = tmp->mNext;
+	}
+
+	cout << endl;
 }

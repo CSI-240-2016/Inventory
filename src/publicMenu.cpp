@@ -133,7 +133,7 @@ void searchClub(LinkedList<Item> *listOfItems)
 	Node<Item> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
-		<< "Club: ";
+		 << "Club: ";
 	cin >> nameOfClub; //Error check will be added later
 	cout << endl;
 

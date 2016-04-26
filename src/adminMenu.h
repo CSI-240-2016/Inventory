@@ -3,6 +3,7 @@
 
 #include "publicMenu.h"
 #include "common.h"
+#include "Item.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ void addItem();
 void addUser();
 void checkInOut();
 void displayAdminClub();
-void displayAdminItem();
+void displayAdminItem(LinkedList<Item> *listOfItems);
 void displayAdminSearch();
 void displayAdminUser();
 void exportExcel();
@@ -21,6 +22,6 @@ void removeUser();
 void modifyClub();
 void modifyItem();
 void modifyUser();
-void showAllItems();
+void showAllItems(LinkedList<Item> *listOfItems);
 
 #endif
