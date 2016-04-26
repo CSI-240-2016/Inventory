@@ -6,6 +6,8 @@
 #include "Item.h"
 #include "club.h"
 #include "clubsDat.h"
+#include "itemsDat.h"
+
 using namespace std;
 
 void addClub();

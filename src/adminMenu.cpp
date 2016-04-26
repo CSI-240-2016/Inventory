@@ -14,7 +14,29 @@ void addItem()
 	clearScreen();
 	displayLogo();
 
+	int serialNumber;
+	string name, type, club = "SGA", sellerName, price, building, room, shelfSlot, junk;
+	bool status = true;
 
+	cout << "Enter the serial number of the new item: ";
+	cin >> serialNumber;
+	getline(cin, junk);
+	cout << "What is the name of the item you wish to add? ";
+	getline(cin, name);
+	cout << "What is the type of the item you wish to add? ";
+	getline(cin, type);
+	cout << "Where was the item bought? ";
+	getline(cin, sellerName);
+	cout << "What is the price of the item you wish to add? ";
+	getline(cin, price);
+	cout << "What building is the item being stored in? ";
+	getline(cin, building);
+	cout << "What room is the item being stored in? ";
+	getline(cin, room);
+	cout << "What shelf slot is the item being stored in? ";
+	getline(cin, shelfSlot);
+
+	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
 }
 
 void addUser()
