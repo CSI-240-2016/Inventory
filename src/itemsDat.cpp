@@ -14,7 +14,7 @@ void itemsInput() {
 	fstream fin;
 	fin.open(fileName);
 	if (fin.is_open()) {
-		while (fin.eof()) {
+		while (!fin.eof()) {
 			fin >> serialNumber;
 			items.setSerial(serialNumber);
 			getline(fin, name);

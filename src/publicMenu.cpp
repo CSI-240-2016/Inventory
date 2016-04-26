@@ -133,17 +133,22 @@ void login(LinkedList<Item> *listOfItems)
 
 void searchClub(LinkedList<Item> *listOfItems)
 {
+	bool valid = false;
 	string nameOfClub;
 	Node<Item> *tmp;
 
-	cout << "Please enter the name of the club:\n\n"
-		 << "Club: ";
-	cin >> nameOfClub; //Error check will be added later
-	cout << endl;
+	while (valid == false)
+	{
+		cout << "Please enter the name of the club:\n\n"
+			 << "Club: ";
+		getline(cin, nameOfClub);
+
+		valid = validateStr(nameOfClub);
+	}
 
 	tmp = listOfItems->mHead; //Set tmp to the first element of the list
 
-	cout << "Items for " << nameOfClub << "\n\n";
+	cout << "\nItems for " << nameOfClub << ":\n\n";
 
 	while (tmp != NULL) //Check the entire list for the club's items
 	{
@@ -166,13 +171,18 @@ void searchClub(LinkedList<Item> *listOfItems)
 
 void searchItem(LinkedList<Item> *listOfItems)
 {
+	bool valid = false;
 	string nameOfItem;
 	Node<Item> *tmp;
 
-	cout << "Please enter the name of the item:\n\n"
-		 << "Item: ";
-	cin >> nameOfItem; //Error check will be added later
-	cout << endl;
+	while (valid == false)
+	{
+		cout << "Please enter the name of the item:\n\n"
+			 << "Item: ";
+		getline(cin, nameOfItem);
+
+		valid = validateStr(nameOfItem);
+	}
 
 	tmp = listOfItems->mHead; //Set tmp to the first element of the list
 
@@ -192,11 +202,11 @@ void searchItem(LinkedList<Item> *listOfItems)
 
 	if (tmp == NULL) //This is true if the item does not exist
 	{
-		cout << "The item does not exist\n\n";
+		cout << "\nThe item does not exist.\n\n";
 	}
 	else
 	{
-		cout << "Name: " << tmp->mData.getName()
+		cout << "\nName: " << tmp->mData.getName()
 			 << "\nSerial Number: " << tmp->mData.getSerial()
 			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 	}
@@ -272,4 +282,20 @@ bool checkWords(string username, string password, LinkedList<Item> *listOfItems)
 		datafile.close();
 		return false;
 	}
+}
+
+bool validateStr(string str)
+{
+	bool valid = true;	
+	int strLength = str.length();
+
+	for (int i = 0; i < strLength; i++)
+	{
+		if (!(isalpha(str[i])))
+		{
+			valid = false;
+		}
+	}
+
+	return valid;
 }

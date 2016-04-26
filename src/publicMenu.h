@@ -29,4 +29,6 @@ void showOutItems(LinkedList<Item> *listOfItems);
 
 bool checkWords(string username, string password, LinkedList<Item> *listOfItems);
 
+bool validateStr(string str);
+
 #endif 

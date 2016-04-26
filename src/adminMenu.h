@@ -26,5 +26,6 @@ void modifyClub();
 void modifyItem();
 void modifyUser();
 void showAllItems(LinkedList<Item> *listOfItems);
+bool validateStr(string str);
 
 #endif
