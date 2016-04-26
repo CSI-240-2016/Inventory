@@ -23,13 +23,18 @@ void addUser()
 
 void checkInOut(LinkedList<Item> *listOfItems)
 {
+	bool valid = false;
 	string nameOfItem;
 	Node<Item> *tmp;
 
-	cout << "Please enter the name of the item:\n\n"
-		<< "Item: ";
-	cin >> nameOfItem; //Error check will be added later
-	cout << endl;
+	while (valid == false)
+	{
+		cout << "Please enter the name of the item:\n\n"
+			 << "Item: ";
+		getline(cin, nameOfItem);
+
+		valid = validateStr(nameOfItem);
+	}
 
 	tmp = listOfItems->mHead; //Set tmp to the first element of the list
 
@@ -49,17 +54,17 @@ void checkInOut(LinkedList<Item> *listOfItems)
 
 	if (tmp == NULL) //This is true if the item does not exist
 	{
-		cout << "The item does not exist\n\n";
+		cout << "The item does not exist.\n\n";
 	}
 	else
 	{
 		if (tmp->mData.isCheckedIn() == true)
 		{
-			cout << "The item is currently checked in\n\n";
+			cout << "The item is currently checked in.\n\n";
 		}
 		else
 		{
-			cout << "The item is currently checked out\n\n";
+			cout << "The item is currently checked out.\n\n";
 		}
 	}
 }
@@ -276,4 +281,20 @@ void showAllItems(LinkedList<Item> *listOfItems)
 
 		tmp = tmp->mNext;
 	}
+}
+
+bool validateStr(string str)
+{
+	bool valid = true;
+	int strLength = str.length();
+
+	for (int i = 0; i < strLength; i++)
+	{
+		if (!(isalpha(str[i])))
+		{
+			valid = false;
+		}
+	}
+
+	return valid;
 }
