@@ -12,8 +12,47 @@ void addUser()
 {
 }
 
-void checkInOut()
+void checkInOut(LinkedList<Item> *listOfItems)
 {
+	string nameOfItem;
+	Node<Item> *tmp;
+
+	cout << "Please enter the name of the item:\n\n"
+		<< "Item: ";
+	cin >> nameOfItem; //Error check will be added later
+	cout << endl;
+
+	tmp = listOfItems->mHead; //Set tmp to the first element of the list
+
+	while (tmp != NULL) //Check the entire list until the item is found
+	{
+		//If found, exit from the loop and print the information
+		//As long as it isn't found, check the next item
+		if (tmp->mData.getName() == nameOfItem)
+		{
+			break;
+		}
+		else
+		{
+			tmp = tmp->mNext;
+		}
+	}
+
+	if (tmp == NULL) //This is true if the item does not exist
+	{
+		cout << "The item does not exist\n\n";
+	}
+	else
+	{
+		if (tmp->mData.isCheckedIn() == true)
+		{
+			cout << "The item is currently checked in\n\n";
+		}
+		else
+		{
+			cout << "The item is currently checked out\n\n";
+		}
+	}
 }
 
 void displayAdminClub()
@@ -214,10 +253,10 @@ void showAllItems(LinkedList<Item> *listOfItems)
 
 	while (tmp != NULL)
 	{
-		cout << tmp->mData.getName() << endl;
+		cout << "Name: " << tmp->mData.getName()
+			 << "\nSerial Number: " << tmp->mData.getSerial()
+			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 
 		tmp = tmp->mNext;
 	}
-
-	cout << endl;
 }

@@ -10,7 +10,7 @@ using namespace std;
 void addClub();
 void addItem();
 void addUser();
-void checkInOut();
+void checkInOut(LinkedList<Item> *listOfItems);
 void displayAdminClub();
 void displayAdminItem(LinkedList<Item> *listOfItems);
 void displayAdminSearch();

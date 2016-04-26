@@ -131,11 +131,10 @@ void login()
 }
 
 
-template <typename T>
 void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
-	Node<T> *tmp;
+	Node<Item> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
 		 << "Club: ";
@@ -148,28 +147,27 @@ void searchClub(LinkedList<Item> *listOfItems)
 
 	while (tmp != NULL) //Check the entire list for the club's items
 	{
-		/*
-		if (tmp club name is equal to nameOfClub)
+		if (tmp->mData.getNameOwner() == nameOfClub)
 		{
-			cout << name of item << endl; 			
+			//When an item of the club is found, it is displayed to the console
+			cout << tmp->mData.getName() << endl;
 			tmp = tmp->mNext;
 		}
 		else
 		{
+			//If an item does not belong to a club, the loop just moves to the next item listed
 			tmp = tmp->mNext;
 		}
-		*/
 	}
 
-	cout << "\n\n";
+	cout << endl;
 }
 
 
-template <typename T>
 void searchItem(LinkedList<Item> *listOfItems)
 {
 	string nameOfItem;
-	Node<T> *tmp;
+	Node<Item> *tmp;
 
 	cout << "Please enter the name of the item:\n\n"
 		 << "Item: ";
@@ -182,7 +180,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	{
 		//If found, exit from the loop and print the information
 		//As long as it isn't found, check the next item
-		if (tmp->mName == nameOfItem)
+		if (tmp->mData.getName() == nameOfItem)
 		{
 			break;
 		}
@@ -198,9 +196,9 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 	else
 	{
-		cout << "Name: " << tmp->mName
-			 << "\nSerial Number: " << tmp->mSerialNumber
-			 << "\nStatus: " << tmp->IsIn << "\n\n";
+		cout << "Name: " << tmp->mData.getName()
+			 << "\nSerial Number: " << tmp->mData.getSerial()
+			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 	}
 }
 
