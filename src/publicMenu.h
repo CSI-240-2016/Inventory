@@ -13,11 +13,11 @@
 
 using namespace std;
 
-void displayItemMenu();
+void displayItemMenu(LinkedList<Item> *listOfItems);
 
 void displaySearchMenu(LinkedList<Item> *listOfItems);
 
-void login();
+void login(LinkedList<Item> *listOfItems);
 
 void searchClub(LinkedList<Item> *listOfItems);
 
@@ -26,6 +26,7 @@ void searchItem(LinkedList<Item> *listOfItems);
 void showInItems(LinkedList<Item> *listOfItems);
 
 void showOutItems(LinkedList<Item> *listOfItems);
-bool checkWords(string username, string password);
+
+bool checkWords(string username, string password, LinkedList<Item> *listOfItems);
 
 #endif 

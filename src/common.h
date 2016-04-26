@@ -23,13 +23,14 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 #include <fstream>
 #include <iomanip>
 #include <cctype>
-
+#include "Item.h"
+#include "LinkedList.h"
 
 using namespace std;
 
 void clearScreen();
-void displayAdminMenu();
-void displayGeneralMenu();
+void displayAdminMenu(LinkedList<Item> *listOfItems);
+void displayGeneralMenu(LinkedList<Item> *listOfItems);
 void displayLogo();
 void pause();
 
