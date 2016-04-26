@@ -7,6 +7,9 @@
 //#include <curses.h>
 #include "LinkedList.h"
 #include "Item.h"
+#ifdef _WIN32
+	#include <conio.h>
+#endif
 
 using namespace std;
 

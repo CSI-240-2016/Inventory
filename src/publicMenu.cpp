@@ -75,6 +75,7 @@ void displaySearchMenu(LinkedList<Item> *listOfItems)
 void login()
 {
 	string password, username;
+	char temp;
 	ifstream datafile;
 	datafile.open("users.txt");
 
@@ -89,8 +90,28 @@ void login()
 	{
 		cout << "Input username" << endl;
 		getline(cin, username);
-		cout << "Input password" << endl;
-		getline(cin, password);
+		//getline(cin, password);
+
+		//Password Masking
+		#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
+			temp = _getch();
+			while(temp != '\r')
+				{
+					cout << "Input password" << endl;
+
+					temp = _getch();
+					if (temp == '\r')
+						break;
+					std::cout << "*";
+					password += temp;
+				}
+		#elif __APPLE__
+			password = getpass("Input password");
+		#elif __linux__
+			password = getpass("Input password");
+		#elif __unix__
+			password = getpass("Input password");
+		#endif
 
 		if (checkWords(username, password) == true)
 		{
