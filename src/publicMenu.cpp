@@ -1,6 +1,5 @@
 #include "publicMenu.h"
 #include "common.h"
-#include "Item.h"
 
 void displayItemMenu()
 {
@@ -26,21 +25,18 @@ void displayItemMenu()
 	switch (choice)
 	{
 	case 1:
-		//showInItems(LinkedList<Item> *listOfItems);
+		//showInItems();
 		break;
 	case 2:
-		//showOutItems(LinkedList<Item> *listOfItems);
+		//showOutItems();
 		break;
 	case 3:
-		//displayGeneralMenu();
-		break;
-		default:
-			break;
+		displayGeneralMenu();
 	}
 }
 
 
-
+template <typename T>
 void displaySearchMenu(LinkedList<Item> *listOfItems)
 {
 	int choice = 0;
@@ -94,19 +90,28 @@ void login()
 	{
 		cout << "Input username" << endl;
 		getline(cin, username);
-		cout << "Input password" << endl;
+		//getline(cin, password);
 
-		//Password masking
-		// does not compile on unix
-		//temp = _getch();
-		while (temp != '\r')
-		{
-			if (temp == '\r')
-				break;
-			cout << "*";
-			password += temp;
-			//temp = _getch();
-		}
+		//Password Masking
+		#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
+			temp = _getch();
+			while(temp != '\r')
+				{
+					cout << "Input password" << endl;
+
+					temp = _getch();
+					if (temp == '\r')
+						break;
+					std::cout << "*";
+					password += temp;
+				}
+		#elif __APPLE__
+			password = getpass("Input password");
+		#elif __linux__
+			password = getpass("Input password");
+		#elif __unix__
+			password = getpass("Input password");
+		#endif
 
 		if (checkWords(username, password) == true)
 		{
@@ -126,11 +131,11 @@ void login()
 }
 
 
-
+template <typename T>
 void searchClub(LinkedList<Item> *listOfItems)
 {
 	string nameOfClub;
-	Node<Item> *tmp;
+	Node<T> *tmp;
 
 	cout << "Please enter the name of the club:\n\n"
 		 << "Club: ";
@@ -160,11 +165,11 @@ void searchClub(LinkedList<Item> *listOfItems)
 }
 
 
-
+template <typename T>
 void searchItem(LinkedList<Item> *listOfItems)
 {
 	string nameOfItem;
-	Node<Item> *tmp;
+	Node<T> *tmp;
 
 	cout << "Please enter the name of the item:\n\n"
 		 << "Item: ";
@@ -177,7 +182,7 @@ void searchItem(LinkedList<Item> *listOfItems)
 	{
 		//If found, exit from the loop and print the information
 		//As long as it isn't found, check the next item
-		if (tmp->mData.getName() == nameOfItem)
+		if (tmp->mName == nameOfItem)
 		{
 			break;
 		}
@@ -193,16 +198,16 @@ void searchItem(LinkedList<Item> *listOfItems)
 	}
 	else
 	{
-		cout << "Name: " << tmp->mData.getName()
-			<< "\nSerial Number: " << tmp->mData.getSerial()
-			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+		cout << "Name: " << tmp->mName
+			 << "\nSerial Number: " << tmp->mSerialNumber
+			 << "\nStatus: " << tmp->IsIn << "\n\n";
 	}
 }
 
 void showInItems(LinkedList<Item> *listOfItems)
 {
 	Node<Item> *tmp;
-	
+
 	tmp = listOfItems->mHead;
 
 	while (tmp != NULL)
@@ -215,14 +220,12 @@ void showInItems(LinkedList<Item> *listOfItems)
 		}
 		tmp = tmp->mNext;
 	}
-
 }
-
 
 void showOutItems(LinkedList<Item> *listOfItems)
 {
 	Node<Item> *tmp;
-
+	
 	tmp = listOfItems->mHead;
 
 	while (tmp != NULL)

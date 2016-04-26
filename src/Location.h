@@ -21,6 +21,11 @@ class Location {
 		string getBuilding();
 		string getRoom();
 		string getCode();
+		
+		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		void setBuilding(string);
+		void setRoom(string);
+		void setCode(string);
 
 };
 

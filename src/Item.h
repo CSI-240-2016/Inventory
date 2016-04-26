@@ -4,6 +4,7 @@
 
 #include "Source.h"
 #include "Location.h"
+#include <iostream>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class Item {
 	
 	public:
 		// ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		Item();
 		Item(int, string);
 		
 		// ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,7 +40,12 @@ class Item {
 		void 	setLocation(Location);
 		bool 	checkOut();
 		bool 	checkIn();
-	
+		
+		// ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		
+		/** PURPOSE: OVERLOAD Outputs variables to console stream
+		 */
+		friend  ostream& operator<<( ostream& stream, Item& obj);
 };
 
 #endif
