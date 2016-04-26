@@ -242,6 +242,14 @@ void removeUser()
 
 void modifyClub()
 {
+	string currentName;
+	string changeName;
+	
+	cout << "What is the name of the club you would like to change?" << endl;
+	getline(cin, currentName);
+	cout << "What would you like to change the name to?" << endl;
+	getline(cin, changeName);
+
 }
 
 void modifyItem()
