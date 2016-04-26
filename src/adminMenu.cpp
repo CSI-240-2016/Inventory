@@ -261,17 +261,18 @@ void showAllItems(LinkedList<Item> *listOfItems)
 {
 	Node<Item> *tmp;
 
-	tmp = listOfItems->mHead;
+	tmp = listOfItems->mHead; //Set tmp to the first item in the list
 
 	cout << "All items:\n\n";
 
 	while (tmp != NULL)
 	{
+		//The information of each item is displayed with each iteration
 		cout << "Name: " << tmp->mData.getName()
 			 << "\nSerial Number: " << tmp->mData.getSerial()
 			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
 
-		tmp = tmp->mNext;
+		tmp = tmp->mNext; //Before each iteration ends, tmp is set to the next item listed
 	}
 }
 
