@@ -20,19 +20,19 @@ void sellerInput()
 			fin >> url;
 			seller.setURL(url);
 			fin >> stNumber;
-			seller.getAddress.setNumberStreet(stNumber);
+			seller.getAddress().setNumberStreet(stNumber);
 			fin >> aptNumber;
-			seller.getAddress.setNumberApartment(aptNumber);
+			seller.getAddress().setNumberApartment(aptNumber);
 			fin >> zipcode;
-			seller.getAddress.setZipCode(zipcode);
+			seller.getAddress().setZipCode(zipcode);
 			getline(fin, street);
-			seller.getAddress.setStreet(street);
+			seller.getAddress().setStreet(street);
 			getline(fin, city);
-			seller.getAddress.setCity(city);
+			seller.getAddress().setCity(city);
 			getline(fin, state);
-			seller.getAddress.setState(state);
+			seller.getAddress().setState(state);
 			getline(fin, country);
-			seller.getAddress.setCountry(country);
+			seller.getAddress().setCountry(country);
 		}
 	}
 	fin.close();
