@@ -171,7 +171,7 @@ void searchClub(LinkedList<Item> *listOfItems)
 
 void searchItem(LinkedList<Item> *listOfItems)
 {
-	bool valid = false;
+	bool valid = false, status;
 	string nameOfItem;
 	Node<Item> *tmp;
 
@@ -208,7 +208,18 @@ void searchItem(LinkedList<Item> *listOfItems)
 	{
 		cout << "\nName: " << tmp->mData.getName()
 			 << "\nSerial Number: " << tmp->mData.getSerial()
-			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+			 << "\nStatus: ";
+
+		status = tmp->mData.isCheckedIn();
+
+		if (status == true)
+		{
+			cout << "In\n\n";
+		}
+		else
+		{
+			cout << "Out\n\n";
+		}
 	}
 }
 
@@ -291,7 +302,7 @@ bool validateStr(string str)
 
 	for (int i = 0; i < strLength; i++)
 	{
-		if (!(isalpha(str[i])))
+		if (!(isalpha(str[i]))) //If any non-alpha characters are found, the input is invalid
 		{
 			valid = false;
 		}

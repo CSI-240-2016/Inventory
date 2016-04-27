@@ -51,7 +51,7 @@ void checkInOut(LinkedList<Item> *listOfItems)
 
 	while (valid == false)
 	{
-		cout << "Please enter the name of the item:\n\n"
+		cout << "Please enter the name of the item to check in or check out:\n\n"
 			 << "Item: ";
 		getline(cin, nameOfItem);
 
@@ -62,7 +62,7 @@ void checkInOut(LinkedList<Item> *listOfItems)
 
 	while (tmp != NULL) //Check the entire list until the item is found
 	{
-		//If found, exit from the loop and print the information
+		//If found, exist from the loop and perform appropriate action
 		//As long as it isn't found, check the next item
 		if (tmp->mData.getName() == nameOfItem)
 		{
@@ -80,13 +80,15 @@ void checkInOut(LinkedList<Item> *listOfItems)
 	}
 	else
 	{
-		if (tmp->mData.isCheckedIn() == true)
+		if (tmp->mData.isCheckedIn() == true) //If the item is checked in, check it out
 		{
-			cout << "The item is currently checked in.\n\n";
+			tmp->mData.checkOut();
+			cout << "The item has been checked out.\n\n";
 		}
-		else
+		else //If the item is checked out, check it back in
 		{
-			cout << "The item is currently checked out.\n\n";
+			tmp->mData.checkIn();
+			cout << "The item has been checked in.\n\n";
 		}
 	}
 }
@@ -289,21 +291,37 @@ void modifyUser()
 
 void showAllItems(LinkedList<Item> *listOfItems)
 {
+	bool status;
 	Node<Item> *tmp;
 
 	tmp = listOfItems->mHead; //Set tmp to the first item in the list
 
-	cout << "All items:\n\n";
+	cout << "All items:\n\n"
+		 << "Name:" << setw(20)
+		 << "Serial Number:" << setw(20)
+		 << "Status:\n\n";
 
 	while (tmp != NULL)
 	{
 		//The information of each item is displayed with each iteration
-		cout << "Name: " << tmp->mData.getName()
-			 << "\nSerial Number: " << tmp->mData.getSerial()
-			 << "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+		cout << tmp->mData.getName()
+			 << setw(20) << right << tmp->mData.getSerial();
+
+		status = tmp->mData.isCheckedIn();
+
+		if (status == true)
+		{
+			cout << setw(20) << right << "In" << endl;
+		}
+		else
+		{
+			cout << setw(20) << right << "Out" << endl;
+		}
 
 		tmp = tmp->mNext; //Before each iteration ends, tmp is set to the next item listed
 	}
+
+	cout << endl;
 }
 
 bool validateStr(string str)
@@ -313,7 +331,7 @@ bool validateStr(string str)
 
 	for (int i = 0; i < strLength; i++)
 	{
-		if (!(isalpha(str[i])))
+		if (!(isalpha(str[i]))) //If any non-alpha characters are found, the input is invalid
 		{
 			valid = false;
 		}
