@@ -1,20 +1,20 @@
-#include <string>
-#include <fstream>
+
 #include "clubsDat.h"
-#include "club.h"
+
 using namespace std;
 
-void clubsInput() {
+void clubsInput(LinkedList<Club> list) {
 	string name;
 	Club club;
 	const string fileName = "clubs.dat";
 	fstream fin;
-	fin.open(fileName);
+	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
-		while (fin.eof()) {
+		do {
 			getline(fin, name);
-			club.setName(name);
+			list.append(Club(name));
 		}
+		while (!fin.eof());
 	}
 	fin.close();
 }
