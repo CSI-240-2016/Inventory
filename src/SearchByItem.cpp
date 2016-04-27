@@ -1,31 +1,5 @@
-#include "LinkedList.h"
-#include "Item.h"
-#include <iostream>
-#include <string>
+#include "SearchByItem.h"
 
-void searchSerial(LinkedList<Item> mData, int searchKey)
-{
-	Node<Item> *tmp;
-	Node<Item> *before;
-
-	tmp = mData.mHead;
-	before = mData.mHead;
-
-	while (tmp != NULL) // While list not empty or not end of list
-	{
-		if (tmp->mData.getSerial() == searchKey) //if serial is same as searchkey, return item 
-		{
-			cout << endl << tmp->mData << endl;
-		}
-		before = tmp;
-		tmp = tmp->mNext;
-	}
-
-	if (tmp == NULL) // Serial doesn't exist
-	{
-		cout << "Item with serial " << searchKey << " does not exist." << endl;
-	}
-}
 
 void searchByClub(LinkedList<Item> mData, string searchKey)
 {
@@ -51,6 +25,78 @@ void searchByClub(LinkedList<Item> mData, string searchKey)
 	}
 }
 
+void searchByLocationBuilding(LinkedList<Item> mData, string searchKey)
+{
+	Node<Item> *tmp;
+	Node<Item> *before;
+
+	tmp = mData.mHead;
+	before = mData.mHead;
+
+	while (tmp != NULL) // While list not empty or not end of list
+	{
+		if (tmp->mData.getLocation().getBuilding() == searchKey) //if location is same as searchkey, return every items 
+		{
+			cout << endl << tmp->mData << endl;
+		}
+		before = tmp;
+		tmp = tmp->mNext;
+	}
+
+	if (tmp == NULL) // Location doesnt have item
+	{
+		cout << "No item in this building: " << searchKey << endl;
+	}
+}
+
+void searchByLocationRoom(LinkedList<Item> mData, string searchKey)
+{
+	Node<Item> *tmp;
+	Node<Item> *before;
+
+	tmp = mData.mHead;
+	before = mData.mHead;
+
+	while (tmp != NULL) // While list not empty or not end of list
+	{
+		if (tmp->mData.getLocation().getRoom() == searchKey) //if location is same as searchkey, return every items 
+		{
+			cout << endl << tmp->mData << endl;
+		}
+		before = tmp;
+		tmp = tmp->mNext;
+	}
+
+	if (tmp == NULL) // Room doesn't have item
+	{
+		cout << "No item in this room: " << searchKey << endl;
+	}
+}
+
+void searchBySerial(LinkedList<Item> mData, int searchKey)
+{
+	Node<Item> *tmp;
+	Node<Item> *before;
+
+	tmp = mData.mHead;
+	before = mData.mHead;
+
+	while (tmp != NULL) // While list not empty or not end of list
+	{
+		if (tmp->mData.getSerial() == searchKey) //if serial is same as searchkey, return item 
+		{
+			cout << endl << tmp->mData << endl;
+		}
+		before = tmp;
+		tmp = tmp->mNext;
+	}
+
+	if (tmp == NULL) // Serial doesn't exist
+	{
+		cout << "Item with serial " << searchKey << " does not exist." << endl;
+	}
+}
+
 void searchBySeller(LinkedList<Item> mData, string searchKey)
 {
 	Node<Item> *tmp;
@@ -72,30 +118,6 @@ void searchBySeller(LinkedList<Item> mData, string searchKey)
 	if (tmp == NULL) // Seller doesn't have item
 	{
 		cout << "Seller " << searchKey << " does not exist." << endl;
-	}
-}
-
-void searchByLocation(LinkedList<Item> mData, string searchKey)
-{
-	Node<Item> *tmp;
-	Node<Item> *before;
-
-	tmp = mData.mHead;
-	before = mData.mHead;
-
-	while (tmp != NULL) // While list not empty or not end of list
-	{
-		if (tmp->mData.getLocation() == searchKey) //if location is same as searchkey, return every items 
-		{
-			cout << endl << tmp->mData << endl;
-		}
-		before = tmp;
-		tmp = tmp->mNext;
-	}
-
-	if (tmp == NULL) // Club doesn't have item
-	{
-		cout << "No item in this location: " << searchKey << endl;
 	}
 }
 

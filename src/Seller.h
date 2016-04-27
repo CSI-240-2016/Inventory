@@ -30,6 +30,7 @@ public:
 
 	//Overloaded Operators
 	Seller& operator=(const Seller&);
+	bool operator==(string);
 };
 
 #endif

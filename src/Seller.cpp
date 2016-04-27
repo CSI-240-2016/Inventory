@@ -111,3 +111,14 @@ Seller& Seller::operator=(const Seller& sellerTwo)
 	this->mURL = sellerTwo.mURL;
 	return *this;
 }
+
+/* Pre: Name of seller two
+* Post: Check if seller name is equal to seller name two
+* Purpose: Compare seller name to another
+*********************************************************/
+
+bool Seller::operator==(string sellerTwo)
+{
+	return mName == sellerTwo;
+
+}
