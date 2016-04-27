@@ -324,6 +324,7 @@ void showAllItems(LinkedList<Item> *listOfItems)
 	cout << endl;
 }
 
+/* Already defined in publicMenu.h
 bool validateStr(string str)
 {
 	bool valid = true;
@@ -339,3 +340,4 @@ bool validateStr(string str)
 
 	return valid;
 }
+*/
