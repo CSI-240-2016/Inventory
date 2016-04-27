@@ -4,6 +4,12 @@
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+User::User() {
+	mName = "";
+	mUsername = "";
+	mPassword = "";
+}
+
 User::User(string name, string username, string password) {
 	mName = name;
 	mUsername = username;
