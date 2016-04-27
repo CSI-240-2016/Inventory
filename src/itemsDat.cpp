@@ -29,15 +29,15 @@ void itemsInput() {
 			else
 				items.checkOut();
 			getline(fin, building);
-			items.getLocation.setBuilding(building);
+			items.getLocation().setBuilding(building);
 			getline(fin, room);
-			items.getLocation.setRoom(room);
+			items.getLocation().setRoom(room);
 			getline(fin, shelfSlot);
-			items.getLocation.setCode(shelfSlot);
+			items.getLocation().setCode(shelfSlot);
 			getline(fin, sellerName);
-			items.getSource.getSeller.setName(sellerName);
+			items.getSource().getSeller().setName(sellerName);
 			getline(fin, price);
-			items.getSource.setUnitPrice(price);
+			// paramter must be double items.getSource().setUnitPrice(price);
 		}
 	}
 	fin.close();
