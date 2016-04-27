@@ -1,8 +1,4 @@
-#include "LinkedList.h"
-#include "User.h"
-#include <string>
-#include <fstream>
-#include <iostream>
+#include "IO_Users.h"
 
 void loadUsers(LinkedList<User> &mData)
 {
@@ -11,7 +7,7 @@ void loadUsers(LinkedList<User> &mData)
 	string tmpUsername;
 	string tmpPassword;
 	User user;
-	
+
 	ifstream file;
 
 	file.open("users.dat");
@@ -24,19 +20,21 @@ void loadUsers(LinkedList<User> &mData)
 			//First line is Name
 			getline(file,tmpName);
 
-			//Change LinkedList by name of the list
+			//Set name of user
 			user.setName(tmpName);
-			mData.append(tmpName);
+			
+			//Get username and password
+			file >> tmpUsername >> tmpPassword;
+			
+			//Set username and password of user
+			user.setUserName(tmpUsername);
+			user.setPassword(tmpPassword);
 
-			//Second line is username and password
+			//Add user to linkedlist
+			mData.append(user);
 
-			file >> user.setUserName >> user.setPassword;
-			//Change LinkedList by name of the list
-			mData.append(tmpUsername);
-
-			//Change LinkedList by name of the list
-			mData.append(tmpPassword);
 			getline(file, junk);
+
 		} while (!file.eof());
 
 	} 
