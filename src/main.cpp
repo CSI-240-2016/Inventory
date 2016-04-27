@@ -2,24 +2,42 @@
 #include "LinkedList.h"
 #include "Item.h"
 #include "Log.h"
+#include "IO_Users.h"
+#include "User.h"
 
 using namespace std;
 
 int main() {
 	
 	// ~~~~~ Start: Declare lists
+	LinkedList<User> *listUsers;
 	LinkedList<Item> *listItems;
 	LinkedList<Log> *listLogs;
 	
 	// ~~~~~~~ End: Declare lists
 	
 	// ~~~~~ Start: Init lists
+	listUsers = new LinkedList<User>;
 	listItems = new LinkedList<Item>;
 	listLogs = new LinkedList<Log>;
 	
 	// ~~~~~~~ End: Init lists
 	
-	// TODO load and run
+	// ~~~~~ Start: Load Data
+	
+	loadUsers(listUsers);
+	
+	// ~~~~~~~ End: Load Data
+	
+	// ~~~~~ Start: Run
+	
+	// ~~~~~~~ End: Run
+	
+	// ~~~~~ Start: Save Data
+	
+	saveUsers(listUsers);
+	
+	// ~~~~~~~ End: Save Data
 	
 	// ~~~~~ Start: Delete lists
 	delete listItems;
