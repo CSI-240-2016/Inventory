@@ -52,7 +52,7 @@ void itemsInput(LinkedList<Item> *list) {
 			
 			// append
 			
-			list.append(item);
+			list->append(item);
 		}
 	}
 	fin.close();
