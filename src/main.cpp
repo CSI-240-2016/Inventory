@@ -34,12 +34,14 @@ int main() {
 	// ~~~~~ Start: Run
 	
 	printUsers(listUsers);
+	printItems(listItems);
 	
 	// ~~~~~~~ End: Run
 	
 	// ~~~~~ Start: Save Data
 	
 	saveUsers(listUsers);
+	saveItems(listItems);
 	
 	// ~~~~~~~ End: Save Data
 	

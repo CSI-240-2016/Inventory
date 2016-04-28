@@ -44,6 +44,9 @@ class Item {
 		
 		// ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		
+		/** PURPOSE: OVERLOAD Outputs variables to file stream
+		 */
+		friend ofstream& operator<<(ofstream& stream, Item& obj);
 		/** PURPOSE: OVERLOAD Outputs variables to console stream
 		 */
 		friend  ostream& operator<<( ostream& stream, Item& obj);
