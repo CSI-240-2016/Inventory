@@ -1,45 +1,61 @@
-#include <string>
-#include <iostream>
-#include <fstream>
+
 #include "itemsDat.h"
-using namespace std;
 
 void itemsInput(LinkedList<Item> list) {
 	int serialNumber;
 	string name, type, club, sellerName, building, room, shelfSlot;
 	double price;
-	Item items;
+	Item item;
+	Seller seller;
 	bool status;
 	const string fileName = "items.dat";
-	fstream fin;
-	fin.open(fileName);
+	ifstream fin;
+	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
+		getline(fin, name); // read first line, must be empty
 		while (!fin.eof()) {
+			
+			// Item init variables
+			
 			fin >> serialNumber;
-			list.append(Item(serialNumber));
 			getline(fin, name);
-			list.append(Item(name));
+			
+			item = Item(serialNumber, name);
+			
+			// owning data
+			
 			getline(fin, type);
-			list.append(Item(type));
 			getline(fin, club);
-			list.append(Item(club));
+			
+			item.setNameType(type);
+			item.setNameOwner(club);
+			
+			// status
+			
 			fin >> status;
-			//The bool values
-			if (status == true)
-				items.checkIn();
-			else
-				items.checkOut();
-			//not sure how to access location through the items class in the linked list
+			getline(fin, building); // get rid of excess on this line
+			
+			item.setStatus(status);
+			
+			// location
+			
 			getline(fin, building);
-			items.getLocation().setBuilding(building);
 			getline(fin, room);
-			items.getLocation().setRoom(room);
 			getline(fin, shelfSlot);
-			items.getLocation().setCode(shelfSlot);
-			getline(fin, sellerName);
-			items.getSource().getSeller().setName(sellerName);
+			
+			item.setLocation(Location(building, room, shelfSlot));
+			
+			// source
+			
 			fin >> price;
-			// paramter must be double items.getSource().setUnitPrice(price);
+			getline(fin, sellerName); // clear the rest of the line
+			seller = Seller();
+			fin >> seller;
+			item.setSource(Source(price, seller));
+			
+			// append
+			
+			list.append(item);
 		}
 	}
 	fin.close();

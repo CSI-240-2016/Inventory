@@ -1,6 +1,11 @@
+
 #include "Item.h"
 #include "LinkedList.h"
 #include <string>
+#include <iostream>
+#include <fstream>
+#include "Seller.h"
+
 using namespace std;
 
 void itemsInput(LinkedList<Item> list);

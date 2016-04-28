@@ -122,3 +122,14 @@ bool Seller::operator==(string sellerTwo)
 	return mName == sellerTwo;
 
 }
+
+/** Purpose: OVERLOAD Loads variables from a file stream
+ * PRE:  the file stream, the class instance
+ * POST: loads variables from stream, returns the stream
+ */
+ifstream& operator>>(ifstream& stream, Seller& obj) {
+	getline(stream, obj.mName);
+	getline(stream, obj.mURL);
+	stream >> obj.mAddress;
+	return stream;
+}

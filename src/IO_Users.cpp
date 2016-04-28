@@ -1,6 +1,6 @@
 #include "IO_Users.h"
 
-void loadUsers(LinkedList<User> &mData)
+void loadUsers(LinkedList<User> *mData)
 {
 	string junk;
 	string tmpName;
@@ -31,7 +31,7 @@ void loadUsers(LinkedList<User> &mData)
 			user.setPassword(tmpPassword);
 
 			//Add user to linkedlist
-			mData.append(user);
+			mData->append(user);
 
 			getline(file, junk);
 
@@ -47,7 +47,7 @@ void loadUsers(LinkedList<User> &mData)
 	file.close();
 }
 
-void saveUsers(LinkedList<User> mData)
+void saveUsers(LinkedList<User> *mData)
 {
 	ofstream file;
 
@@ -55,8 +55,8 @@ void saveUsers(LinkedList<User> mData)
 	Node<User> *tmp;
 	Node<User> *before;
 
-	tmp = mData.mHead;
-	before = mData.mHead;
+	tmp = mData->mHead;
+	before = mData->mHead;
 
 	if (file.is_open())
 	{

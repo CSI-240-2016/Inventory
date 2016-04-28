@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void loadUsers(LinkedList<User>);
-void saveUsers(LinkedList<User>);
+void loadUsers(LinkedList<User> *);
+void saveUsers(LinkedList<User> *);
 
 #endif
