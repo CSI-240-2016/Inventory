@@ -21,11 +21,11 @@ void addItem(LinkedList<Item> *listOfItems)
 	clearScreen();
 	displayLogo();
 
+	Item item;
 	Location location;
 	Source source;
 	Seller seller;
 	Address sellerAddress;
-	Node<Item> *tmp, *oneBefore;
 	int serialNumber;
 	double price;
 	string name, type, club = "SGA", sellerName, building, room, shelfSlot, sellerURL, junk;
@@ -54,34 +54,25 @@ void addItem(LinkedList<Item> *listOfItems)
 
 	location.setBuilding(building);
 	location.setRoom(room);
-	location.setCode(shelfSlot);
+	location.setCode(shelfSlot);  // Sets the information for location
 
 	seller.setName(sellerName);
 	seller.setAddress(sellerAddress);
-	seller.setURL(sellerURL);
+	seller.setURL(sellerURL);     // Sets the information for seller
 
 	source.setSeller(seller);
-	source.setUnitPrice(price);
+	source.setUnitPrice(price);   // Sets the information for Source
 
-	tmp = listOfItems->mHead->mNext; //Set tmp to the first item in the list
+	item.setSerial(serialNumber);
+	item.setName(name);
+	item.setNameType(type);
+	item.setLocation(location);
+	item.setSource(source);
+	item.setStatus(status);    //Sets all the Data for tmp
 
-	while (tmp != NULL)
-	{
-		tmp = tmp->mNext;
-		if (tmp->mNext == NULL)
-		{
-			oneBefore = tmp;
-			tmp->mData.setSerial(serialNumber);
-			tmp->mData.setName(name);
-			tmp->mData.setNameType(type);
-			tmp->mData.setLocation(location);
-			tmp->mData.setSerial(serialNumber);
-			tmp->mData.setSerial(serialNumber);
-			tmp->mData.setSerial(serialNumber);
-		}
-	}
+	listOfItems->append(item);  //Adds new item to the end of the list
 
-	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
+	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);  // File Output
 }
 
 void addUser(LinkedList<User> *listOfUsers)
@@ -306,7 +297,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUse
 		addUser(listOfUsers);
 		break;
 	case 2:
-		removeUser();
+		removeUser(listOfUsers);
 		break;
 	case 3:
 		modifyUser();
@@ -337,8 +328,14 @@ void removeItem(LinkedList<Item> *listOfItems)
 {
 }
 
-void removeUser()
+void removeUser(LinkedList<User> *listOfUsers)
 {
+	string name; 
+
+	cout << "Please enter the name of the user to remove:\n\n";
+	getline(cin, name);
+
+	//call remove function for linked list 
 }
 
 void modifyClub(LinkedList<Club> *listOfClubs)

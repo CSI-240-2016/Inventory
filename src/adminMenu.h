@@ -22,7 +22,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUse
 void exportExcel();
 void removeClub(LinkedList<Item> *listOfClubs);
 void removeItem(LinkedList<Item> *);
-void removeUser();
+void removeUser(LinkedList<User> *listOfUsers);
 void modifyClub(LinkedList<Item> *listOfClubs);
 void modifyItem(LinkedList<Item> *);
 void modifyUser();

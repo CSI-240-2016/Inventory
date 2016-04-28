@@ -1,7 +1,7 @@
 
 #include "itemsDat.h"
 
-void itemsInput(LinkedList<Item> list) {
+void itemsInput(LinkedList<Item> *list) {
 	int serialNumber;
 	string name, type, club, sellerName, building, room, shelfSlot;
 	double price;
@@ -12,12 +12,9 @@ void itemsInput(LinkedList<Item> list) {
 	ifstream fin;
 	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
-		getline(fin, name); // read first line, must be empty
-		while (!fin.eof()) {
+		while (fin >> serialNumber) {
 			
 			// Item init variables
-			
-			fin >> serialNumber;
 			getline(fin, name);
 			
 			item = Item(serialNumber, name);
@@ -55,10 +52,32 @@ void itemsInput(LinkedList<Item> list) {
 			
 			// append
 			
-			list.append(item);
+			list->append(item);
 		}
 	}
 	fin.close();
+}
+
+void saveItems(LinkedList<Item> *list) {
+	string fileName = "items.dat";
+	
+	ofstream file;
+	file.open(fileName, ios::out);
+	
+	if (file.is_open()) {
+		Node<Item> *tmpNode = list->mHead;
+		while (tmpNode != NULL) {
+			//file << 
+			tmpNode = tmpNode->mNext;
+			
+		}
+	}
+	
+	file.close();
+}
+
+void printItems(LinkedList<Item> *list) {
+	
 }
 
 void itemsOutput(int serialNumber,string name, string type, string club, string sellerName, double price, string building, string room, string shelfSlot, bool status) {
