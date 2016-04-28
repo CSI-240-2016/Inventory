@@ -315,11 +315,23 @@ void removeClub(LinkedList<Club> *listOfClubs)
 {
 	Node<Club> *current = listOfClubs->mHead;
 	Node<Club> *previous = NULL;
+	string removeClub;
+	cout << "What is the name of the club you would like to remove?" << endl;
+	getline(cin, removeClub);
 
+
+	// removeLast(removeClub);    to do
+			
 }
 
 void removeItem(LinkedList<Item> *listOfItems)
 {
+	int serialNumber;
+
+	cout << "Please enter the serial no. of the item to remove:\n\n";
+	cin >> serialNumber;
+
+	//call remove function for linked list
 }
 
 void removeUser(LinkedList<User> *listOfUsers)
