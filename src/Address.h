@@ -40,6 +40,7 @@ class Address {
 		/** PURPOSE: OVERLOAD Loads variables from a file stream
 		 */
 		friend ifstream& operator>>(ifstream& stream, Address& obj);
+		friend ofstream& operator<<(ofstream& stream, Address& obj);
 
 };
 
