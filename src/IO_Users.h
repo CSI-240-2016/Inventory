@@ -11,5 +11,6 @@ using namespace std;
 
 void loadUsers(LinkedList<User> *);
 void saveUsers(LinkedList<User> *);
+void printUsers(LinkedList<User> *);
 
 #endif

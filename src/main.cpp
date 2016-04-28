@@ -2,8 +2,8 @@
 #include "LinkedList.h"
 #include "Item.h"
 #include "Log.h"
-#include "IO_Users.h"
 #include "User.h"
+#include "IO_Users.h"
 
 using namespace std;
 
@@ -30,6 +30,8 @@ int main() {
 	// ~~~~~~~ End: Load Data
 	
 	// ~~~~~ Start: Run
+	
+	printUsers(listUsers);
 	
 	// ~~~~~~~ End: Run
 	

@@ -1,3 +1,4 @@
+
 #include "IO_Users.h"
 
 void loadUsers(LinkedList<User> *mData)
@@ -6,36 +7,26 @@ void loadUsers(LinkedList<User> *mData)
 	string tmpName;
 	string tmpUsername;
 	string tmpPassword;
-	User user;
 
 	ifstream file;
 
-	file.open("users.dat");
+	file.open("users.dat", ios::in);
 
 	if (file.is_open())
 	{
-		do
+		
+		while (getline(file,tmpName))//!file.eof())
 		{
-
-			//First line is Name
-			getline(file,tmpName);
-
-			//Set name of user
-			user.setName(tmpName);
 			
 			//Get username and password
 			file >> tmpUsername >> tmpPassword;
-			
-			//Set username and password of user
-			user.setUserName(tmpUsername);
-			user.setPassword(tmpPassword);
-
-			//Add user to linkedlist
-			mData->append(user);
 
 			getline(file, junk);
+			
+			//Add user to linkedlist
+			mData->append(User(tmpName, tmpUsername, tmpPassword));
 
-		} while (!file.eof());
+		}
 
 	} 
 
@@ -47,24 +38,19 @@ void loadUsers(LinkedList<User> *mData)
 	file.close();
 }
 
-void saveUsers(LinkedList<User> *mData)
+void saveUsers(LinkedList<User> *list)
 {
 	ofstream file;
-
-	file.open("user.dat", ios::out);
-	Node<User> *tmp;
-	Node<User> *before;
-
-	tmp = mData->mHead;
-	before = mData->mHead;
+	file.open("users.dat", ios::out);
+	
+	Node<User> *tmpNode = list->mHead;
 
 	if (file.is_open())
 	{
-		while (tmp != NULL) //While list not empty or not at the end
+		while (tmpNode != NULL) //While list not empty or not at the end
 		{
-			file << tmp->mData << endl;
-			before = tmp;
-			tmp = tmp->mNext;
+			file << "\n" << tmpNode->mData;
+			tmpNode = tmpNode->mNext;
 		}
 	}
 
@@ -73,4 +59,12 @@ void saveUsers(LinkedList<User> *mData)
 		cout << "Error opening the file." << endl;
 	}
 	file.close();
+}
+
+void printUsers(LinkedList<User> *list) {
+	Node<User> *tmpNode = list->mHead;
+	while (tmpNode != NULL) {
+		cout << tmpNode->mData << "\n";
+		tmpNode = tmpNode->mNext;
+	}
 }

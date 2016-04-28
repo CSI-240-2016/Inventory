@@ -1,12 +1,21 @@
 #include "adminMenu.h"
 
-void addClub()
+void addClub(LinkedList<Club> *listOfClubs)
 {
-	string nameOfClub;
+	/*string nameOfClub;
+	Node<Club> *current = listOfClubs->mHead;
+	Node<Club> *previous = NULL;
+
 	cout << "What is the name of the club you wish to add?"; // ask for the name of the club
 	getline(cin, nameOfClub); // take the whole line as the name
 
-	clubsOutput(nameOfClub); // send the name to the output club function
+	while (current != NULL) // run through the list until there are no more nodes
+	{
+
+	}*/
+
+
+	
 }
 
 void addItem(LinkedList<Item> *listOfItems)
@@ -77,8 +86,26 @@ void addItem(LinkedList<Item> *listOfItems)
 	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
 }
 
-void addUser()
+void addUser(LinkedList<User> *listOfUsers)
 {
+	string name, username, password;
+
+	clearScreen();
+	displayLogo();
+
+	//The user is prompted for the appropriate information
+	cout << "Please enter the name of the new user:\n\n";
+	getline(cin, name);
+
+	cout << "\nPlease enter the username of the new user:\n\n";
+	getline(cin, username);
+
+	cout << "\nPlease enter the password of the new user:\n\n";
+	getline(cin, password);
+
+	User newUser(name, username, password);
+
+	listOfUsers->append(newUser);
 }
 
 void checkInOut(LinkedList<Item> *listOfItems)
@@ -156,13 +183,13 @@ void displayAdminClub(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		addClub();
+		//addClub(listOfClubs);
 		break;
 	case 2:
-		removeClub();
+		//removeClub(listOfClubs);
 		break;
 	case 3:
-		modifyClub();
+		//modifyClub(listOfClubs);
 		break;
 	case 4:
 		displayAdminMenu(listOfItems);
@@ -253,7 +280,7 @@ void displayAdminSearch(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminUser(LinkedList<Item> *listOfItems)
+void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -278,7 +305,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		addUser();
+		addUser(listOfUsers);
 		break;
 	case 2:
 		removeUser();
@@ -295,8 +322,11 @@ void exportExcel()
 {
 }
 
-void removeClub()
+void removeClub(LinkedList<Club> *listOfClubs)
 {
+	/*Node<Club> *current = listOfClubs->mHead;
+	Node<Club> *previous = NULL;*/
+
 }
 
 void removeItem(LinkedList<Item> *listOfItems)
@@ -307,15 +337,31 @@ void removeUser()
 {
 }
 
-void modifyClub()
+void modifyClub(LinkedList<Club> *listOfClubs)
 {
-	string currentName;
-	string changeName;
+	string currentName;   // current club name
+	string changeName;    // new club name
+	Node<Club> *current = listOfClubs->mHead;   // setting current to the first item in the list
+
 	
-	cout << "What is the name of the club you would like to change?" << endl;
+	cout << "What is the name of the club you would like to change?" << endl; // input for current club name
 	getline(cin, currentName);
-	cout << "What would you like to change the name to?" << endl;
+	cout << "What would you like to change the name to?" << endl;   // input for new club name
 	getline(cin, changeName);
+
+
+	while (current != NULL) // run through the list until there are no more nodes
+	{
+		if (current->mData.getName() == currentName) 
+		{
+			current->mData.setName(changeName);
+		}
+		else
+		{
+			current = current->mNext;
+		}
+
+	}
 
 }
 
