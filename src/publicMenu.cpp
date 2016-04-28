@@ -1,7 +1,7 @@
 #include "publicMenu.h"
 #include "common.h"
 
-void displayItemMenu(LinkedList<Item> *listOfItems)
+void displayItemMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -31,13 +31,13 @@ void displayItemMenu(LinkedList<Item> *listOfItems)
 		showOutItems(listOfItems);
 		break;
 	case 3:
-		displayGeneralMenu(listOfItems);
+		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
 
 template <typename T>
-void displaySearchMenu(LinkedList<Item> *listOfItems)
+void displaySearchMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -67,12 +67,12 @@ void displaySearchMenu(LinkedList<Item> *listOfItems)
 		searchItem(listOfItems);
 		break;
 	case 3:
-		displayGeneralMenu(listOfItems);
+		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
 
-void login(LinkedList<Item> *listOfItems)
+void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	string password, username;
 	char temp;
@@ -113,18 +113,18 @@ void login(LinkedList<Item> *listOfItems)
 			//password = getpass("Input password");
 		#endif
 
-		if (checkWords(username, password, listOfItems) == true)
+		if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
 		{
 			clearScreen();
 			cout << "You logged in!" << endl;
-			displayAdminMenu(listOfItems);
+			displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 			system("pause");
 		}
 
 		else
 		{
 			cout << "This is not a valid login." << endl;
-			login(listOfItems);
+			login(listOfItems, listOfClubs, listOfUsers);
 			return;
 		}
 	}
@@ -259,7 +259,7 @@ void showOutItems(LinkedList<Item> *listOfItems)
 	}
 }
 
-bool checkWords(string username, string password, LinkedList<Item> *listOfItems)
+bool checkWords(string username, string password, LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	ifstream datafile;
 	datafile.open("datafile.txt");
@@ -272,7 +272,7 @@ bool checkWords(string username, string password, LinkedList<Item> *listOfItems)
 	{
 		cout << "One of the files does not exist." << endl;
 		system("pause");
-		login(listOfItems);
+		login(listOfItems, listOfClubs, listOfUsers);
 	}
 	else
 	{
