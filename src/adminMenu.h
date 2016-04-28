@@ -11,7 +11,7 @@
 using namespace std;
 
 void addClub();
-void addItem();
+void addItem(LinkedList<Item> *listOfItems);
 void addUser();
 void checkInOut(LinkedList<Item> *listOfItems);
 void displayAdminClub(LinkedList<Item> *listOfItems);
@@ -20,10 +20,10 @@ void displayAdminSearch(LinkedList<Item> *listOfItems);
 void displayAdminUser(LinkedList<Item> *listOfItems);
 void exportExcel();
 void removeClub();
-void removeItem();
+void removeItem(LinkedList<Item> *listOfItems);
 void removeUser();
 void modifyClub();
-void modifyItem();
+void modifyItem(LinkedList<Item> *listOfItems);
 void modifyUser();
 void showAllItems(LinkedList<Item> *listOfItems);
 bool validateStr(string str);

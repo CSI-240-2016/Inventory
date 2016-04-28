@@ -9,13 +9,19 @@ void addClub()
 	clubsOutput(nameOfClub); // send the name to the output club function
 }
 
-void addItem()
+void addItem(LinkedList<Item> *listOfItems)
 {
 	clearScreen();
 	displayLogo();
 
+	Location location;
+	Source source;
+	Seller seller;
+	Address sellerAddress;
+	Node<Item> *tmp, *oneBefore;
 	int serialNumber;
-	string name, type, club = "SGA", sellerName, price, building, room, shelfSlot, junk;
+	double price;
+	string name, type, club = "SGA", sellerName, building, room, shelfSlot, sellerAddress, sellerURL, junk;
 	bool status = true;
 
 	cout << "Enter the serial number of the new item: ";
@@ -27,8 +33,11 @@ void addItem()
 	getline(cin, type);
 	cout << "Where was the item bought? ";
 	getline(cin, sellerName);
+	cout << "What is the URL of the store? ";
+	getline(cin, sellerURL);
 	cout << "What is the price of the item you wish to add? ";
-	getline(cin, price);
+	cin >> price;
+	getline(cin, junk);
 	cout << "What building is the item being stored in? ";
 	getline(cin, building);
 	cout << "What room is the item being stored in? ";
@@ -36,7 +45,36 @@ void addItem()
 	cout << "What shelf slot is the item being stored in? ";
 	getline(cin, shelfSlot);
 
-	//itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
+	location.setBuilding(building);
+	location.setRoom(room);
+	location.setCode(shelfSlot);
+
+	seller.setName(sellerName);
+	seller.setAddress(sellerAddress);
+	seller.setURL(sellerURL);
+
+	source.setSeller(seller);
+	source.setUnitPrice(price);
+
+	tmp = listOfItems->mHead->mNext; //Set tmp to the first item in the list
+
+	while (tmp != NULL)
+	{
+		tmp = tmp->mNext;
+		if (tmp->mNext == NULL)
+		{
+			oneBefore = tmp;
+			tmp->mData.setSerial(serialNumber);
+			tmp->mData.setName(name);
+			tmp->mData.setNameType(type);
+			tmp->mData.setLocation(location);
+			tmp->mData.setSerial(serialNumber);
+			tmp->mData.setSerial(serialNumber);
+			tmp->mData.setSerial(serialNumber);
+		}
+	}
+
+	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
 }
 
 void addUser()
@@ -168,13 +206,13 @@ void displayAdminItem(LinkedList<Item> *listOfItems)
 		showAllItems(listOfItems);
 		break;
 	case 4:
-		addItem();
+		addItem(listOfItems);
 		break;
 	case 5:
-		removeItem();
+		removeItem(listOfItems);
 		break;
 	case 6: 
-		modifyItem();
+		modifyItem(listOfItems);
 		break;
 	case 7:
 		displayAdminMenu(listOfItems);
@@ -261,7 +299,7 @@ void removeClub()
 {
 }
 
-void removeItem()
+void removeItem(LinkedList<Item> *listOfItems)
 {
 }
 
@@ -281,7 +319,7 @@ void modifyClub()
 
 }
 
-void modifyItem()
+void modifyItem(LinkedList<Item> *listOfItems)
 {
 }
 
