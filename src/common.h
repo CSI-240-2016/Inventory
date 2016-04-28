@@ -24,7 +24,7 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 #include <iomanip>
 #include <cctype>
 #include "Item.h"
-#include "Club.h"
+#include "club.h"
 #include "User.h"
 #include "LinkedList.h"
 
