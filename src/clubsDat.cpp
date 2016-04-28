@@ -9,12 +9,7 @@ void clubsInput(LinkedList<Club> list) {
 	fstream fin;
 	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
-<<<<<<< HEAD
-		while (!fin.eof()) {
-=======
-		do {
->>>>>>> ac308e5e2fe28cfbd3deb7df5f3cc9437d10d3ff
-			getline(fin, name);
+		while (getline(fin, name)) {
 			list.append(Club(name));
 		}
 		while (!fin.eof());

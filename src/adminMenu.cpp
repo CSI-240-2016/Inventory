@@ -314,7 +314,7 @@ void modifyClub(LinkedList<Club> *listOfClubs)
 
 	while (current != NULL) // run through the list until there are no more nodes
 	{
-		if (current->mData.getName == currentName) 
+		if (current->mData.getName() == currentName) 
 		{
 			current->mData.setName(changeName);
 		}
