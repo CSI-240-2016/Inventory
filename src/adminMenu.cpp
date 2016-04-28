@@ -320,18 +320,12 @@ void removeClub(LinkedList<Club> *listOfClubs)
 	getline(cin, removeClub);
 
 
-	// removeLast(removeClub);    to do
+	removeByClub_Name(listOfClubs, removeClub);
 			
 }
 
 void removeItem(LinkedList<Item> *listOfItems)
 {
-	int serialNumber;
-
-	cout << "Please enter the serial no. of the item to remove:\n\n";
-	cin >> serialNumber;
-
-	//call remove function for linked list
 }
 
 void removeUser(LinkedList<User> *listOfUsers)
