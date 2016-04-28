@@ -2,6 +2,9 @@
 #define LINKEDLIST_H
 
 #include <iostream>
+#include "Item.h"
+#include "User.h"
+#include "club.h"
 
 using namespace std;
 
