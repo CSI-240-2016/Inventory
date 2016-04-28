@@ -6,6 +6,6 @@
 
 using namespace std;
 
-void clubsInput();
+void clubsInput(LinkedList<Club> list);
 
 void clubsOutput(string name);

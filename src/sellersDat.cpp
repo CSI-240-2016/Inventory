@@ -2,24 +2,24 @@
 #include <iostream>
 #include <fstream>
 #include "sellersDat.h"
-#include "Seller.h"
 using namespace std;
 
-void sellerInput() 
+void sellerInput(LinkedList<Seller> list) 
 {
 	string name, url, street, city, state, country, stNumber, aptNumber, zipcode;
-	Seller seller;
 	const string fileName = "sellers.dat";
 	fstream fin;
+	Seller seller;
 	fin.open(fileName);
 	if (fin.is_open()) {
-		while (fin.eof()) {
+		do {
 			//while open will loop and pull in the information in the fileformat
 			getline(fin, name);
-			seller.setName(name);
+			list.append(Seller(name));
 			fin >> url;
-			seller.setURL(url);
+			list.append(Seller(url));
 			fin >> stNumber;
+			//Same with location in the items not sure how to accesss adress
 			seller.getAddress().setNumberStreet(stNumber);
 			fin >> aptNumber;
 			seller.getAddress().setNumberApartment(aptNumber);
@@ -33,7 +33,7 @@ void sellerInput()
 			seller.getAddress().setState(state);
 			getline(fin, country);
 			seller.getAddress().setCountry(country);
-		}
+		} while (fin.eof());
 	}
 	fin.close();
 }

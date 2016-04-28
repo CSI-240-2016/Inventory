@@ -5,7 +5,6 @@ using namespace std;
 
 void clubsInput(LinkedList<Club> list) {
 	string name;
-	Club club;
 	const string fileName = "clubs.dat";
 	fstream fin;
 	fin.open(fileName, ios::in);

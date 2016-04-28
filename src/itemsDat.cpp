@@ -1,13 +1,13 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "sellersDat.h"
-#include "Item.h"
+#include "itemsDat.h"
 using namespace std;
 
-void itemsInput() {
+void itemsInput(LinkedList<Item> list) {
 	int serialNumber;
-	string name, type, club, sellerName, price, building, room, shelfSlot;
+	string name, type, club, sellerName, building, room, shelfSlot;
+	double price;
 	Item items;
 	bool status;
 	const string fileName = "items.dat";
@@ -16,18 +16,20 @@ void itemsInput() {
 	if (fin.is_open()) {
 		while (!fin.eof()) {
 			fin >> serialNumber;
-			items.setSerial(serialNumber);
+			list.append(Item(serialNumber));
 			getline(fin, name);
-			items.setName(name);
+			list.append(Item(name));
 			getline(fin, type);
-			items.setNameType(type);
+			list.append(Item(type));
 			getline(fin, club);
-			items.setNameOwner(club);
+			list.append(Item(club));
 			fin >> status;
+			//The bool values
 			if (status == true)
 				items.checkIn();
 			else
 				items.checkOut();
+			//not sure how to access location through the items class in the linked list
 			getline(fin, building);
 			items.getLocation().setBuilding(building);
 			getline(fin, room);
@@ -36,14 +38,14 @@ void itemsInput() {
 			items.getLocation().setCode(shelfSlot);
 			getline(fin, sellerName);
 			items.getSource().getSeller().setName(sellerName);
-			getline(fin, price);
+			fin >> price;
 			// paramter must be double items.getSource().setUnitPrice(price);
 		}
 	}
 	fin.close();
 }
 
-void itemsOutput(int serialNumber,string name, string type, string club, string sellerName, string price, string building, string room, string shelfSlot, bool status) {
+void itemsOutput(int serialNumber,string name, string type, string club, string sellerName, double price, string building, string room, string shelfSlot, bool status) {
 	const string fileName = "items.dat";
 	ofstream fout;
 	fout.open(fileName, std::ios_base::app);

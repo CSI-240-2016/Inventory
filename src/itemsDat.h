@@ -1,6 +1,8 @@
+#include "Item.h"
+#include "LinkedList.h"
 #include <string>
 using namespace std;
 
-void itemsInput();
+void itemsInput(LinkedList<Item> list);
 
-void  itemsOutput(int serialNumber, string name, string type, string club, string sellerName, string price, bool status);
+void  itemsOutput(int serialNumber, string name, string type, string club, string sellerName, double price, bool status);
