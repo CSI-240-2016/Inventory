@@ -57,6 +57,15 @@
     <ClInclude Include="master\src\Seller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="master\src\clubsDat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="master\src\itemsDat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="master\src\sellersDat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="master\src\club.cpp">
@@ -99,6 +108,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="master\src\common.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="master\src\clubsDat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="master\src\itemsDat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="master\src\sellersDat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
