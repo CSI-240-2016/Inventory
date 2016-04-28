@@ -36,6 +36,7 @@
     <ClInclude Include="master\src\User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="master\src\Address.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,6 +67,8 @@
     <ClInclude Include="master\src\sellersDat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> 3f383bb2301fa967c565acf1e0f5475ccff4dcb3
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="master\src\club.cpp">
@@ -80,6 +83,7 @@
     <ClCompile Include="master\src\Node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="master\src\User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -119,5 +123,7 @@
     <ClCompile Include="master\src\sellersDat.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+>>>>>>> 3f383bb2301fa967c565acf1e0f5475ccff4dcb3
   </ItemGroup>
 </Project>
