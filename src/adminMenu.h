@@ -10,7 +10,7 @@
 
 using namespace std;
 
-void addClub();
+void addClub(LinkedList<Item> *listOfClubs);
 void addItem();
 void addUser();
 void checkInOut(LinkedList<Item> *listOfItems);
@@ -19,10 +19,10 @@ void displayAdminItem(LinkedList<Item> *listOfItems);
 void displayAdminSearch(LinkedList<Item> *listOfItems);
 void displayAdminUser(LinkedList<Item> *listOfItems);
 void exportExcel();
-void removeClub(LinkedList<Item> *listOfItems);
+void removeClub(LinkedList<Item> *listOfClubs);
 void removeItem();
 void removeUser();
-void modifyClub(LinkedList<Item> *listOfItems);
+void modifyClub(LinkedList<Item> *listOfClubs);
 void modifyItem();
 void modifyUser();
 void showAllItems(LinkedList<Item> *listOfItems);

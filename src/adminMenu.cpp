@@ -1,12 +1,21 @@
 #include "adminMenu.h"
 
-void addClub()
+void addClub(LinkedList<Club> *listOfClubs)
 {
-	string nameOfClub;
+	/*string nameOfClub;
+	Node<Club> *current = listOfClubs->mHead;
+	Node<Club> *previous = NULL;
+
 	cout << "What is the name of the club you wish to add?"; // ask for the name of the club
 	getline(cin, nameOfClub); // take the whole line as the name
 
-	clubsOutput(nameOfClub); // send the name to the output club function
+	while (current != NULL) // run through the list until there are no more nodes
+	{
+
+	}*/
+
+
+	
 }
 
 void addItem()
@@ -118,13 +127,13 @@ void displayAdminClub(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		addClub();
+		//addClub(listOfClubs);
 		break;
 	case 2:
-		removeClub();
+		//removeClub(listOfClubs);
 		break;
 	case 3:
-		modifyClub();
+		//modifyClub(listOfClubs);
 		break;
 	case 4:
 		displayAdminMenu(listOfItems);
@@ -257,8 +266,11 @@ void exportExcel()
 {
 }
 
-void removeClub(LinkedList<Item> *listOfItems)
+void removeClub(LinkedList<Club> *listOfClubs)
 {
+	/*Node<Club> *current = listOfClubs->mHead;
+	Node<Club> *previous = NULL;*/
+
 }
 
 void removeItem()
@@ -269,11 +281,11 @@ void removeUser()
 {
 }
 
-void modifyClub(LinkedList<Item> *listOfItems)
+void modifyClub(LinkedList<Club> *listOfClubs)
 {
 	string currentName;   // current club name
 	string changeName;    // new club name
-	Node<Item> *current = listOfItems->mHead;   // setting current to the first item in the list
+	Node<Club> *current = listOfClubs->mHead;   // setting current to the first item in the list
 
 	
 	cout << "What is the name of the club you would like to change?" << endl; // input for current club name
