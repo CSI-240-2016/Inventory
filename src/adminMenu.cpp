@@ -257,7 +257,7 @@ void exportExcel()
 {
 }
 
-void removeClub()
+void removeClub(LinkedList<Item> *listOfItems)
 {
 }
 
@@ -269,15 +269,31 @@ void removeUser()
 {
 }
 
-void modifyClub()
+void modifyClub(LinkedList<Item> *listOfItems)
 {
-	string currentName;
-	string changeName;
+	string currentName;   // current club name
+	string changeName;    // new club name
+	Node<Item> *current = listOfItems->mHead;   // setting current to the first item in the list
+
 	
-	cout << "What is the name of the club you would like to change?" << endl;
+	cout << "What is the name of the club you would like to change?" << endl; // input for current club name
 	getline(cin, currentName);
-	cout << "What would you like to change the name to?" << endl;
+	cout << "What would you like to change the name to?" << endl;   // input for new club name
 	getline(cin, changeName);
+
+
+	while (current != NULL) // run through the list until there are no more nodes
+	{
+		if (current->mData.getName == currentName) 
+		{
+			current->mData.setName(changeName);
+		}
+		else
+		{
+			current = current->mNext;
+		}
+
+	}
 
 }
 
