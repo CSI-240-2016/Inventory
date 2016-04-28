@@ -94,6 +94,13 @@ bool 	Item::checkIn() {
 
 // ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+/** PURPOSE: OVERLOAD Outputs variables to file stream
+ */
+ofstream& operator<<(ofstream& stream, Item& obj) {
+	
+	return stream;
+}
+
 /** PURPOSE: OVERLOAD Outputs variables to console stream
  */
 ostream& operator<<( ostream& stream, Item& obj) {
