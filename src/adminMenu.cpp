@@ -48,8 +48,26 @@ void addItem()
 	//itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);
 }
 
-void addUser()
+void addUser(LinkedList<User> *listOfUsers)
 {
+	string name, username, password;
+
+	clearScreen();
+	displayLogo();
+
+	//The user is prompted for the appropriate information
+	cout << "Please enter the name of the new user:\n\n";
+	getline(cin, name);
+
+	cout << "\nPlease enter the username of the new user:\n\n";
+	getline(cin, username);
+
+	cout << "\nPlease enter the password of the new user:\n\n";
+	getline(cin, password);
+
+	User newUser(name, username, password);
+
+	listOfUsers->append(newUser);
 }
 
 void checkInOut(LinkedList<Item> *listOfItems)
@@ -224,7 +242,7 @@ void displayAdminSearch(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminUser(LinkedList<Item> *listOfItems)
+void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -249,7 +267,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		addUser();
+		addUser(listOfUsers);
 		break;
 	case 2:
 		removeUser();

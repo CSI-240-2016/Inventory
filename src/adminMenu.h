@@ -7,17 +7,18 @@
 #include "club.h"
 #include "clubsDat.h"
 #include "itemsDat.h"
+#include "IO_Users.h"
 
 using namespace std;
 
 void addClub(LinkedList<Item> *listOfClubs);
 void addItem();
-void addUser();
+void addUser(LinkedList<User> *listOfUsers);
 void checkInOut(LinkedList<Item> *listOfItems);
 void displayAdminClub(LinkedList<Item> *listOfItems);
 void displayAdminItem(LinkedList<Item> *listOfItems);
 void displayAdminSearch(LinkedList<Item> *listOfItems);
-void displayAdminUser(LinkedList<Item> *listOfItems);
+void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUsers);
 void exportExcel();
 void removeClub(LinkedList<Item> *listOfClubs);
 void removeItem();
@@ -26,6 +27,6 @@ void modifyClub(LinkedList<Item> *listOfClubs);
 void modifyItem();
 void modifyUser();
 void showAllItems(LinkedList<Item> *listOfItems);
-bool validateStr(string str);
+//bool validateStr(string str);
 
 #endif
