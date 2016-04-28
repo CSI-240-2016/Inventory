@@ -326,7 +326,6 @@ void removeClub(LinkedList<Club> *listOfClubs)
 
 void removeItem(LinkedList<Item> *listOfItems)
 {
-
 	int serialNumber;
 
 	//The user is prompted for the serial number of the item that they want removed
