@@ -33,7 +33,7 @@ void clearScreen()
 }
 
 
-void displayAdminMenu(LinkedList<Item> *listOfItems)
+void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -64,26 +64,26 @@ void displayAdminMenu(LinkedList<Item> *listOfItems)
 		checkInOut(listOfItems);
 		break;
 	case 2:
-		displayAdminItem(listOfItems);
+		displayAdminItem(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 3:
-		displayAdminClub(listOfItems);
+		displayAdminClub(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 4:
-		//displayAdminUser(listOfItems);
+		displayAdminUser(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 5:
-		displayAdminSearch(listOfItems);
+		displayAdminSearch(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 6:
 		exportExcel();
 		break;
 	case 7:
-		displayGeneralMenu(listOfItems);
+		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
-void displayGeneralMenu(LinkedList<Item> *listOfItems)
+void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -108,13 +108,13 @@ void displayGeneralMenu(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		displayItemMenu(listOfItems);
+		displayItemMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 2:
-		//displaySearchMenu();
+		displaySearchMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 3:
-		login(listOfItems);
+		login(listOfItems, listOfClubs, listOfUsers);
 		break;
 	default:
 		//Shutdown

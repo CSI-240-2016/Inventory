@@ -24,13 +24,15 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 #include <iomanip>
 #include <cctype>
 #include "Item.h"
+#include "Club.h"
+#include "User.h"
 #include "LinkedList.h"
 
 using namespace std;
 
 void clearScreen();
-void displayAdminMenu(LinkedList<Item> *listOfItems);
-void displayGeneralMenu(LinkedList<Item> *listOfItems);
+void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
+void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
 void displayLogo();
 void pause();
 

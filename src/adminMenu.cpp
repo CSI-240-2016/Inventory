@@ -147,7 +147,7 @@ void checkInOut(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs)
+void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -181,11 +181,11 @@ void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 		modifyClub(listOfClubs);
 		break;
 	case 4:
-		displayAdminMenu(listOfItems);
+		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
-void displayAdminItem(LinkedList<Item> *listOfItems)
+void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -231,11 +231,11 @@ void displayAdminItem(LinkedList<Item> *listOfItems)
 		modifyItem(listOfItems);
 		break;
 	case 7:
-		displayAdminMenu(listOfItems);
+		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
-void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs)
+void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -265,11 +265,11 @@ void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 		//searchItem();
 		break;
 	case 3:
-		displayAdminMenu(listOfItems);
+		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
-void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUsers)
+void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 
@@ -303,7 +303,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUse
 		modifyUser();
 		break;
 	case 4:
-		displayAdminMenu(listOfItems);
+		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 	}
 }
 
