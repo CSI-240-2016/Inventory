@@ -11,7 +11,7 @@ void clubsInput() {
 	fstream fin;
 	fin.open(fileName);
 	if (fin.is_open()) {
-		while (fin.eof()) {
+		while (!fin.eof()) {
 			getline(fin, name);
 			club.setName(name);
 		}

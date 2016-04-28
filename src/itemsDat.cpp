@@ -3,6 +3,7 @@
 #include <fstream>
 #include "sellersDat.h"
 #include "Item.h"
+#include "itemsDat.h"
 using namespace std;
 
 void itemsInput() {
