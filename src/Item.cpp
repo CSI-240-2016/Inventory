@@ -76,6 +76,10 @@ void 	Item::setLocation(Location location) {
 	mLocation = location;
 }
 
+void	Item::setStatus(bool isIn) {
+	mIsIn = isIn;
+}
+
 bool 	Item::checkOut() {
 	if (isCheckedIn())
 		mIsIn = false;

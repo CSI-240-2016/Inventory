@@ -111,3 +111,25 @@ Seller& Seller::operator=(const Seller& sellerTwo)
 	this->mURL = sellerTwo.mURL;
 	return *this;
 }
+
+/* Pre: Name of seller two
+* Post: Check if seller name is equal to seller name two
+* Purpose: Compare seller name to another
+*********************************************************/
+
+bool Seller::operator==(string sellerTwo)
+{
+	return mName == sellerTwo;
+
+}
+
+/** Purpose: OVERLOAD Loads variables from a file stream
+ * PRE:  the file stream, the class instance
+ * POST: loads variables from stream, returns the stream
+ */
+ifstream& operator>>(ifstream& stream, Seller& obj) {
+	getline(stream, obj.mName);
+	getline(stream, obj.mURL);
+	stream >> obj.mAddress;
+	return stream;
+}

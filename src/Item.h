@@ -38,6 +38,7 @@ class Item {
 		void 	setNameOwner(string);
 		void 	setSource(Source);
 		void 	setLocation(Location);
+		void	setStatus(bool);
 		bool 	checkOut();
 		bool 	checkIn();
 		

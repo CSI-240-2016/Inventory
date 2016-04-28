@@ -1,16 +1,12 @@
+#include "IO_Users.h"
 
-#include "LinkedList.h"
-#include "User.h"
-#include <string>
-#include <fstream>
-#include <iostream>
-
-void loadUsers(LinkedList<string> &mData)
+void loadUsers(LinkedList<User> *mData)
 {
 	string junk;
 	string tmpName;
 	string tmpUsername;
 	string tmpPassword;
+	User user;
 
 	ifstream file;
 
@@ -18,27 +14,30 @@ void loadUsers(LinkedList<string> &mData)
 
 	if (file.is_open())
 	{
-		while (!file.eof())
+		do
 		{
-			
+
 			//First line is Name
-			getline(cin, tmpName);
+			getline(file,tmpName);
+
+			//Set name of user
+			user.setName(tmpName);
 			
-			//Change LinkedList by name of the list
-			mData.append(tmpName);
-
-			//Second line is username and password
+			//Get username and password
+			file >> tmpUsername >> tmpPassword;
 			
-			cin >> tmpUsername >> tmpPassword;
-			//Change LinkedList by name of the list
-			mData.append(tmpUsername);
+			//Set username and password of user
+			user.setUserName(tmpUsername);
+			user.setPassword(tmpPassword);
 
-			//Change LinkedList by name of the list
-			mData.append(tmpPassword);
-			getline(cin, junk);
-		}
+			//Add user to linkedlist
+			mData->append(user);
 
-	}
+			getline(file, junk);
+
+		} while (!file.eof());
+
+	} 
 
 	else
 	{
@@ -48,16 +47,16 @@ void loadUsers(LinkedList<string> &mData)
 	file.close();
 }
 
-void saveUsers(LinkedList<User> mData)
+void saveUsers(LinkedList<User> *mData)
 {
 	ofstream file;
 
-	file.open("user.dat",ios::out);
+	file.open("user.dat", ios::out);
 	Node<User> *tmp;
 	Node<User> *before;
 
-	tmp = mData.mHead;
-	before = mData.mHead;
+	tmp = mData->mHead;
+	before = mData->mHead;
 
 	if (file.is_open())
 	{

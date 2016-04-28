@@ -69,11 +69,13 @@ Log* searchByOutDate(Log* logs, int numLogs, Date outDate, int& retLength)
 	vector<Log> withDate;
 	for (int i = 0; i < numLogs; i++)
 	{
+		/* No operator overloaded for Data class
 		if (logs[i].getOutDate() == outDate)
 		{
 			withDate[retLength] = logs[i];
 			retLength++;
 		}
+		*/
 	}
 	return toArray(withDate);
 }
@@ -91,11 +93,13 @@ Log* searchByInDate(Log* logs, int numLogs, Date inDate, int& retLength)
 	vector<Log> withInDate;
 	for (int i = 0; i < numLogs; i++)
 	{
+		/* No operator overloaded for Data class
 		if (logs[i].getInDate() == inDate)
 		{
 			withInDate[retLength] = logs[i];
 			retLength++;
 		}
+		*/
 	}
 	return toArray(withInDate);
 }
@@ -113,11 +117,13 @@ Log* searchByExpectedInDate(Log* logs, int numLogs, Date expectedInDate, int& re
 	vector<Log> withExpectedDate;
 	for (int i = 0; i < numLogs; i++)
 	{
+		/* No operator overloaded for Data class
 		if (logs[i].getExpectedDate() == expectedInDate)
 		{
 			withExpectedDate[retLength] = logs[i];
 			retLength++;
 		}
+		*/
 	}
 	return toArray(withExpectedDate);
 }

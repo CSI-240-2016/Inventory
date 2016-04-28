@@ -67,7 +67,7 @@ void displaySearchMenu(LinkedList<Item> *listOfItems)
 		searchItem(listOfItems);
 		break;
 	case 3:
-		displayGeneralMenu();
+		displayGeneralMenu(listOfItems);
 	}
 }
 
@@ -106,11 +106,11 @@ void login(LinkedList<Item> *listOfItems)
 					password += temp;
 				}
 		#elif __APPLE__
-			password = getpass("Input password");
+			//password = getpass("Input password");
 		#elif __linux__
-			password = getpass("Input password");
+			//password = getpass("Input password");
 		#elif __unix__
-			password = getpass("Input password");
+			//password = getpass("Input password");
 		#endif
 
 		if (checkWords(username, password, listOfItems) == true)

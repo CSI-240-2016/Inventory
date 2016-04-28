@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -5,46 +6,72 @@
 #include "Item.h"
 #include "itemsDat.h"
 using namespace std;
+=======
+>>>>>>> ac308e5e2fe28cfbd3deb7df5f3cc9437d10d3ff
 
-void itemsInput() {
+#include "itemsDat.h"
+
+void itemsInput(LinkedList<Item> list) {
 	int serialNumber;
-	string name, type, club, sellerName, price, building, room, shelfSlot;
-	Item items;
+	string name, type, club, sellerName, building, room, shelfSlot;
+	double price;
+	Item item;
+	Seller seller;
 	bool status;
 	const string fileName = "items.dat";
-	fstream fin;
-	fin.open(fileName);
+	ifstream fin;
+	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
+		getline(fin, name); // read first line, must be empty
 		while (!fin.eof()) {
+			
+			// Item init variables
+			
 			fin >> serialNumber;
-			items.setSerial(serialNumber);
 			getline(fin, name);
-			items.setName(name);
+			
+			item = Item(serialNumber, name);
+			
+			// owning data
+			
 			getline(fin, type);
-			items.setNameType(type);
 			getline(fin, club);
-			items.setNameOwner(club);
+			
+			item.setNameType(type);
+			item.setNameOwner(club);
+			
+			// status
+			
 			fin >> status;
-			if (status == true)
-				items.checkIn();
-			else
-				items.checkOut();
+			getline(fin, building); // get rid of excess on this line
+			
+			item.setStatus(status);
+			
+			// location
+			
 			getline(fin, building);
-			items.getLocation.setBuilding(building);
 			getline(fin, room);
-			items.getLocation.setRoom(room);
 			getline(fin, shelfSlot);
-			items.getLocation.setCode(shelfSlot);
-			getline(fin, sellerName);
-			items.getSource.getSeller.setName(sellerName);
-			getline(fin, price);
-			items.getSource.setUnitPrice(price);
+			
+			item.setLocation(Location(building, room, shelfSlot));
+			
+			// source
+			
+			fin >> price;
+			getline(fin, sellerName); // clear the rest of the line
+			seller = Seller();
+			fin >> seller;
+			item.setSource(Source(price, seller));
+			
+			// append
+			
+			list.append(item);
 		}
 	}
 	fin.close();
 }
 
-void itemsOutput(int serialNumber,string name, string type, string club, string sellerName, string price, string building, string room, string shelfSlot, bool status) {
+void itemsOutput(int serialNumber,string name, string type, string club, string sellerName, double price, string building, string room, string shelfSlot, bool status) {
 	const string fileName = "items.dat";
 	ofstream fout;
 	fout.open(fileName, std::ios_base::app);

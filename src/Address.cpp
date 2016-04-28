@@ -3,9 +3,9 @@
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Address::Address() {
-	mNumberStreet = "";
+	mNumberStreet = 0;
 	mStreet = "";
-	mNumberApartment = "";
+	mNumberApartment = 0;
 	mCity = "";
 	mState = "";
 	mCountry = "";
@@ -14,7 +14,7 @@ Address::Address() {
 
 // ~~~~~ Accessors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-string 	Address::getNumberStreet() {
+int 	Address::getNumberStreet() {
 	return mNumberStreet;
 }
 
@@ -22,7 +22,7 @@ string 	Address::getStreet() {
 	return mStreet;
 }
 
-string 	Address::getNumberApartment() {
+int 	Address::getNumberApartment() {
 	return mNumberApartment;
 }
 
@@ -44,7 +44,7 @@ string 	Address::getZipCode() {
 
 // ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void 	Address::setNumberStreet(string str) {
+void 	Address::setNumberStreet(int str) {
 	mNumberStreet = str;
 }
 
@@ -52,7 +52,7 @@ void 	Address::setStreet(string str) {
 	mStreet = str;
 }
 
-void 	Address::setNumberApartment(string str) {
+void 	Address::setNumberApartment(int str) {
 	mNumberApartment = str;
 }
 
@@ -84,4 +84,24 @@ Address& Address::operator=(const Address& addressTwo)
 	this->mStreet = addressTwo.mStreet;
 	this->mZipCode = addressTwo.mZipCode;
 	return *this;
+}
+
+/** Purpose: OVERLOAD Loads variables from a file stream
+ * PRE:  the file stream, the class instance
+ * POST: loads variables from stream, returns the stream
+ */
+ifstream& operator>>(ifstream& stream, Address& obj) {
+	
+	stream
+		>> obj.mNumberStreet
+		>> obj.mNumberApartment
+	;
+	getline(stream, obj.mZipCode);
+	
+	getline(stream, obj.mStreet);
+	getline(stream, obj.mCity);
+	getline(stream, obj.mState);
+	getline(stream, obj.mCountry);
+	
+	return stream;
 }
