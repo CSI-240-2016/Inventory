@@ -49,8 +49,9 @@ void saveUsers(LinkedList<User> *list)
 	{
 		while (tmpNode != NULL) //While list not empty or not at the end
 		{
-			file << "\n" << tmpNode->mData;
+			file << tmpNode->mData;
 			tmpNode = tmpNode->mNext;
+			if (tmpNode != NULL) file << "\n";
 		}
 	}
 

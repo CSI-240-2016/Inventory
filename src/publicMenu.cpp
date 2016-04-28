@@ -229,13 +229,13 @@ void showInItems(LinkedList<Item> *listOfItems)
 
 	tmp = listOfItems->mHead;
 
-	while (tmp != NULL)
+	while (tmp != NULL) // check to see if there is a next item
 	{
-		if (tmp->mData.isCheckedIn() == true)
+		if (tmp->mData.isCheckedIn() == true) // if the item is checked in
 		{
 			cout << "Name: " << tmp->mData.getName()
 				<< "\nSerial Number: " << tmp->mData.getSerial()
-				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n"; // print out the information for the item
 		}
 		tmp = tmp->mNext;
 	}
@@ -249,11 +249,11 @@ void showOutItems(LinkedList<Item> *listOfItems)
 
 	while (tmp != NULL)
 	{
-		if (tmp->mData.isCheckedIn() == false)
+		if (tmp->mData.isCheckedIn() == false) // if the item is not checked in
 		{
 			cout << "Name: " << tmp->mData.getName()
 				<< "\nSerial Number: " << tmp->mData.getSerial()
-				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n";
+				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n"; // print out the information for the item
 		}
 		tmp = tmp->mNext;
 	}
