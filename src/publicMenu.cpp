@@ -25,10 +25,10 @@ void displayItemMenu(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		//showInItems();
+		showInItems(listOfItems);
 		break;
 	case 2:
-		//showOutItems();
+		showOutItems(listOfItems);
 		break;
 	case 3:
 		displayGeneralMenu(listOfItems);
