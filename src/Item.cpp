@@ -97,6 +97,23 @@ bool 	Item::checkIn() {
 /** PURPOSE: OVERLOAD Outputs variables to file stream
  */
 ofstream& operator<<(ofstream& stream, Item& obj) {
+	Source source = obj.getSource();
+	Seller seller = source.getSeller();
+	stream
+		<< obj.mSerialNumber << " " << obj.mName << "\n"
+		<< obj.mType << "\n"
+		<< obj.mOwner << "\n"
+		<< obj.mIsIn << "\n"
+		
+		<< obj.getLocation().getBuilding() << "\n"
+		<< obj.getLocation().getRoom() << "\n"
+		<< obj.getLocation().getCode() << "\n"
+		
+		<< source.getUnitPrice() << "\n"
+		<< seller.getName() << "\n"
+		<< seller.getURL() << "\n"
+	;
+	stream << seller.getAddress();
 	
 	return stream;
 }

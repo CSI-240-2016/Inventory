@@ -67,9 +67,9 @@ void saveItems(LinkedList<Item> *list) {
 	if (file.is_open()) {
 		Node<Item> *tmpNode = list->mHead;
 		while (tmpNode != NULL) {
-			//file << 
+			file << tmpNode->mData;
 			tmpNode = tmpNode->mNext;
-			
+			if (tmpNode != NULL) file << "\n";
 		}
 	}
 	
