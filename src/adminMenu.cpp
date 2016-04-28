@@ -300,7 +300,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUse
 		removeUser(listOfUsers);
 		break;
 	case 3:
-		modifyUser();
+		modifyUser(listOfUsers);
 		break;
 	case 4:
 		displayAdminMenu(listOfItems);
@@ -328,20 +328,22 @@ void removeItem(LinkedList<Item> *listOfItems)
 {
 	int serialNumber;
 
+	//The user is prompted for the serial number of the item that they want removed
 	cout << "Please enter the serial no. of the item to remove:\n\n";
 	cin >> serialNumber;
 
-	//call remove function for linked list
+	removeByItem_Serial(listOfItems, serialNumber); //This function passes the list of items and serial no. of the item to be removed
 }
 
 void removeUser(LinkedList<User> *listOfUsers)
 {
-	string name; 
+	string username; 
 
-	cout << "Please enter the name of the user to remove:\n\n";
-	getline(cin, name);
+	//The user is prompted for the username of the user that they want removed
+	cout << "Please enter the username of the user to remove:\n\n";
+	getline(cin, username);
 
-	//call remove function for linked list 
+	removeByUser_UserName(listOfUsers, username); //This function passes the list of user and username of the user to be removed
 }
 
 void modifyClub(LinkedList<Club> *listOfClubs)
@@ -376,7 +378,7 @@ void modifyItem(LinkedList<Item> *listOfItems)
 {
 }
 
-void modifyUser()
+void modifyUser(LinkedList<User> *listOfUsers)
 {
 }
 

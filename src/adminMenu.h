@@ -25,7 +25,7 @@ void removeItem(LinkedList<Item> *);
 void removeUser(LinkedList<User> *listOfUsers);
 void modifyClub(LinkedList<Item> *listOfClubs);
 void modifyItem(LinkedList<Item> *);
-void modifyUser();
+void modifyUser(LinkedList<User> *listOfUsers);
 void showAllItems(LinkedList<Item> *listOfItems);
 //bool validateStr(string str);
 
