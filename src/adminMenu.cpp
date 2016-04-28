@@ -2,17 +2,15 @@
 
 void addClub(LinkedList<Club> *listOfClubs)
 {
-	/*string nameOfClub;
+	string nameOfClub;
 	Node<Club> *current = listOfClubs->mHead;
 	Node<Club> *previous = NULL;
 
 	cout << "What is the name of the club you wish to add?"; // ask for the name of the club
 	getline(cin, nameOfClub); // take the whole line as the name
 
-	while (current != NULL) // run through the list until there are no more nodes
-	{
-
-	}*/
+	Club newClub(nameOfClub);
+	
 
 
 	
