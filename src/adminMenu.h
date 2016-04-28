@@ -12,7 +12,7 @@
 
 using namespace std;
 
-void addClub(LinkedList<Item> *listOfClubs);
+void addClub(LinkedList<Club> *listOfClubs);
 void addUser(LinkedList<User> *listOfUsers);
 void addItem(LinkedList<Item> *listOfItems);
 void checkInOut(LinkedList<Item> *listOfItems);
@@ -21,10 +21,10 @@ void displayAdminItem(LinkedList<Item> *listOfItems);
 void displayAdminSearch(LinkedList<Item> *listOfItems);
 void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUsers);
 void exportExcel();
-void removeClub(LinkedList<Item> *listOfClubs);
+void removeClub(LinkedList<Club> *listOfClubs);
 void removeItem(LinkedList<Item> *);
 void removeUser(LinkedList<User> *listOfUsers);
-void modifyClub(LinkedList<Item> *listOfClubs);
+void modifyClub(LinkedList<Club> *listOfClubs);
 void modifyItem(LinkedList<Item> *);
 void modifyUser(LinkedList<User> *listOfUsers);
 void showAllItems(LinkedList<Item> *listOfItems);
