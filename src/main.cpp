@@ -2,9 +2,8 @@
 #include "LinkedList.h"
 #include "Item.h"
 #include "Log.h"
-#include "IO_Users.h"
 #include "User.h"
-#include <fstream>
+#include "IO_Users.h"
 
 using namespace std;
 
@@ -38,7 +37,7 @@ int main() {
 	
 	// ~~~~~ Start: Save Data
 	
-	//saveUsers(listUsers);
+	saveUsers(listUsers);
 	
 	// ~~~~~~~ End: Save Data
 	
