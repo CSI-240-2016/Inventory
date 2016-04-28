@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-#include <string>
-#include <iostream>
-#include <fstream>
-#include "sellersDat.h"
-#include "Item.h"
-#include "itemsDat.h"
-using namespace std;
-=======
->>>>>>> ac308e5e2fe28cfbd3deb7df5f3cc9437d10d3ff
 
 #include "itemsDat.h"
 

@@ -70,7 +70,7 @@ void displayAdminMenu(LinkedList<Item> *listOfItems)
 		displayAdminClub(listOfItems);
 		break;
 	case 4:
-		displayAdminUser(listOfItems);
+		//displayAdminUser(listOfItems);
 		break;
 	case 5:
 		displayAdminSearch(listOfItems);

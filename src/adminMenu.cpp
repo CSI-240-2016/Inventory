@@ -28,7 +28,7 @@ void addItem(LinkedList<Item> *listOfItems)
 	Node<Item> *tmp, *oneBefore;
 	int serialNumber;
 	double price;
-	string name, type, club = "SGA", sellerName, building, room, shelfSlot, sellerAddress, sellerURL, junk;
+	string name, type, club = "SGA", sellerName, building, room, shelfSlot, sellerURL, junk;
 	bool status = true;
 
 	cout << "Enter the serial number of the new item: ";
