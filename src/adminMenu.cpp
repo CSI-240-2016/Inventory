@@ -10,7 +10,7 @@ void addClub(LinkedList<Club> *listOfClubs)
 	getline(cin, nameOfClub); // take the whole line as the name
 
 	Club newClub(nameOfClub);
-	
+	listOfClubs->append(newClub);
 
 
 	
@@ -147,7 +147,7 @@ void checkInOut(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminClub(LinkedList<Item> *listOfItems)
+void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs)
 {
 	int choice = 0;
 
@@ -172,13 +172,13 @@ void displayAdminClub(LinkedList<Item> *listOfItems)
 	switch (choice)
 	{
 	case 1:
-		//addClub(listOfClubs);
+		addClub(listOfClubs);
 		break;
 	case 2:
-		//removeClub(listOfClubs);
+		removeClub(listOfClubs);
 		break;
 	case 3:
-		//modifyClub(listOfClubs);
+		modifyClub(listOfClubs);
 		break;
 	case 4:
 		displayAdminMenu(listOfItems);
@@ -235,7 +235,7 @@ void displayAdminItem(LinkedList<Item> *listOfItems)
 	}
 }
 
-void displayAdminSearch(LinkedList<Item> *listOfItems)
+void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs)
 {
 	int choice = 0;
 
@@ -313,8 +313,8 @@ void exportExcel()
 
 void removeClub(LinkedList<Club> *listOfClubs)
 {
-	/*Node<Club> *current = listOfClubs->mHead;
-	Node<Club> *previous = NULL;*/
+	Node<Club> *current = listOfClubs->mHead;
+	Node<Club> *previous = NULL;
 
 }
 

@@ -1,7 +1,7 @@
 
 #include "itemsDat.h"
 
-void itemsInput(LinkedList<Item> list) {
+void itemsInput(LinkedList<Item> *list) {
 	int serialNumber;
 	string name, type, club, sellerName, building, room, shelfSlot;
 	double price;
@@ -55,7 +55,7 @@ void itemsInput(LinkedList<Item> list) {
 			
 			// append
 			
-			list.append(item);
+			list->append(item);
 		}
 	}
 	fin.close();

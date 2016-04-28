@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "User.h"
 #include "IO_Users.h"
+#include "itemsDat.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ int main() {
 	// ~~~~~ Start: Load Data
 	
 	loadUsers(listUsers);
+	itemsInput(listItems);
 	
 	// ~~~~~~~ End: Load Data
 	
