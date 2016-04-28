@@ -4,6 +4,7 @@
 #include "Log.h"
 #include "IO_Users.h"
 #include "User.h"
+#include <fstream>
 
 using namespace std;
 
@@ -31,11 +32,13 @@ int main() {
 	
 	// ~~~~~ Start: Run
 	
+	printUsers(listUsers);
+	
 	// ~~~~~~~ End: Run
 	
 	// ~~~~~ Start: Save Data
 	
-	saveUsers(listUsers);
+	//saveUsers(listUsers);
 	
 	// ~~~~~~~ End: Save Data
 	
