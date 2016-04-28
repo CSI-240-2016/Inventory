@@ -326,7 +326,10 @@ void removeClub(LinkedList<Club> *listOfClubs)
 
 void removeItem(LinkedList<Item> *listOfItems)
 {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d16fc84f3673d5d6a22ba158d503e0fda1ebcb0a
 	int serialNumber;
 
 	//The user is prompted for the serial number of the item that they want removed
@@ -334,7 +337,10 @@ void removeItem(LinkedList<Item> *listOfItems)
 	cin >> serialNumber;
 
 	removeByItem_Serial(listOfItems, serialNumber); //This function passes the list of items and serial no. of the item to be removed
+<<<<<<< HEAD
 
+=======
+>>>>>>> d16fc84f3673d5d6a22ba158d503e0fda1ebcb0a
 }
 
 void removeUser(LinkedList<User> *listOfUsers)

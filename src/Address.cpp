@@ -105,3 +105,16 @@ ifstream& operator>>(ifstream& stream, Address& obj) {
 	
 	return stream;
 }
+
+ofstream& operator<<(ofstream& stream, Address& obj) {
+	stream
+		<< obj.mNumberStreet << " "
+			<< obj.mNumberApartment << " "
+			<< obj.mZipCode << "\n"
+		<< obj.mStreet << "\n"
+		<< obj.mCity << "\n"
+		<< obj.mState << "\n"
+		<< obj.mCountry
+	;
+	return stream;
+}
