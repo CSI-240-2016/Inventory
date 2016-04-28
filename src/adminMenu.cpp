@@ -306,7 +306,7 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<User> *listOfUse
 		addUser(listOfUsers);
 		break;
 	case 2:
-		removeUser();
+		removeUser(listOfUsers);
 		break;
 	case 3:
 		modifyUser();
@@ -331,8 +331,14 @@ void removeItem(LinkedList<Item> *listOfItems)
 {
 }
 
-void removeUser()
+void removeUser(LinkedList<User> *listOfUsers)
 {
+	string name; 
+
+	cout << "Please enter the name of the user to remove:\n\n";
+	getline(cin, name);
+
+	//call remove function for linked list 
 }
 
 void modifyClub(LinkedList<Club> *listOfClubs)
