@@ -44,3 +44,10 @@ void Club::setName(string name)
 {
 	mClubName = name;
 }
+
+/** PURPOSE: OVERLOAD Outputs variables to file stream
+ */
+ofstream& operator<<(ofstream& stream, Club& obj) {
+	stream << obj.mClubName;
+	return stream;
+}
