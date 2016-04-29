@@ -2,12 +2,6 @@
 #define PUBLICMENU_H
 
 #include "common.h"
-#include <iomanip>
-#include <string>
-//#include <curses.h>
-#include "LinkedList.h"
-#include "Item.h"
-#include "club.h"
 #include "IO_Users.h"
 #ifdef _WIN32
 	#include <conio.h>

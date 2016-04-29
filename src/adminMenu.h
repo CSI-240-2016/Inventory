@@ -3,12 +3,9 @@
 
 #include "publicMenu.h"
 #include "common.h"
-#include "Item.h"
-#include "club.h"
 #include "clubsDat.h"
 #include "itemsDat.h"
 #include "IO_Users.h"
-#include "LinkedList.h"
 
 using namespace std;
 
