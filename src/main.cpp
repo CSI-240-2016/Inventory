@@ -38,7 +38,7 @@ int main() {
 	printUsers(listUsers);
 	printItems(listItems);
 	
-	//displayGeneralMenu(listItems, listClubs, listUsers);
+	displayGeneralMenu(listItems, listClubs, listUsers);
 	
 	// ~~~~~~~ End: Run
 	

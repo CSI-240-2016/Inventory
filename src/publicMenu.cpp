@@ -82,57 +82,45 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 {
 	string password, username;
 	char temp;
-	ifstream datafile;
-	datafile.open("users.txt");
+	
+	cout << "Input username" << endl;
+	getline(cin, username);
+	//getline(cin, password);
 
-	if (!datafile.is_open())
+	//Password Masking
+	#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
+		temp = _getch();
+		while(temp != '\r')
+			{
+				cout << "Input password" << endl;
+
+				temp = _getch();
+				if (temp == '\r')
+					break;
+				std::cout << "*";
+				password += temp;
+			}
+	#elif __APPLE__
+		//password = getpass("Input password");
+	#elif __linux__
+		//password = getpass("Input password");
+	#elif __unix__
+		//password = getpass("Input password");
+	#endif
+
+	if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
 	{
-		cout << "One of the files does not exist." << endl;
+		clearScreen();
+		cout << "You logged in!" << endl;
+		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
 		system("pause");
-
 	}
 
 	else
 	{
-		cout << "Input username" << endl;
-		getline(cin, username);
-		//getline(cin, password);
-
-		//Password Masking
-		#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
-			temp = _getch();
-			while(temp != '\r')
-				{
-					cout << "Input password" << endl;
-
-					temp = _getch();
-					if (temp == '\r')
-						break;
-					std::cout << "*";
-					password += temp;
-				}
-		#elif __APPLE__
-			//password = getpass("Input password");
-		#elif __linux__
-			//password = getpass("Input password");
-		#elif __unix__
-			//password = getpass("Input password");
-		#endif
-
-		if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
-		{
-			clearScreen();
-			cout << "You logged in!" << endl;
-			displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
-			system("pause");
-		}
-
-		else
-		{
-			cout << "This is not a valid login." << endl;
-			login(listOfItems, listOfClubs, listOfUsers);
-			return;
-		}
+		cout << "This is not a valid login." << endl;
+		login(listOfItems, listOfClubs, listOfUsers);
+		return;
 	}
 }
 
