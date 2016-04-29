@@ -82,7 +82,7 @@ void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 		displayAdminSearch(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 6:
-		exportExcel();
+		exportExcel(listOfItems);
 		break;
 	case 7:
 		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
