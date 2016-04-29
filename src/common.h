@@ -26,11 +26,14 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 using namespace std;
 
 void clearScreen();
-void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
-void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
-void displayLogo();
-void pause();
 
+void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
+
+void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
+
+void displayLogo();
+
+void pause();
 
 #endif
 
