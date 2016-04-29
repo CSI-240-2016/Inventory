@@ -86,10 +86,6 @@ Address& Address::operator=(const Address& addressTwo)
 	return *this;
 }
 
-/** Purpose: OVERLOAD Loads variables from a file stream
- * PRE:  the file stream, the class instance
- * POST: loads variables from stream, returns the stream
- */
 ifstream& operator>>(ifstream& stream, Address& obj) {
 	
 	stream
