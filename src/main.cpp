@@ -37,12 +37,15 @@ int main() {
 	
 	// ~~~~~ Start: Run
 	
-	printUsers(listUsers);
-	printItems(listItems);
-	printClubs(listClubs);
-	printLogs(listLogs);
+	//printUsers(listUsers);
+	//printItems(listItems);
+	//printClubs(listClubs);
+	//printLogs(listLogs);
 	
-	//displayGeneralMenu(listItems, listClubs, listUsers);
+	bool shouldContinue = true;
+	do {
+		shouldContinue = displayGeneralMenu(listItems, listClubs, listUsers);
+	} while (shouldContinue);
 	
 	// ~~~~~~~ End: Run
 	

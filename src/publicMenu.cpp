@@ -19,14 +19,15 @@ void displayItemMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClub
 	cout << setw(12) << right << "2.) " << left << "Show Out Items\n";
 	cout << setw(12) << right << "3.) " << left << "Return to Menu\n";
 
-	cout << setw(28) << right << "Please enter a choice: ";
-	cin >> choice;
-
-	while ((choice < 1) || (choice > 3))
-	{
-		cout << setw(28) << right << "Invalid... Enter choice: ";
+	string junk;
+	
+	do {
+		cout << setw(28) << right << "Please enter a choice: ";
 		cin >> choice;
-	}
+		getline(cin, junk);
+		if (choice < 1 || choice > 3)
+			cout << setw(28) << right << "Invalid...\n";
+	} while(choice < 1 || choice > 3);
 
 	switch (choice)
 	{
@@ -54,15 +55,15 @@ void displaySearchMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfCl
 	cout << setw(12) << right << "1.) " << left << "Search for a Club\n";
 	cout << setw(12) << right << "2.) " << left << "Search for an Item\n";
 	cout << setw(12) << right << "3.) " << left << "Return to Menu\n";
-
-	cout << setw(28) << right << "Please enter a choice: ";
-	cin >> choice;
-
-	while ((choice < 1) || (choice > 3))
-	{
-		cout << setw(28) << right << "Invalid... Enter choice: ";
+	
+	string junk;
+	do {
+		cout << setw(28) << right << "Please enter a choice: ";
 		cin >> choice;
-	}
+		getline(cin, junk); // get rid of anything else in the line
+		if (choice < 1 || choice > 3)
+			cout << setw(28) << right << "Invalid...\n";
+	} while (choice < 1 || choice > 3);
 
 	switch (choice)
 	{
@@ -242,17 +243,34 @@ void showInItems(LinkedList<Item> *listOfItems)
 	Node<Item> *tmp;
 
 	tmp = listOfItems->mHead;
-
+	
+	cout << "\n";
+	
+	if (tmp == NULL) {
+		cout << "There are no items\n";
+		pause();
+		return;
+	}
+	
+	int quantityItemsIn = 0;
 	while (tmp != NULL) // check to see if there is a next item
 	{
 		if (tmp->mData.isCheckedIn() == true) // if the item is checked in
 		{
-			cout << "Name: " << tmp->mData.getName()
-				<< "\nSerial Number: " << tmp->mData.getSerial()
-				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n"; // print out the information for the item
+			quantityItemsIn++;
+			cout
+				<< "Name:\t"	<< tmp->mData.getName()		<< "\n"
+				<< "Serial:\t"	<< tmp->mData.getSerial()	<< "\n"
+			;
 		}
 		tmp = tmp->mNext;
 	}
+	
+	if (quantityItemsIn <= 0) {
+		cout << "There are no items in\n";
+	}
+	
+	pause();
 }
 
 void showOutItems(LinkedList<Item> *listOfItems)

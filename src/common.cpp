@@ -27,6 +27,7 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 
 void clearScreen()
 {
+	return;
 	#ifdef _WIN32
 		system("CLS");
 	#elif __APPLE__
@@ -89,7 +90,7 @@ void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 	}
 }
 
-void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
+bool displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
 	string junk;
@@ -127,8 +128,9 @@ void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 		break;
 	default:
 		//Shutdown
-		break;
+		return false;
 	}
+	return true;
 }
 
 void displayLogo()
@@ -145,13 +147,17 @@ void displayLogo()
 
 void pause()
 {
+	cout << "Press ENTER to continue...";
 	#ifdef _WIN32
 		system("pause");
 	#elif __APPLE__
-		system("read");
+		//system("read");
+		cin.get();
 	#elif __linux__
-		system("read");
+		//system("read");
+		cin.get();
 	#elif __unix__
-		system("read");
+		//system("read");
+		cin.get();
 	#endif
 }
