@@ -13,7 +13,7 @@ void itemsInput(LinkedList<Item> *list) {
 	fin.open(fileName, ios::in);
 	if (fin.is_open()) {
 		while (fin >> serialNumber) {
-			
+			fin.get(); // get rid of space
 			// Item init variables
 			getline(fin, name);
 			

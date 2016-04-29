@@ -92,6 +92,7 @@ ifstream& operator>>(ifstream& stream, Address& obj) {
 		>> obj.mNumberStreet
 		>> obj.mNumberApartment
 	;
+	stream.get(); // get rid of extra space
 	getline(stream, obj.mZipCode);
 	
 	getline(stream, obj.mStreet);

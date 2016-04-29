@@ -276,19 +276,36 @@ void showInItems(LinkedList<Item> *listOfItems)
 void showOutItems(LinkedList<Item> *listOfItems)
 {
 	Node<Item> *tmp;
-	
-	tmp = listOfItems->mHead;
 
-	while (tmp != NULL)
+	tmp = listOfItems->mHead;
+	
+	cout << "\n";
+	
+	if (tmp == NULL) {
+		cout << "There are no items\n";
+		pause();
+		return;
+	}
+	
+	int quantityItemsIn = 0;
+	while (tmp != NULL) // check to see if there is a next item
 	{
-		if (tmp->mData.isCheckedIn() == false) // if the item is not checked in
+		if (tmp->mData.isCheckedIn() == false) // if the item is checked out
 		{
-			cout << "Name: " << tmp->mData.getName()
-				<< "\nSerial Number: " << tmp->mData.getSerial()
-				<< "\nStatus: " << tmp->mData.isCheckedIn() << "\n\n"; // print out the information for the item
+			quantityItemsIn++;
+			cout
+				<< "Name:\t"	<< tmp->mData.getName()		<< "\n"
+				<< "Serial:\t"	<< tmp->mData.getSerial()	<< "\n"
+			;
 		}
 		tmp = tmp->mNext;
 	}
+	
+	if (quantityItemsIn <= 0) {
+		cout << "There are no items out\n";
+	}
+	
+	pause();
 }
 
 bool checkWords(string username, string password, LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
