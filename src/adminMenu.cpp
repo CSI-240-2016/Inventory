@@ -440,6 +440,62 @@ void modifyItem(LinkedList<Item> *listOfItems)
 
 void modifyUser(LinkedList<User> *listOfUsers)
 {
+	//name, username, password
+	string username, reply, modification;
+	Node<User> *tmp;
+
+	cout << "What is the username of the user you wish to modify?\n\n";
+	getline(cin, username);
+
+	tmp = listOfUsers->mHead;
+
+	while (tmp != NULL)
+	{
+		if (tmp->mData.getUserName() == username)
+		{
+			break;
+		}
+		else
+		{
+			tmp = tmp->mNext;
+		}
+	}
+
+	if (tmp == NULL)
+	{
+		cout << "That user does not exist.\n\n";
+	}
+	else
+	{
+		cout << "Would you like to modify the name, username, or password?\n\n";
+		getline(cin, reply);
+
+		if (reply == "name")
+		{
+			cout << "What is the new name?\n\n";
+			getline(cin, modification);
+
+			tmp->mData.setName(modification);
+		}
+		else if (reply == "username")
+		{
+			cout << "What is the new username?\n\n";
+			getline(cin, modification);
+
+			tmp->mData.setUserName(modification);
+		}
+		else if (reply == "password")
+		{
+			cout << "What is the new password?\n\n";
+			getline(cin, modification);
+
+			tmp->mData.setPassword(modification);
+		}
+		else
+		{
+			cout << "Invalid selection.\n\n";
+		}
+	}
 }
 
 void showAllItems(LinkedList<Item> *listOfItems)
