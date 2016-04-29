@@ -82,6 +82,7 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 {
 	string password, username;
 	char temp;
+	Node<User> *tmp;
 	
 	cout << "Input username" << endl;
 	getline(cin, username);
@@ -108,20 +109,38 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 		//password = getpass("Input password");
 	#endif
 
-	if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
+	tmp = listOfUsers->mHead;
+
+	while (tmp != NULL)
 	{
-		clearScreen();
-		cout << "You logged in!" << endl;
-		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
-		system("pause");
+		if ((tmp->mData.getUserName() == username) && (tmp->mData.getPassword() == password))
+		{
+			clearScreen();
+			cout << "You logged in!" << endl;
+			displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+			break;
+		}
+
+		tmp = tmp->mNext;
 	}
 
-	else
-	{
-		cout << "This is not a valid login." << endl;
-		login(listOfItems, listOfClubs, listOfUsers);
-		return;
-	}
+	cout << "This is not a valid login." << endl;
+	login(listOfItems, listOfClubs, listOfUsers);
+
+	//if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
+	//{
+	//	clearScreen();
+	//	cout << "You logged in!" << endl;
+	//	displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+	//	system("pause");
+	//}
+
+	//else
+	//{
+	//	cout << "This is not a valid login." << endl;
+	//	login(listOfItems, listOfClubs, listOfUsers);
+	//	return;
+	//}
 }
 
 
