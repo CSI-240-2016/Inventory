@@ -27,7 +27,7 @@ void addClub(LinkedList<Club> *listOfClubs)
 	Club newClub(nameOfClub);
 	listOfClubs->append(newClub); // add the club to the linked list
 
-
+	saveClubs(listOfClubs);
 	
 }
 
@@ -87,7 +87,8 @@ void addItem(LinkedList<Item> *listOfItems)
 
 	listOfItems->append(item);  //Adds new item to the end of the list
 
-	itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);  // File Output
+	saveItems(listOfItems);
+	//itemsOutput(serialNumber, name, type, club, sellerName, price, building, room, shelfSlot, status);  // File Output
 }
 
 void addUser(LinkedList<User> *listOfUsers)
@@ -112,6 +113,8 @@ void addUser(LinkedList<User> *listOfUsers)
 
 	//The new user is added to the list of users
 	listOfUsers->append(newUser);
+	
+	saveUsers(listOfUsers);
 }
 
 void checkInOut(LinkedList<Item> *listOfItems)
@@ -187,6 +190,8 @@ void checkInOut(LinkedList<Item> *listOfItems)
 			cout << "The item has been checked in.\n\n";
 		}
 	}
+	
+	saveItems(listOfItems);
 	
 	pause();
 }
@@ -425,7 +430,7 @@ void removeClub(LinkedList<Club> *listOfClubs)
 
 
 	removeByClub_Name(listOfClubs, removeClub); // This function passes the list of clubs and the name of the club to be removed.
-			
+	saveClubs(listOfClubs);
 }
 
 void removeItem(LinkedList<Item> *listOfItems)
@@ -437,6 +442,7 @@ void removeItem(LinkedList<Item> *listOfItems)
 	cin >> serialNumber;
 
 	removeByItem_Serial(listOfItems, serialNumber); //This function passes the list of items and serial no. of the item to be removed
+	saveItems(listOfItems);
 }
 
 void removeUser(LinkedList<User> *listOfUsers)
@@ -448,6 +454,7 @@ void removeUser(LinkedList<User> *listOfUsers)
 	getline(cin, username);
 
 	removeByUser_UserName(listOfUsers, username); //This function passes the list of user and username of the user to be removed
+	saveUsers(listOfUsers);
 }
 
 void modifyClub(LinkedList<Club> *listOfClubs)
@@ -475,6 +482,8 @@ void modifyClub(LinkedList<Club> *listOfClubs)
 		}
 
 	}
+	
+	saveClubs(listOfClubs);
 
 }
 
@@ -545,6 +554,8 @@ void modifyUser(LinkedList<User> *listOfUsers)
 			cout << "Invalid selection.\n\n";
 		}
 	}
+	
+	saveUsers(listOfUsers);
 }
 
 void showAllItems(LinkedList<Item> *listOfItems)

@@ -27,7 +27,7 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 
 void clearScreen()
 {
-	return;
+	//return;
 	#ifdef _WIN32
 		system("CLS");
 	#elif __APPLE__
