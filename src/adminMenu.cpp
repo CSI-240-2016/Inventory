@@ -25,7 +25,7 @@ void addClub(LinkedList<Club> *listOfClubs)
 	getline(cin, nameOfClub); // take the whole line as the name
 
 	Club newClub(nameOfClub);
-	listOfClubs->append(newClub);
+	listOfClubs->append(newClub); // add the club to the linked list
 
 
 	
@@ -230,10 +230,10 @@ void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 	switch (choice)
 	{
 	case 1:
-		//showInItems();
+		showInItems(listOfItems);
 		break;
 	case 2:
-		//showOutItems();
+		showOutItems(listOfItems);
 		break;
 	case 3:
 		showAllItems(listOfItems);
@@ -376,12 +376,12 @@ void removeClub(LinkedList<Club> *listOfClubs)
 {
 	Node<Club> *current = listOfClubs->mHead;
 	Node<Club> *previous = NULL;
-	string removeClub;
+	string removeClub; // The user is prompted for the name of the club they would like to remove.
 	cout << "What is the name of the club you would like to remove?" << endl;
 	getline(cin, removeClub);
 
 
-	removeByClub_Name(listOfClubs, removeClub);
+	removeByClub_Name(listOfClubs, removeClub); // This function passes the list of clubs and the name of the club to be removed.
 			
 }
 
@@ -422,9 +422,9 @@ void modifyClub(LinkedList<Club> *listOfClubs)
 
 	while (current != NULL) // run through the list until there are no more nodes
 	{
-		if (current->mData.getName() == currentName) 
+		if (current->mData.getName() == currentName)  // if the current name is found
 		{
-			current->mData.setName(changeName);
+			current->mData.setName(changeName);  // change to the new name
 		}
 		else
 		{

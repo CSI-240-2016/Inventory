@@ -282,11 +282,11 @@ bool checkWords(string username, string password, LinkedList<Item> *listOfItems,
 
 
 
-	if (!datafile.is_open())
+	if (!datafile.is_open()) // check if the file is actually in the folder
 	{
 		cout << "One of the files does not exist." << endl;
 		system("pause");
-		login(listOfItems, listOfClubs, listOfUsers);
+		login(listOfItems, listOfClubs, listOfUsers); // if not go back to log in
 	}
 	else
 	{
@@ -294,10 +294,10 @@ bool checkWords(string username, string password, LinkedList<Item> *listOfItems,
 		while (!datafile.eof())
 		{
 			datafile >> tempPass;
-			if (username == tempName && password == tempPass)
+			if (username == tempName && password == tempPass) // check if the username and password are the same as in the file
 			{
 				datafile.close();
-				return true;
+				return true; // return true if they are
 			}
 			else
 			{
@@ -305,7 +305,7 @@ bool checkWords(string username, string password, LinkedList<Item> *listOfItems,
 			}
 		}
 		datafile.close();
-		return false;
+		return false; // return false if they are not
 	}
 }
 
