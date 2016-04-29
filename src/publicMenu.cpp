@@ -81,13 +81,14 @@ void displaySearchMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfCl
 void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	string password, username;
-	char temp;
+	Node<User> *tmp;
 	
-	cout << "Input username" << endl;
+	cout << "Input username: ";
 	getline(cin, username);
-	//getline(cin, password);
+	cout << "Input password: ";
+	getline(cin, password);
 
-	//Password Masking
+	/*Password Masking
 	#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
 		temp = _getch();
 		while(temp != '\r')
@@ -107,21 +108,40 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 	#elif __unix__
 		//password = getpass("Input password");
 	#endif
+	*/
 
-	if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
+	tmp = listOfUsers->mHead;
+
+	while (tmp != NULL)
 	{
-		clearScreen();
-		cout << "You logged in!" << endl;
-		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
-		system("pause");
+		if ((tmp->mData.getUserName() == username) && (tmp->mData.getPassword() == password))
+		{
+			clearScreen();
+			cout << "You logged in!" << endl;
+			displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+			break;
+		}
+
+		tmp = tmp->mNext;
 	}
 
-	else
-	{
-		cout << "This is not a valid login." << endl;
-		login(listOfItems, listOfClubs, listOfUsers);
-		return;
-	}
+	cout << "This is not a valid login." << endl;
+	login(listOfItems, listOfClubs, listOfUsers);
+
+	//if (checkWords(username, password, listOfItems, listOfClubs, listOfUsers) == true)
+	//{
+	//	clearScreen();
+	//	cout << "You logged in!" << endl;
+	//	displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+	//	system("pause");
+	//}
+
+	//else
+	//{
+	//	cout << "This is not a valid login." << endl;
+	//	login(listOfItems, listOfClubs, listOfUsers);
+	//	return;
+	//}
 }
 
 
