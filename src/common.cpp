@@ -16,6 +16,12 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 */
 
 #include "common.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <cctype>
+
 #include "publicMenu.h"
 #include "adminMenu.h"
 
@@ -111,7 +117,7 @@ void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 		displayItemMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 2:
-		displaySearchMenu(listOfItems, listOfClubs, listOfUsers);
+		//displaySearchMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 3:
 		login(listOfItems, listOfClubs, listOfUsers);

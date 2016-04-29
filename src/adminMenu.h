@@ -1,11 +1,10 @@
 #ifndef ADMINMENU_H
 #define ADMINMENU_H
 
-#include "publicMenu.h"
-#include "common.h"
-#include "clubsDat.h"
-#include "itemsDat.h"
-#include "IO_Users.h"
+#include "Item.h"
+#include "club.h"
+#include "User.h"
+#include "LinkedList.h"
 
 using namespace std;
 

@@ -2,7 +2,6 @@
 #define PUBLICMENU_H
 
 #include "common.h"
-#include "IO_Users.h"
 #ifdef _WIN32
 	#include <conio.h>
 #endif

@@ -1,4 +1,19 @@
+
 #include "adminMenu.h"
+
+#include "common.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <cctype>
+
+#include "publicMenu.h"
+#include "clubsDat.h"
+#include "itemsDat.h"
+#include "IO_Users.h"
+
+#include "LinkedListHelper.h"
 
 void addClub(LinkedList<Club> *listOfClubs)
 {

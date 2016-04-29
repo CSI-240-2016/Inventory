@@ -18,11 +18,6 @@ a copy of this assignment on its database for the purpose of future plagiarism c
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <iomanip>
-#include <cctype>
 #include "Item.h"
 #include "club.h"
 #include "User.h"
