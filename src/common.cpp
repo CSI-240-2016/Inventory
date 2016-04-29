@@ -92,6 +92,7 @@ void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
+	string junk;
 
 	clearScreen();
 	displayLogo();
@@ -104,11 +105,13 @@ void displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 4))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)

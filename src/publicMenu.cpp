@@ -81,14 +81,14 @@ void displaySearchMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfCl
 void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	string password, username;
-	char temp;
 	Node<User> *tmp;
 	
-	cout << "Input username" << endl;
+	cout << "Input username: ";
 	getline(cin, username);
-	//getline(cin, password);
+	cout << "Input password: ";
+	getline(cin, password);
 
-	//Password Masking
+	/*Password Masking
 	#ifdef _WIN32  //For Windows (conio.h is only included if on a window OS)
 		temp = _getch();
 		while(temp != '\r')
@@ -108,6 +108,7 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 	#elif __unix__
 		//password = getpass("Input password");
 	#endif
+	*/
 
 	tmp = listOfUsers->mHead;
 
