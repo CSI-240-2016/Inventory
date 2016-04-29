@@ -346,7 +346,7 @@ void exportExcel(LinkedList<Item> *listOfItems)
 			exOut << current->mData.getName() << nextCell
 				<< current->mData.getNameType() << nextCell
 				<< current->mData.getNameOwner() << nextCell
-				<< current->mData.getSource.getName() << nextCell
+				<< current->mData.getSource().getName() << nextCell
 				<< current->mData.isCheckedIn() << nextCell
 				<< current->mData.getSerial() << endl;
 
