@@ -40,9 +40,10 @@ void clearScreen()
 }
 
 
-void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
+bool displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
+	string junk;
 
 	clearScreen();
 	displayLogo();
@@ -58,11 +59,13 @@ void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 7))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)
@@ -86,8 +89,10 @@ void displayAdminMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 		exportExcel(listOfItems);
 		break;
 	case 7:
-		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
+		//displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
+		return true;
 	}
+	return false;
 }
 
 bool displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
@@ -121,7 +126,7 @@ bool displayGeneralMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 		displayItemMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 2:
-		//displaySearchMenu(listOfItems, listOfClubs, listOfUsers);
+		displaySearchMenu(listOfItems, listOfClubs, listOfUsers);
 		break;
 	case 3:
 		login(listOfItems, listOfClubs, listOfUsers);

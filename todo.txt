@@ -1,0 +1,5 @@
+unfinished:
+
+item modification
+view all clubs + amt of items
+view all users + usernames (no passwords)

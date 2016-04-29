@@ -117,40 +117,65 @@ void addUser(LinkedList<User> *listOfUsers)
 void checkInOut(LinkedList<Item> *listOfItems)
 {
 	bool valid = false;
-	string nameOfItem;
+	int input;
+	string junk;
 	Node<Item> *tmp;
 
 	while (valid == false)
 	{
-		cout << "Please enter the name of the item to check in or check out:\n\n"
+		cout << "Please enter the serial number of the item to check in or check out (-1 to quit):\n\n"
 			 << "Item: ";
-		getline(cin, nameOfItem);
-
-		valid = validateStr(nameOfItem);
+		cin >> input;
+		getline(cin, junk);
+		
+		if (input < 0) return;
+		
+		// find item in list
+		tmp = listOfItems->mHead; //Set tmp to the first element of the list
+		while (tmp != NULL) //Check the entire list until the item is found
+		{
+			//If found, exist from the loop and perform appropriate action
+			//As long as it isn't found, check the next item
+			if (tmp->mData.getSerial() == input)
+			{
+				valid = true;
+				break;
+			}
+			else
+			{
+				tmp = tmp->mNext;
+			}
+		}
+		
+		if (!valid) cout << "The item with with serial '" << input << "' does not exist...\n";
+		
 	}
 
-	tmp = listOfItems->mHead; //Set tmp to the first element of the list
-
-	while (tmp != NULL) //Check the entire list until the item is found
+	// item is now at tmp->mData
+	
+	cout << "The item with serial '" << input << "' is checked ";
+	
+	if (tmp->mData.isCheckedIn())
 	{
-		//If found, exist from the loop and perform appropriate action
-		//As long as it isn't found, check the next item
-		if (tmp->mData.getName() == nameOfItem)
-		{
-			break;
-		}
+		cout << "in.\n";
+	}
+	else {
+		cout << "out.\n";
+	}
+	
+	do {
+		if (tmp->mData.isCheckedIn())
+			cout << "Do you want to check this item out (-1 to cancel, 1 to continue)? ";
 		else
-		{
-			tmp = tmp->mNext;
-		}
-	}
-
-	if (tmp == NULL) //This is true if the item does not exist
-	{
-		cout << "The item does not exist.\n\n";
-	}
-	else
-	{
+			cout << "Do you want to check this item in  (-1 to cancel, 1 to continue)? ";
+		cin >> input;
+		getline(cin, junk);
+		if (input < -1 || input == 0 || input > 1)
+			cout << "Invalid input...\n";
+	} while (input < -1 || input == 0 || input > 1);
+	
+	if (input <= 0) return;
+	else {
 		if (tmp->mData.isCheckedIn() == true) //If the item is checked in, check it out
 		{
 			tmp->mData.checkOut();
@@ -162,11 +187,14 @@ void checkInOut(LinkedList<Item> *listOfItems)
 			cout << "The item has been checked in.\n\n";
 		}
 	}
+	
+	pause();
 }
 
 void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
+	string junk;
 
 	clearScreen();
 	displayLogo();
@@ -179,11 +207,13 @@ void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 4))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)
@@ -199,12 +229,15 @@ void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 		break;
 	case 4:
 		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+		return;
 	}
+	pause();
 }
 
 void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
+	string junk;
 
 	clearScreen();
 	displayLogo();
@@ -220,11 +253,13 @@ void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 7))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)
@@ -249,12 +284,15 @@ void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 		break;
 	case 7:
 		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+		return;
 	}
+	pause();
 }
 
 void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
+	string junk;
 
 	clearScreen();
 	displayLogo();
@@ -266,20 +304,22 @@ void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 3))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)
 	{
 	case 1:
-		//searchClub();
+		searchClub(listOfItems);
 		break;
 	case 2:
-		//searchItem();
+		searchItem(listOfItems);
 		break;
 	case 3:
 		displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
@@ -289,7 +329,8 @@ void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfC
 void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
-
+	string junk;
+	
 	clearScreen();
 	displayLogo();
 
@@ -301,11 +342,13 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 
 	cout << setw(28) << right << "Please enter a choice: ";
 	cin >> choice;
+	getline(cin, junk);
 
 	while ((choice < 1) || (choice > 4))
 	{
 		cout << setw(28) << right << "Invalid... Enter choice: ";
 		cin >> choice;
+		getline(cin, junk);
 	}
 
 	switch (choice)
@@ -330,10 +373,10 @@ void exportExcel(LinkedList<Item> *listOfItems)
 	//comma acts as a trigger to close current cell & open next cell
 	string fileName = getFileName();
 	string seller;
-	fstream exOut;
+	ofstream exOut;
 	Node<Item> *current = listOfItems->mHead;//first node of linked list of Items
 
-	exOut.open(fileName);
+	exOut.open(fileName, ios::out);
 
 	if (exOut.is_open()) {
 		//default info to outline what data goes in which columns
@@ -355,8 +398,8 @@ void exportExcel(LinkedList<Item> *listOfItems)
 			//point to next node in linked list
 			current = current->mNext;
 		}
-		exOut.close();
 	}
+	exOut.close();
 }
 
 string getFileName()
@@ -437,6 +480,7 @@ void modifyClub(LinkedList<Club> *listOfClubs)
 
 void modifyItem(LinkedList<Item> *listOfItems)
 {
+	// TODO this needs to be finished
 }
 
 void modifyUser(LinkedList<User> *listOfUsers)

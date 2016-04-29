@@ -39,11 +39,11 @@ void displayItemMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClub
 		break;
 	case 3:
 		displayGeneralMenu(listOfItems, listOfClubs, listOfUsers);
+		return;
 	}
+	pause();
 }
 
-
-template <typename T>
 void displaySearchMenu(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
 {
 	int choice = 0;
@@ -119,8 +119,12 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 		{
 			clearScreen();
 			cout << "You logged in!" << endl;
-			displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
-			break;
+			pause();
+			bool logout = false;
+			do {
+				logout = displayAdminMenu(listOfItems, listOfClubs, listOfUsers);
+			} while (!logout);
+			return;
 		}
 
 		tmp = tmp->mNext;
@@ -148,29 +152,35 @@ void login(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedL
 
 void searchClub(LinkedList<Item> *listOfItems)
 {
+	Node<Item> *tmp = listOfItems->mHead;
+	
+	if (tmp == NULL) {
+		cout << "No clubs in data.\n";
+		return;
+	}
+	
 	bool valid = false;
 	string nameOfClub;
-	Node<Item> *tmp;
-
-	while (valid == false)
-	{
-		cout << "Please enter the name of the club:\n\n"
-			 << "Club: ";
+	
+	do {
+		cout	<< "Please enter the name of the club:\n\n"
+				<< "Club: ";
 		getline(cin, nameOfClub);
-
 		valid = validateStr(nameOfClub);
-	}
-
-	tmp = listOfItems->mHead; //Set tmp to the first element of the list
-
-	cout << "\nItems for " << nameOfClub << ":\n\n";
-
+		if (!valid) cout << "Invalid input...\n";
+	} while (!valid);
+	
+	cout << "\nItems for '" << nameOfClub << "':\n\n";
+	
+	int quantity = 0;
+	
 	while (tmp != NULL) //Check the entire list for the club's items
 	{
 		if (tmp->mData.getNameOwner() == nameOfClub)
 		{
 			//When an item of the club is found, it is displayed to the console
 			cout << tmp->mData.getName() << endl;
+			quantity++;
 			tmp = tmp->mNext;
 		}
 		else
@@ -179,63 +189,64 @@ void searchClub(LinkedList<Item> *listOfItems)
 			tmp = tmp->mNext;
 		}
 	}
+	
+	if (quantity <= 0) {
+		cout << "No items found.";
+	}
 
 	cout << endl;
+	
+	pause();
 }
 
 
 void searchItem(LinkedList<Item> *listOfItems)
 {
-	bool valid = false, status;
-	string nameOfItem;
-	Node<Item> *tmp;
-
-	while (valid == false)
-	{
-		cout << "Please enter the name of the item:\n\n"
-			 << "Item: ";
-		getline(cin, nameOfItem);
-
-		valid = validateStr(nameOfItem);
+	Node<Item> *tmp = listOfItems->mHead;
+	
+	if (tmp == NULL) {
+		cout << "No clubs in data.\n";
+		return;
 	}
-
-	tmp = listOfItems->mHead; //Set tmp to the first element of the list
-
-	while (tmp != NULL) //Check the entire list until the item is found
+	
+	bool valid = false;
+	string name;
+	
+	do {
+		cout	<< "Please enter the name of the item:\n\n"
+				<< "Item: ";
+		getline(cin, name);
+		valid = validateStr(name);
+		if (!valid) cout << "Invalid input...\n";
+	} while (!valid);
+	
+	cout << "\nItems for '" << name << "':\n\n";
+	
+	int quantity = 0;
+	
+	while (tmp != NULL) //Check the entire list for the club's items
 	{
-		//If found, exit from the loop and print the information
-		//As long as it isn't found, check the next item
-		if (tmp->mData.getName() == nameOfItem)
+		if (tmp->mData.getName() == name)
 		{
-			break;
+			//When an item of the club is found, it is displayed to the console
+			cout << tmp->mData.getName() << endl;
+			quantity++;
+			tmp = tmp->mNext;
 		}
 		else
 		{
+			//If an item does not belong to a club, the loop just moves to the next item listed
 			tmp = tmp->mNext;
 		}
 	}
-
-	if (tmp == NULL) //This is true if the item does not exist
-	{
-		cout << "\nThe item does not exist.\n\n";
+	
+	if (quantity <= 0) {
+		cout << "No items found.";
 	}
-	else
-	{
-		cout << "\nName: " << tmp->mData.getName()
-			 << "\nSerial Number: " << tmp->mData.getSerial()
-			 << "\nStatus: ";
 
-		status = tmp->mData.isCheckedIn();
-
-		if (status == true)
-		{
-			cout << "In\n\n";
-		}
-		else
-		{
-			cout << "Out\n\n";
-		}
-	}
+	cout << endl;
+	
+	pause();
 }
 
 void showInItems(LinkedList<Item> *listOfItems)
@@ -270,7 +281,6 @@ void showInItems(LinkedList<Item> *listOfItems)
 		cout << "There are no items in\n";
 	}
 	
-	pause();
 }
 
 void showOutItems(LinkedList<Item> *listOfItems)
@@ -305,7 +315,6 @@ void showOutItems(LinkedList<Item> *listOfItems)
 		cout << "There are no items out\n";
 	}
 	
-	pause();
 }
 
 bool checkWords(string username, string password, LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers)
@@ -351,7 +360,7 @@ bool validateStr(string str)
 
 	for (int i = 0; i < strLength; i++)
 	{
-		if (!(isalpha(str[i]))) //If any non-alpha characters are found, the input is invalid
+		if (!(isalpha(str[i])) && str[i] != ' ') //If any non-alpha characters are found, the input is invalid
 		{
 			valid = false;
 		}
