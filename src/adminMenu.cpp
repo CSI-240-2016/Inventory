@@ -322,8 +322,52 @@ void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 	}
 }
 
-void exportExcel()
+void exportExcel(LinkedList<Item> *listOfItems)
 {
+	string nextCell = ",";
+	//comma acts as a trigger to close current cell & open next cell
+	string fileName = getFileName();
+	string seller;
+	fstream exOut;
+	Node<Item> *current = listOfItems->mHead;//first node of linked list of Items
+
+	exOut.open(fileName);
+
+	if (exOut.is_open()) {
+		//default info to outline what data goes in which columns
+		exOut << "Item Name" << nextCell
+			<< "Item Type" << nextCell
+			<< "Club Name(s)/Owner(s)" << nextCell
+			<< "Source Bought From" << nextCell
+			<< "Available" << nextCell
+			<< "Serial Number" << endl;
+		while (current != NULL) {
+			//read through until there aren't any more nodes
+			exOut << current->mData.getName() << nextCell
+				<< current->mData.getNameType() << nextCell
+				<< current->mData.getNameOwner() << nextCell
+				<< current->mData.getSource.getName() << nextCell
+				<< current->mData.isCheckedIn() << nextCell
+				<< current->mData.getSerial() << endl;
+
+			//point to next node in linked list
+			current = current->mNext;
+		}
+		exOut.close();
+	}
+}
+
+string getFileName()
+{
+	string fileName;
+
+	cout << "Enter a name for the file to be exported (without file extension): ";
+	cin >> fileName;
+
+	//for now, always export to .csv for convenience
+	fileName += ".csv";
+
+	return fileName;
 }
 
 void removeClub(LinkedList<Club> *listOfClubs)
