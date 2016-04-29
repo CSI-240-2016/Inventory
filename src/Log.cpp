@@ -10,6 +10,25 @@ Log::Log()
 
 }
 
+Log::Log(int serialItem, string nameItem,
+		Date out, Date inExpt, Date in,
+		string nameClub,
+		string nameOutBy_username, string nameOutBy, string nameOutTo,
+		string nameInBy_username, string nameInBy, string nameInFrom) {
+	mItemSerial = serialItem;
+	mItemName = nameItem;
+	mOutDate = out;
+	mExpectedInDate = inExpt;
+	mInDate = in;
+	mClubName = nameClub;
+	mOutByUsername = nameOutBy_username;
+	mOutByName = nameOutBy;
+	mOutTo = nameOutTo;
+	mInByUsername = nameInBy_username;
+	mInByName = nameInBy;
+	mInFromName = nameInFrom;
+}
+
 /* Pre: none
  * Post: object is destroyed
  * Purpose: default destructor
@@ -156,4 +175,52 @@ ostream& operator<<(ostream& out, Log& targ)
 	out << targ.mInByUsername << " " << targ.mInByName << endl;
 	out << targ.mInFromName << endl;
 	return out;
+}
+
+ifstream& operator>>(ifstream& stream, Log& obj) {
+	stream >> obj.mItemSerial;
+	getline(stream, obj.mItemName);
+	
+	obj.mOutDate = Date();
+	obj.mExpectedInDate = Date();
+	obj.mInDate = Date();
+	stream
+		>> obj.mOutDate
+		>> obj.mExpectedInDate
+		>> obj.mInDate
+	;
+	getline(stream, obj.mClubName); // clear the line
+	
+	getline(stream, obj.mClubName);
+	
+	stream >> obj.mOutByUsername;
+	getline(stream, obj.mOutByName);
+	getline(stream, obj.mOutTo);
+	
+	stream >> obj.mInByUsername;
+	getline(stream, obj.mInByName);
+	getline(stream, obj.mInFromName);
+	
+	return stream;
+}
+
+ofstream& operator<<(ofstream& stream, Log& obj) {
+	
+	stream
+		<< obj.mItemSerial << " "
+			<< obj.mItemName << "\n";
+	stream << obj.mOutDate << " ";
+	stream << obj.mExpectedInDate << " ";
+	stream << obj.mInDate << "\n";
+	stream
+		<< obj.mClubName << "\n"
+		<< obj.mOutByUsername << " "
+			<< obj.mOutByName << "\n"
+		<< obj.mOutTo << "\n"
+		<< obj.mInByUsername << " "
+			<< obj.mInByName << "\n"
+		<< obj.mInFromName
+	;
+	
+	return stream;
 }

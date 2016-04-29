@@ -3,9 +3,11 @@
 #include "Item.h"
 #include "Log.h"
 #include "User.h"
+
 #include "IO_Users.h"
 #include "itemsDat.h"
 #include "clubsDat.h"
+#include "IOLog.h"
 
 #include "common.h"
 
@@ -37,8 +39,10 @@ int main() {
 	
 	printUsers(listUsers);
 	printItems(listItems);
+	printClubs(listClubs);
+	printLogs(listLogs);
 	
-	displayGeneralMenu(listItems, listClubs, listUsers);
+	//displayGeneralMenu(listItems, listClubs, listUsers);
 	
 	// ~~~~~~~ End: Run
 	

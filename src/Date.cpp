@@ -8,9 +8,9 @@ using namespace std;
 *********************************************************/
 Date::Date()
 {
-	mDay = 1;
-	mMonth = 1;
-	mYear = 2000;
+	mDay = 0;
+	mMonth = 0;
+	mYear = 0;
 }
 
 
@@ -205,4 +205,20 @@ void Date::setMonth(int month)
 void Date::setYear(int year)
 {
 	mYear = year;
+}
+
+ifstream& operator>>(ifstream& stream, Date& obj) {
+	stream
+		>> obj.mMonth >> obj.mDay >> obj.mYear
+	;
+	return stream;
+}
+
+ofstream& operator<<(ofstream& stream, Date& obj) {
+	stream
+		<< obj.mMonth << " "
+		<< obj.mDay << " "
+		<< obj.mYear
+	;
+	return stream;
 }
