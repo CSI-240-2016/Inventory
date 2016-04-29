@@ -16,7 +16,8 @@ void displayAdminClub(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClu
 void displayAdminItem(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
 void displayAdminSearch(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
 void displayAdminUser(LinkedList<Item> *listOfItems, LinkedList<Club> *listOfClubs, LinkedList<User> *listOfUsers);
-void exportExcel();
+void exportExcel(LinkedList<Item> *listOfItems);
+string getFileName();
 void removeClub(LinkedList<Club> *listOfClubs);
 void removeItem(LinkedList<Item> *);
 void removeUser(LinkedList<User> *listOfUsers);
