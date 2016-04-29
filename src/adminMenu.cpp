@@ -440,17 +440,18 @@ void modifyItem(LinkedList<Item> *listOfItems)
 
 void modifyUser(LinkedList<User> *listOfUsers)
 {
-	//name, username, password
 	string username, reply, modification;
 	Node<User> *tmp;
 
+	//The user is initially prompted for a username in order to identify which person to mod
 	cout << "What is the username of the user you wish to modify?\n\n";
 	getline(cin, username);
 
-	tmp = listOfUsers->mHead;
+	tmp = listOfUsers->mHead; //tmp is set to the first user in the list
 
 	while (tmp != NULL)
 	{
+		//As long as the specified user isn't found and tmp isn't NULL, the loop will search for the user
 		if (tmp->mData.getUserName() == username)
 		{
 			break;
@@ -465,7 +466,7 @@ void modifyUser(LinkedList<User> *listOfUsers)
 	{
 		cout << "That user does not exist.\n\n";
 	}
-	else
+	else //If they exist, the user is prompted to change either the name, username, or password 
 	{
 		cout << "Would you like to modify the name, username, or password?\n\n";
 		getline(cin, reply);
@@ -475,13 +476,15 @@ void modifyUser(LinkedList<User> *listOfUsers)
 			cout << "What is the new name?\n\n";
 			getline(cin, modification);
 
-			tmp->mData.setName(modification);
+			//setName is called and the modification is passed in order to update the name
+			tmp->mData.setName(modification); 
 		}
 		else if (reply == "username")
 		{
 			cout << "What is the new username?\n\n";
 			getline(cin, modification);
 
+			//setUserName is called and the modification is passed in order to update the username
 			tmp->mData.setUserName(modification);
 		}
 		else if (reply == "password")
@@ -489,6 +492,7 @@ void modifyUser(LinkedList<User> *listOfUsers)
 			cout << "What is the new password?\n\n";
 			getline(cin, modification);
 
+			//setPassword is called and the modification is passed in order to update the password
 			tmp->mData.setPassword(modification);
 		}
 		else
