@@ -107,8 +107,10 @@ void addUser(LinkedList<User> *listOfUsers)
 	cout << "\nPlease enter the password of the new user:\n\n";
 	getline(cin, password);
 
+	//A new user with the specified information is created
 	User newUser(name, username, password);
 
+	//The new user is added to the list of users
 	listOfUsers->append(newUser);
 }
 
@@ -392,7 +394,6 @@ void removeItem(LinkedList<Item> *listOfItems)
 	cin >> serialNumber;
 
 	removeByItem_Serial(listOfItems, serialNumber); //This function passes the list of items and serial no. of the item to be removed
-
 }
 
 void removeUser(LinkedList<User> *listOfUsers)
