@@ -30,5 +30,6 @@ CMakeLists.txt
 *.out
 *.app
 
+/src/old
 /build
 /run
