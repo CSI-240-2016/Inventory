@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 .idea/
 CMakeLists.txt
 
+=======
+>>>>>>> 13941bd6b9a2b19c4793d056672628db1116efbd
 # Compiled Object files
 *.slo
 *.lo
