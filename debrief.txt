@@ -1,0 +1,51 @@
+
+what did we do well
++ organization
+= trello
+= visual organization
+= who will do what
+= google docs
++ everyone knew their objective
++ everyone did something/what they were suppossed to do
++ communication
+= forming two groups (backend/frontend)
++ chain of command (point + sub heads)
+
+what didnt go so well - what could we do better
++ setting deadlines (x2)
++ meeting outside class
++ earlier debrief meetings
++ more documentation and naming setup
++ communication for new functions
++ more than 1 person in both backend and frontend
++ splitting up too early (b/f end)
++ git issues
+
+what did you like about the project
++ having a specfic role
+= less daunting when focusing on the specfics
++ having the project be used later
+
+thoughts on team dynamic
++ communication could have been better between ends
+= front end communicated well within itself
+= backend didnt communicate well
++ wish there was more group projects in class or for homework
+= no group projects until this semester
+= pairs: projects are very small scale and it is easier to put mettings together
++ trello was good for pseudo-logging/communication
+
+how do you feel about the final project
++ enjoyed, but another week would have been good
+= prep for documentation
+= post debrief for wrap up before final
++ timeline was good for when things are recommended for being due
+
+if you could change one thing over the course of the project, what would you change
++ setting a standard location to go to for contact of others
++ setup a good layout for dealines or a plan of action
++ defining format
+= naming conventions
+= so things look more alike
++ done breaak into two groups so early
+= staying together so that when front end splits off, they have some form of insight into the backend

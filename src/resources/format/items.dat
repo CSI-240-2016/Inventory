@@ -1,0 +1,13 @@
+Item:mSerial Item:mName
+Item:mDescription
+Item:mClubName
+Item:mLocation:mBuilding
+Item:mLocation:mCode Item:mLocation:mRoom
+Item:mSource:mPriceUnit Item:mSource:mName
+Item:mSource:mURL
+Item:mSource:mAddress:mNumberStreet Item:mSource:mAddress:mNumberApartment Item:mSource:mAddress:mStreet
+Item:mSource:mAddress:mCity
+Item:mSource:mAddress:mState
+Item:mSource:mAddress:mZipCode
+Item:mSource:mAddress:mCountry
+...
