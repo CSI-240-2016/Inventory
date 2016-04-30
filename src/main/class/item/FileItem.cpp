@@ -3,7 +3,7 @@
 */
 
 #include <fstream>
-#include "items.h"
+#include "FileItem.h"
 
 void loadItems(LinkedList<Item> *list) {
 	ifstream file;
