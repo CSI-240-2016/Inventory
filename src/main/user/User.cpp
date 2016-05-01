@@ -84,7 +84,7 @@ void	User::setPassword(string s) {
 		 */
 void*	User::readUsername(ifstream& stream) {
 	// "User:mName"
-	return stream >> mName;
+	return getline(stream, mName);
 }
 
 /** PURPOSE: OVERLOAD Inputs variables from the file stream to object

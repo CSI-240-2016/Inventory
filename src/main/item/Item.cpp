@@ -173,7 +173,7 @@ ofstream& operator<<(ofstream& stream, const Item obj) {
 
 	stream
 		// "Item:mSerial Item:mName"
-		<< obj.mSerial << " " << obj.mName << "\n"
+		<< obj.mSerial << ' ' << obj.mName << '\n'
 		// "Item:mDescription"
 		<< obj.mDescription << "\n"
 		// "Item:mClubName"
