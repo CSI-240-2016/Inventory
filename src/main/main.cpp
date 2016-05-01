@@ -3,12 +3,14 @@
 */
 
 #include <iostream>
-#include "class/item/Item.h"
-#include "class/LinkedList.h"
-#include "class/item/FileItem.h"
-#include "class/user/User.h"
-#include "class/user/FileUser.h"
 #include <iomanip>
+#include "LinkedList.h"
+#include "item/Item.h"
+#include "item/FileItem.h"
+#include "user/User.h"
+#include "user/FileUser.h"
+#include "log/Log.h"
+#include "log/FileLog.h"
 
 using namespace std;
 
@@ -19,11 +21,13 @@ int main() {
 	// ~~~~~ START: Init lists
 	LinkedList<User> *users = new LinkedList<User>;
 	LinkedList<Item> *items = new LinkedList<Item>;
+	LinkedList<Log> *logs = new LinkedList<Log>;
 	// ~~~~~~~ END: Init lists
 
 	// ~~~~~ START: Load data
 	loadUsers(users);
 	loadItems(items);
+	loadLogs(logs);
 	// ~~~~~~~ END: Load data
 
 	cout << "Users:\n";
@@ -33,8 +37,7 @@ int main() {
 	cout << "Items:\n";
 	cout
 		<< setw(10) << right
-			<< "Serial"
-		<< ' '
+			<< "Serial" << ' '
 		<< setw(20) << left
 			<< "Name"
 		<< setw(20) << left
@@ -44,12 +47,34 @@ int main() {
 	items->display();
 	cout << '\n';
 
+	cout << "Logs:\n";
+	cout
+		<< setw(10) << right
+			<< "Serial" << ' '
+		<< setw(20) << left
+			<< "Name"
+		<< setw(20) << left
+			<< "Club"
+		<< setw(15) << left
+			<< "Date Out"
+		<< setw(15) << left
+			<< "Date In Exp."
+		<< setw(15) << left
+			<< "Date In"
+		<< '\n'
+	;
+	logs->display();
+	cout << '\n';
+
 	// ~~~~~ START: Save data
 	saveUsers(users);
 	saveItems(items);
+	saveLogs(logs);
 	// ~~~~~~~ END: Save data
 
+	delete users;
 	delete items;
+	delete logs;
 
 	cout << "Ending...\n";
 
