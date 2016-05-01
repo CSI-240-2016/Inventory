@@ -11,6 +11,7 @@
 #include "user/FileUser.h"
 #include "log/Log.h"
 #include "log/FileLog.h"
+#include "menu/menu.h"
 
 using namespace std;
 
@@ -65,6 +66,8 @@ int main() {
 	;
 	logs->display();
 	cout << '\n';
+
+	run(users, items, logs);
 
 	// ~~~~~ START: Save data
 	saveUsers(users);
