@@ -1,0 +1,8 @@
+Log:mItemSerial Log:mItemName
+Log:mDateOut:mMonth Log:mDateOut:mDay Log:mDateOut:mYear Log:mDateInExpected:mMonth Log:mDateInExpected:mDay Log:mDateInExpected:mYear Log:mDateIn:mMonth Log:mDateIn:mDay Log:mDateIn:mYear
+Log:mClubName
+Log:mOutBy_Username Log:mOutBy_Name
+Log:mOutTo_Name
+Log:mInBy_Username Log:mInBy_Name
+Log:mInFrom_Name
+...
