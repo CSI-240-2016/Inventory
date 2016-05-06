@@ -3,6 +3,7 @@
 */
 
 #include "User.h"
+#include <iostream>
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -82,9 +83,9 @@ void	User::setPassword(string s) {
 		 * PRE:  The file stream
 		 * POST: if the serial could be read
 		 */
-void*	User::readUsername(ifstream& stream) {
+bool	User::readUsername(ifstream& stream) {
 	// "User:mName"
-	return getline(stream, mName);
+	return !getline(stream, mName).eof();
 }
 
 /** PURPOSE: OVERLOAD Inputs variables from the file stream to object

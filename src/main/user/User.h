@@ -76,7 +76,7 @@ class User {
 		 * PRE:  The file stream
 		 * POST: if the serial could be read
 		 */
-		void*	readUsername(ifstream&);
+		bool	readUsername(ifstream&);
 
 		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
 		 * PRE:  The file stream (fstream), The obj (User)

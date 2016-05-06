@@ -111,7 +111,7 @@ class Item {
 		 * PRE:  The file stream
 		 * POST: if the serial could be read
 		 */
-		void*	readSerial(ifstream&);
+		bool	readSerial(ifstream&);
 
 		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
 		 * PRE:  The file stream (fstream), The item (Item)

@@ -126,8 +126,8 @@ bool	Item::operator==(Item other) {
  * PRE:  The file stream
  * POST: if the serial could be read
  */
-void*	Item::readSerial(ifstream& stream) {
-	return stream >> mSerial;
+bool	Item::readSerial(ifstream& stream) {
+	return !(stream >> mSerial).eof();
 }
 
 /** PURPOSE: OVERLOAD Inputs variables from the file stream to object

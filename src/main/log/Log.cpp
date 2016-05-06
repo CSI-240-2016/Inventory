@@ -221,8 +221,8 @@ void	Log::setInFromName(string s) {
  * PRE:  The file stream
  * POST: if the log is able to be read (the first element could be read)
  */
-void*	Log::readPrimary(ifstream& stream) {
-	return stream >> mItemSerial;
+bool	Log::readPrimary(ifstream& stream) {
+	return !(stream >> mItemSerial).eof();
 }
 
 /** PURPOSE: OVERLOAD Inputs variables from the file stream to object

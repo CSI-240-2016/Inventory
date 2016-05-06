@@ -184,7 +184,7 @@ class Log {
 		 * PRE:  The file stream
 		 * POST: if the log is able to be read (the first element could be read)
 		 */
-		void*	readPrimary(ifstream&);
+		bool	readPrimary(ifstream&);
 
 		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
 		 * PRE:  The file stream (fstream), The obj (Log)
