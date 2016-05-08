@@ -32,13 +32,11 @@ struct Node {
 template <typename T>
 class LinkedList {
 	
-	private:
-		/** Pointer to the last node in the sequence. Can be NULL. */
-		Node<T> 	*mTail;
+	public:
 		/** The quantity of nodes in the sequence. */
 		int 		mCount;
-	
-	public:
+		/** Pointer to the last node in the sequence. Can be NULL. */
+		Node<T> 	*mTail;
 		/** Pointer to the first node in the sequence. Can be NULL. */
 		Node<T> 	*mHead;
 		

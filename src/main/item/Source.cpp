@@ -4,6 +4,8 @@
 
 #include "Source.h"
 
+using namespace std;
+
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* PURPOSE: Create an Source object with default values
@@ -109,6 +111,36 @@ ifstream& operator>>(ifstream& stream, Source& obj) {
 	Source:mAddress:mCountry
 	*/
 	stream >> obj.mAddress;
+
+	return stream;
+}
+
+/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+ * PRE:  The stream (istream), The obj (Source)
+ * POST: Reads data from the stream
+ */
+istream& operator>>(istream& stream, Source& obj) {
+
+	// "Source:mPriceUnit "Source:mName"
+	cout << "Enter the price per unit: ";
+	stream >> obj.mPriceUnit;
+	getline(stream, obj.mName);
+	cout << "Enter the source name: ";
+	getline(stream, obj.mName);
+
+	// "Source:mURL"
+	cout << "Enter the source URL: ";
+	getline(stream, obj.mURL);
+
+	/*
+	Source:mAddress:mNumberStreet Source:mAddress:mNumberApartment Source:mAddress:mStreet
+	Source:mAddress:mCity
+	Source:mAddress:mState
+	Source:mAddress:mZipCode
+	Source:mAddress:mCountry
+	*/
+	cout << "Enter the source address...\n";
+	stream >> obj.mAddress; // stream should be completely clean afterwards
 
 	return stream;
 }

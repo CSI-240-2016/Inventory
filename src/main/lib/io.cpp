@@ -27,17 +27,39 @@ void clear() {
  * POST: Pause the program until a ENTER is pressed
  */
 void pause() {
-	cout << "Press ENTER to continue...";
 	#ifdef _WIN32
 		system("pause");
 	#elif __APPLE__
+		cout << "Press ENTER to continue...";
 		//system("read");
 		cin.get();
 	#elif __linux__
+		cout << "Press ENTER to continue...";
 		//system("read");
 		cin.get();
 	#elif __unix__
+		cout << "Press ENTER to continue...";
 		//system("read");
 		cin.get();
 	#endif
+}
+
+int cinInteger(string prompt) {
+	
+	int in;
+
+	cout << prompt;
+	cin >> in;
+	getline(cin, prompt);
+
+	return in;
+}
+
+string cinString(string prompt) {
+	string in;
+
+	cout << prompt;
+	getline(cin, in);
+
+	return in;
 }

@@ -8,8 +8,7 @@
 #include <string>
 #include "Address.h"
 #include <fstream>
-
-using namespace std;
+#include <iostream>
 
 class Source {
 
@@ -86,6 +85,12 @@ class Source {
 		 * POST: Reads data from the file stream
 		 */
 		friend ifstream& operator>>(ifstream& stream, Source& obj);
+
+		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+		 * PRE:  The stream (istream), The obj (Source)
+		 * POST: Reads data from the stream
+		 */
+		friend  istream& operator>>(istream& stream, Source& obj);
 
 		/** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (Source)

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -120,6 +121,12 @@ class Address {
 		 * POST: Reads data from the file stream
 		 */
 		friend ifstream& operator>>(ifstream& stream, Address& obj);
+
+		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+		 * PRE:  The stream (istream), The obj (Address)
+		 * POST: Reads data from the stream
+		 */
+		friend  istream& operator>>(istream& stream, Address& obj);
 
 		/** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (Address)

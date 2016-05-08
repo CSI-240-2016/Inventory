@@ -7,6 +7,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
@@ -83,6 +84,12 @@ class Location {
 		 * POST: Reads data from the file stream
 		 */
 		friend ifstream& operator>>(ifstream& stream, Location& obj);
+
+		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+		 * PRE:  The stream (istream), The obj (Location)
+		 * POST: Reads data from the stream
+		 */
+		friend  istream& operator>>(istream& stream, Location& obj);
 
 		/** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (Location)

@@ -3,6 +3,7 @@
 */
 
 #include "Address.h"
+#include "../lib/io.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -159,6 +160,37 @@ ifstream& operator>>(ifstream& stream, Address& obj) {
 	getline(stream, obj.mZipCode);
 
 	// "Address:mCountry"
+	getline(stream, obj.mCountry);
+
+	return stream;
+}
+
+/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+ * PRE:  The stream (istream), The obj (Address)
+ * POST: Reads data from the stream
+ */
+istream& operator>>(istream& stream, Address& obj) {
+	
+	// "Address:mNumberStreet Address:mNumberApartment Address:mStreet"
+	obj.mNumberStreet = cinInteger("Enter street number: ");
+	obj.mNumberApartment = cinInteger("Enter apartment number (0 if none): ");
+	cout << "Enter street: ";
+	getline(stream, obj.mStreet);
+
+	// "Address:mCity"
+	cout << "Enter city: ";
+	getline(stream, obj.mCity);
+
+	// "Address:mState"
+	cout << "Enter state: ";
+	getline(stream, obj.mState);
+
+	// "Address:mZipCode"
+	cout << "Enter zip code: ";
+	getline(stream, obj.mZipCode);
+
+	// "Address:mCountry"
+	cout << "Enter country: ";
 	getline(stream, obj.mCountry);
 
 	return stream;

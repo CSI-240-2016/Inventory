@@ -3,6 +3,7 @@
 */
 
 #include "Location.h"
+#include "../lib/io.h"
 
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -103,6 +104,26 @@ ifstream& operator>>(ifstream& stream, Location& obj) {
 	stream >> obj.mCode;
 	stream.get();
 	getline(stream, obj.mRoom);
+
+	return stream;
+}
+
+/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+ * PRE:  The stream (istream), The obj (Location)
+ * POST: Reads data from the stream
+ */
+istream& operator>>(istream& stream, Location& obj) {
+	
+	// "Location:mBuilding"
+	cout << "Enter the building name: ";
+	getline(stream, obj.mBuilding);
+
+	// "Location:mCode Location:mRoom"
+	cout << "Enter the room: ";
+	getline(stream, obj.mRoom);
+	
+	cout << "Enter the shelf/code: ";
+	getline(stream, obj.mCode);
 
 	return stream;
 }

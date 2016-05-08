@@ -5,6 +5,7 @@
 #ifndef INVENTORY_IO_H
 #define INVENTORY_IO_H
 
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -20,5 +21,9 @@ void clear();
  * POST: Pause the program until a ENTER is pressed
  */
 void pause();
+
+int cinInteger(string prompt);
+
+string cinString(string prompt);
 
 #endif //INVENTORY_IO_H

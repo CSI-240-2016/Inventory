@@ -5,6 +5,8 @@
 #include "Item.h"
 #include <iomanip>
 
+using namespace std;
+
 // ~~~~~ ...Structors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* PURPOSE: Create an item object with default values
@@ -165,11 +167,47 @@ ifstream& operator>>(ifstream& stream, Item& obj) {
 	return stream;
 }
 
+/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+ * PRE:  The stream (istream), The item (Item)
+ * POST: Reads data from the stream
+ */
+istream& operator>>(istream& stream, Item& obj) {
+
+	// "Item:mSerial Item:mName"
+	cout << "Enter the name: ";
+	getline(stream, obj.mName);
+
+	// "Item:mDescription"
+	cout << "Enter the description: ";
+	getline(stream, obj.mDescription);
+
+	// "Item:mClubName"
+	cout << "Enter the name of the club: ";
+	getline(stream, obj.mClubName);
+
+	// "Item:mLocation:mBuilding"
+	// "Item:mLocation:mCode Item:mLocation:mRoom"
+	stream >> obj.mLocation; // stream should be completely clean afterwards
+
+	/*
+	Item:mSource:mPriceUnit Item:mSource:mName
+	Item:mSource:mURL
+	Item:mSource:mAddress:mNumberStreet Item:mSource:mAddress:mNumberApartment Item:mSource:mAddress:mStreet
+	Item:mSource:mAddress:mCity
+	Item:mSource:mAddress:mState
+	Item:mSource:mAddress:mZipCode
+	Item:mSource:mAddress:mCountry
+	*/
+	stream >> obj.mSource; // stream should be completely clean afterwards
+
+	return stream;
+}
+
 /** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (Item)
 		 * POST: Reads data from the file stream
 		 */
-ofstream& operator<<(ofstream& stream, const Item obj) {
+ofstream& operator<<(ofstream& stream, Item& obj) {
 
 	stream
 		// "Item:mSerial Item:mName"
@@ -199,10 +237,10 @@ ofstream& operator<<(ofstream& stream, const Item obj) {
 }
 
 /** PURPOSE: OVERLOAD Outputs variables from object to the console
- * PRE:  The file stream (fstream), The obj (Item)
- * POST: Reads data from the file stream
+ * PRE:  The stream (ostream), The obj (Item)
+ * POST: Reads data from the stream
  */
-ostream& operator<<( ostream& stream, const Item obj) {
+ostream& operator<<( ostream& stream, Item& obj) {
 	stream
 		<< setw(10) << right
 			<< obj.mSerial << ' '

@@ -7,10 +7,14 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 #include "Location.h"
 #include "Source.h"
 
-using namespace std;
+const int		MENU_CHANGE_ITEM_SIZE = 6;
+const string	MENU_CHANGE_ITEM[] = {
+	"Serial", "Name", "Description", "Club", "Location", "Source"
+};
 
 class Item {
 
@@ -120,17 +124,23 @@ class Item {
 		 */
 		friend ifstream& operator>>(ifstream& stream, Item& obj);
 
+		/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+		 * PRE:  The stream (istream), The obj (Item)
+		 * POST: Reads data from the stream
+		 */
+		friend  istream& operator>>( istream& stream, Item& obj);
+
 		/** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (Item)
 		 * POST: Reads data from the file stream
 		 */
-		friend ofstream& operator<<(ofstream& stream, const Item obj);
+		friend ofstream& operator<<(ofstream& stream, Item& obj);
 
 		/** PURPOSE: OVERLOAD Outputs variables from object to the console
-		 * PRE:  The file stream (fstream), The obj (Item)
-		 * POST: Reads data from the file stream
+		 * PRE:  The stream (ostream), The obj (Item)
+		 * POST: Reads data from the stream
 		 */
-		friend  ostream& operator<<( ostream& stream, const Item obj);
+		friend  ostream& operator<<( ostream& stream, Item& obj);
 
 };
 
