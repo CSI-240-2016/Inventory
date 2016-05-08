@@ -33,7 +33,7 @@ void loadLogs(LinkedList<Log> *list) {
 
 void saveLogs(LinkedList<Log> *list) {
 	ofstream file;
-	file.open(FILE_DATA_LOGS, ios::out);
+	file.open(FILE_DATA_LOGS, ios::trunc);
 
 	if (file.is_open()) {
 		Node<Log> *tmp = list->getHead();

@@ -34,7 +34,7 @@ void loadItems(LinkedList<Item> *list) {
 
 void saveItems(LinkedList<Item> *list) {
 	ofstream file;
-	file.open(FILE_DATA_ITEMS, ios::out);
+	file.open(FILE_DATA_ITEMS, ios::trunc);
 
 	if (file.is_open()) {
 		Node<Item> *tmp = list->getHead();

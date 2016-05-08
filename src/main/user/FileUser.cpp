@@ -34,7 +34,7 @@ void loadUsers(LinkedList<User> *list) {
 
 void saveUsers(LinkedList<User> *list) {
 	ofstream file;
-	file.open(FILE_DATA_USERS, ios::out);
+	file.open(FILE_DATA_USERS, ios::trunc);
 
 	if (file.is_open()) {
 		Node<User> *tmp = list->getHead();
