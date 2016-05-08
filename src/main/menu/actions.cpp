@@ -139,6 +139,7 @@ void changeItem(LinkedList<Item> *items, int serial) {
 
 void addUser(LinkedList<User> *users, string username) {
 	User obj = User();
+	obj.setUsername(username);
 	cin >> obj; // stream should be completely clean afterwards
 	users->append(obj);
 	saveUsers(users);
