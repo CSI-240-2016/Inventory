@@ -5,6 +5,7 @@
 #include "actions.h"
 #include "../lib/io.h"
 #include "../item/FileItem.h"
+#include "../user/FileUser.h"
 
 /** Purpose: To display specific information for a valid item being search for
  * PRE:  The list of item must be created
@@ -133,5 +134,45 @@ bool removeItem(LinkedList<Item> *items, int serial) {
 }
 
 void changeItem(LinkedList<Item> *items, int serial) {
+	// TODO
+}
+
+void addUser(LinkedList<User> *users, string username) {
+	User obj = User();
+	cin >> obj; // stream should be completely clean afterwards
+	users->append(obj);
+	saveUsers(users);
+}
+
+bool removeUser(LinkedList<User> *users, string username) {
+	Node<User> *tmp = users->getHead(), *before = NULL;
+	while (tmp != NULL) {
+		if (tmp->mData.getUsername() == username) {
+
+			if (before == NULL) { // is the head node
+				users->mHead = tmp->mNext;
+			}
+			else { // not the head node
+				before->mNext = tmp->mNext;
+			}
+
+			if (users->mTail == tmp) { // to be deleted is the tail
+				users->mTail = before;
+			}
+
+			users->mCount--;
+
+			delete tmp;
+
+			return true;
+		}
+		before = tmp;
+		tmp = tmp->mNext;
+	}
+	cout << "No such user with username " << username << ".\n";
+	return false;
+}
+
+void changeUser(LinkedList<User> *users, string username) {
 	// TODO
 }
