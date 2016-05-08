@@ -6,6 +6,8 @@
 #include "../lib/display.h"
 #include "../lib/io.h"
 #include "actions.h"
+#include "../item/FileItem.h"
+#include "../user/FileUser.h"
 
 /** PURPOSE: Run the main program loop
  * PRE:  load lists from data files
@@ -55,16 +57,13 @@ bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Lo
 			case 1: // Items
 				runMenuItem(items, choice, loggedIn);
 				break;
-			case 2: // Clubs
+			case 2: // Users
+				runMenuUsers(users, choice);
+				break;
+			case 3: // Export
 
 				break;
-			case 3: // Users
-
-				break;
-			case 4: // Export
-
-				break;
-			case 5: // Logout
+			case 4: // Logout
 				loggedIn = false;
 				cout << "\nYou have been logged out.\n\n";
 				pause();
@@ -117,6 +116,8 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
 				clear();
 				if (!removeItem(items, cinInteger("Enter the serial number: ")))
 					cout << "Unable to remove.\n";
+				else
+					saveItems(items);
 				break;
 			case 4: // View Items In
 				showItemsViaStatus(items, true);
@@ -142,6 +143,35 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
 		pause();
 
 	}
+
+}
+
+/** PURPOSE: Display the user menu & take user input
+ * PRE:  The user data, the choice variable
+ * POST: None
+ */
+void runMenuUsers(LinkedList<User> *users, int &choice) {
+
+	displayMenuWithPrompt(MENU_USER_ADMIN, MENU_USER_ADMIN_SIZE, choice, "User Menu", "Enter a choice: ");
+
+	switch (choice) {
+		case 1: // Add
+			addUser(users, cinString("Enter User UserName: "));
+			break;
+		case 2: // Modify
+			changeUser(users, cinString("Enter User UserName: "));
+			break;
+		case 3: // Remove
+			clear();
+			if (!removeUser(users, cinString("Enter User UserName: ")))
+				cout << "Unable to remove.\n";
+			else
+				saveUsers(users);
+			break;
+		default: break;
+	}
+
+	pause();
 
 }
 
