@@ -97,6 +97,8 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
 			default: break;
 		}
 
+		pause();
+
 	}
 	else {
 
@@ -115,7 +117,6 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
 				clear();
 				if (!removeItem(items, cinInteger("Enter the serial number: ")))
 					cout << "Unable to remove.\n";
-				pause();
 				break;
 			case 4: // View Items In
 				showItemsViaStatus(items, true);
@@ -126,20 +127,19 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
 			case 6: // Search For Item by Serial
 				clear();
 				showItemsBySerial(items, cinInteger("Enter the serial number: "));
-				pause();
 				break;
 			case 7: // Search For Item by Type
 				clear();
 				showItemsByType(items, cinString("Enter an item description: "));
-				pause();
 				break;
 			case 8: // Search For Item by Club
 				clear();
 				showItemsByClub(items, cinString("Enter a club name: "));
-				pause();
 				break;
 			default: break;
 		}
+
+		pause();
 
 	}
 
