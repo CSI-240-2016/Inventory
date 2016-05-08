@@ -18,8 +18,8 @@ const string	MENU_GENERAL_PUBLIC[] = { "Items", "Log In as Admin" };
 const int		MENU_ITEM_PUBLIC_SIZE = 2;
 const string	MENU_ITEM_PUBLIC[] = { "View Items In", "View Items Out" };
 
-const int		MENU_GENERAL_ADMIN_SIZE = 4;
-const string	MENU_GENERAL_ADMIN[] = { "Items", "Users", "Export", "Logout" };
+const int		MENU_GENERAL_ADMIN_SIZE = 5;
+const string	MENU_GENERAL_ADMIN[] = { "Items", "Users", "Logs", "Export", "Logout" };
 
 const int		MENU_ITEM_ADMIN_SIZE = 8;
 const string	MENU_ITEM_ADMIN[] = {

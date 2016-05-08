@@ -60,10 +60,13 @@ bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Lo
 			case 2: // Users
 				runMenuUsers(users, choice);
 				break;
-			case 3: // Export
+			case 3: // Logs
 
 				break;
-			case 4: // Logout
+			case 4: // Export
+
+				break;
+			case 5: // Logout
 				loggedIn = false;
 				cout << "\nYou have been logged out.\n\n";
 				pause();
