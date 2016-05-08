@@ -167,7 +167,7 @@ ifstream& operator>>(ifstream& stream, Item& obj) {
 	return stream;
 }
 
-/** PURPOSE: OVERLOAD Inputs variables from the file stream to object
+/** PURPOSE: OVERLOAD Inputs variables from the stream to object
  * PRE:  The stream (istream), The item (Item)
  * POST: Reads data from the stream
  */
