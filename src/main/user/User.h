@@ -85,6 +85,12 @@ class User {
 		 */
 		friend ifstream& operator>>(ifstream& stream, User& obj);
 
+		/** PURPOSE: OVERLOAD Inputs variables from the stream to object
+		 * PRE:  The stream (istream), The obj (User)
+		 * POST: Reads data from the stream
+		 */
+		friend  istream& operator>>(istream& stream, User& obj);
+
 		/** PURPOSE: OVERLOAD Outputs variables from object to the file stream
 		 * PRE:  The file stream (fstream), The obj (User)
 		 * POST: Reads data from the file stream

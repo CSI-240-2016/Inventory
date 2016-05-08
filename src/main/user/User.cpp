@@ -105,6 +105,26 @@ ifstream& operator>>(ifstream& stream, User& obj) {
 	return stream;
 }
 
+/** PURPOSE: OVERLOAD Inputs variables from the stream to object
+ * PRE:  The stream (istream), The obj (User)
+ * POST: Reads data from the stream
+ */
+istream& operator>>(istream& stream, User& obj) {
+
+	string junk;
+
+	// "User:mName"
+	cout << "Enter User Name: ";
+	getline(stream, obj.mName);
+
+	// "User:mUsername User:mPassword"
+	cout << "Enter User Password: ";
+	stream >> obj.mPassword;
+	getline(stream, junk);
+
+	return stream;
+}
+
 /** PURPOSE: OVERLOAD Outputs variables from object to the file stream
  * PRE:  The file stream (fstream), The obj (User)
  * POST: Reads data from the file stream
