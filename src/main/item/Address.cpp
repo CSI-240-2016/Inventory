@@ -217,3 +217,21 @@ ofstream& operator<<(ofstream& stream, const Address obj) {
 
 	return stream;
 }
+
+ostream& operator<<(ostream& stream, const Address obj) {
+
+	stream
+		// "Address:mNumberStreet Address:mNumberApartment Address:mStreet"
+		<< obj.mNumberStreet << ' ' << obj.mNumberApartment << ' ' << obj.mStreet << '\n'
+		// "Address:mCity"
+		<< obj.mCity << '\n'
+		// "Address:mState"
+		<< obj.mState << '\n'
+		// "Address:mZipCode"
+		<< obj.mZipCode << '\n'
+		// "Address:mCountry"
+		<< obj.mCountry
+		;
+
+	return stream;
+}

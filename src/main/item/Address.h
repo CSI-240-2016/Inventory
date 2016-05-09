@@ -134,6 +134,8 @@ class Address {
 		 */
 		friend ofstream& operator<<(ofstream& stream, const Address obj);
 
+		friend ostream& operator<<(ostream& stream, const Address obj);
+
 };
 
 #endif //INVENTORY_ADDRESS_H
