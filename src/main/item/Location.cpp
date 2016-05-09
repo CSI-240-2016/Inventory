@@ -139,5 +139,16 @@ ofstream& operator<<(ofstream& stream, const Location obj) {
 		// "Location:mCode Location:mRoom"
 		<< obj.mCode << " " << obj.mRoom
 	;
+
+	return stream;
+}
+
+ostream& operator<<(ostream& stream, const Location obj) {
+	stream
+		// "Location:mBuilding"
+		<< obj.mBuilding << "\n"
+		// "Location:mCode Location:mRoom"
+		<< obj.mCode << " " << obj.mRoom;
+
 	return stream;
 }

@@ -3,6 +3,7 @@
 */
 
 #include "actions.h"
+#include "../lib/display.h"
 #include "../lib/io.h"
 #include "../item/FileItem.h"
 
@@ -133,5 +134,66 @@ bool removeItem(LinkedList<Item> *items, int serial) {
 }
 
 void changeItem(LinkedList<Item> *items, int serial) {
-	// TODO
+	Node<Item> *tmp = items->getHead(), *before = NULL;
+	bool complete = false;
+	int choice, inputSerial;
+	string name, description, club;
+	Location location;
+	Source source;
+
+	while (tmp != NULL) {
+		if (tmp->mData.getSerial() == serial) {
+			do {
+				displayMenuWithPrompt(MENU_CHANGE_ITEM, MENU_CHANGE_ITEM_SIZE, choice, "Change Item Menu", "Enter a choice: ");
+
+				clear();
+
+				switch (choice) {
+					case -1:
+						complete = true;
+						return;
+					case 1: //Serial
+						cout << "Current Serial: " << tmp->mData.getSerial() << endl;
+						cout << "New Serial: ";
+						cin >> inputSerial;
+						tmp->mData.setSerial(inputSerial);
+						break;
+					case 2: //Name
+						cout << "Current Name: " << tmp->mData.getName() << endl;
+						cout << "New Name: ";
+						getline(cin, name);
+						tmp->mData.setName(name);
+						break;
+					case 3: //Description
+						cout << "Current Description: \n" << tmp->mData.getDescription() << endl;
+						cout << "New Description: \n";
+						getline(cin, description);
+						tmp->mData.setDescription(description);
+						break;
+					case 4: //Club
+						cout << "Current Club Name: " << tmp->mData.getClubName() << endl;
+						cout << "New Club Name: ";
+						getline(cin, club);
+						tmp->mData.setClubName(club);
+						break;
+					case 5: //Location
+						cout << "Current Location Information: \n" << location << endl;
+						cout << "New Location Information: \n";
+						cin >> location;
+						tmp->mData.setLocation(location);
+						break;
+					case 6: //Source
+						Source source = tmp->mData.getSource();
+						cout << "Current Source Information: \n" << source << endl;
+						cout << "New Source Information: \n";
+						cin >> source;
+						tmp->mData.setSource(source);
+						break;
+				}
+			} while (!complete);
+
+			return;
+		}
+	}
+	cout << "No such item with serial " << serial << ".\n";
 }

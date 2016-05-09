@@ -98,6 +98,8 @@ class Source {
 		 */
 		friend ofstream& operator<<(ofstream& stream, const Source obj);
 
+		friend ostream& operator<<(ostream& stream, const Source obj);
+
 };
 
 #endif //INVENTORY_SOURCE_H
