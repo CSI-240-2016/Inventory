@@ -177,3 +177,54 @@ bool removeUser(LinkedList<User> *users, string username) {
 void changeUser(LinkedList<User> *users, string username) {
 	// TODO
 }
+
+void export(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs) {
+	string extension, fileName;
+
+	do {
+		extension = cinString("Enter extension (csv or xls): ");
+		if (extension != "csv" && extension != "xls")
+			cout << "Invalid extension.\n";
+	} while (extension != "csv" && extension != "xls");
+
+	fileName = cinString("Enter file name: ");
+
+	ofstream file;
+	file.open(fileName + "." + extension, ios::trunc);
+	if (file.is_open()) {
+		
+		if (extension == "xml") {
+			file
+				<< "<?xml version=\"1.0\"?>" << '\n'
+				<< "<Workbook"
+					<< " xmlns=\"urn:schemas - microsoft - com : office : spreadsheet\""
+					<< " xmlns:o=\"urn:schemas - microsoft - com : office : office\""
+					<< " xmlns:x=\"urn:schemas - microsoft - com : office : excel\""
+					<< " xmlns:ss=\"urn:schemas-microsoft-com:office:spreadsheet\""
+					<< " xmlns:html=\"http://www.w3.org/TR/REC-html40\""
+				<< ">" << '\n'
+			;
+
+			// ~~~~~~~~~ Start: Items ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			int columns = 1;
+			file
+				<< "<Worksheet ss:Name=\"Items\">" << '\n'
+				<< "<Table x:FullRows=\"" << (1 + items->getCount()) << "\" x:FullColumns=\"" << columns << "\">" << '\n'
+			;
+
+			file
+				<< "</Table>" << '\n'
+				<< "</Worksheet>" << '\n'
+			;
+			
+			// ~~~~~~~~~~~ End: Items ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			file << "</Workbook>";
+
+		}
+
+	}
+	file.close();
+
+}

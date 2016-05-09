@@ -8,6 +8,7 @@
 #include "../LinkedList.h"
 #include "../item/Item.h"
 #include "../user/User.h"
+#include "../log/Log.h"
 
 using namespace std;
 
@@ -46,5 +47,7 @@ void addUser(		LinkedList<User> *users, string username);
 bool removeUser(	LinkedList<User> *users, string username);
 
 void changeUser(	LinkedList<User> *users, string username);
+
+void export(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs);
 
 #endif //INVENTORY_ACTIONSPUBLIC_H
