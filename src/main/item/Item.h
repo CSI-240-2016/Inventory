@@ -71,6 +71,12 @@ class Item {
 		*/
 		Location	getLocation();
 
+		/* PURPOSE: Retrive the source
+		 *PRE: None
+		 *POST: The source (Source)
+		*/
+		Source		getSource();
+
 		// ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		/* PURPOSE: Update the serial number
@@ -102,6 +108,12 @@ class Item {
 		 * POST: The value is changed to the parameter
 		*/
 		void	setLocation(Location);
+		
+		/* PURPOSE: Update the source info
+		 * PRE:	 The source (Source)
+		 * POST: The value is changed to the parameter
+		*/
+		void	setSource(Source);
 
 		// ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

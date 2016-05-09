@@ -72,6 +72,14 @@ Location	Item::getLocation() {
 	return mLocation;
 }
 
+/* PURPOSE: Retrive the source
+*PRE: None
+*POST: The source (Source)
+*/
+Source		Item::getSource() {
+	return mSource;
+}
+
 // ~~~~~ Mutators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* PURPOSE: Update the serial number
@@ -112,6 +120,14 @@ void	Item::setClubName(string s) {
 */
 void	Item::setLocation(Location location) {
 	mLocation = location;
+}
+
+/* PURPOSE: Update the source info
+* PRE:	 The source (Source)
+* POST: The value is changed to the parameter
+*/
+void	Item::setSource(Source source) {
+	mSource = source;
 }
 
 // ~~~~~~~~~~ Operators ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -97,6 +97,8 @@ class Location {
 		 */
 		friend ofstream& operator<<(ofstream& stream, const Location obj);
 
+		friend ostream& operator<<(ostream& stream, const Location obj);
+
 };
 
 #endif //INVENTORY_LOCATION_H

@@ -169,3 +169,24 @@ ofstream& operator<<(ofstream& stream, const Source obj) {
 
 	return stream;
 }
+
+ostream& operator<<(ostream& stream, const Source obj) {
+
+	stream
+		// "Source:mPriceUnit "Source:mName"
+		<< obj.mPriceUnit << " " << obj.mName << "\n"
+		// "Source:mURL"
+		<< obj.mURL << "\n"
+		;
+
+	/*
+	Source:mAddress:mNumberStreet Source:mAddress:mNumberApartment Source:mAddress:mStreet
+	Source:mAddress:mCity
+	Source:mAddress:mState
+	Source:mAddress:mZipCode
+	Source:mAddress:mCountry
+	*/
+	stream << obj.mAddress;
+
+	return stream;
+}
