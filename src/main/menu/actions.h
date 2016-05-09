@@ -48,6 +48,6 @@ bool removeUser(	LinkedList<User> *users, string username);
 
 void changeUser(	LinkedList<User> *users, string username);
 
-void export(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs);
+void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs);
 
 #endif //INVENTORY_ACTIONSPUBLIC_H

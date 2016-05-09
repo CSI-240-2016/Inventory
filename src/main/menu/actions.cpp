@@ -150,47 +150,49 @@ void changeItem(LinkedList<Item> *items, int serial) {
 				clear();
 
 				switch (choice) {
-				case -1:
-					complete = true;
-					return;
-				case 1: //Serial
-					cout << "Current Serial: " << tmp->mData.getSerial() << endl;
-					cout << "New Serial: ";
-					cin >> inputSerial;
-					tmp->mData.setSerial(inputSerial);
-					break;
-				case 2: //Name
-					cout << "Current Name: " << tmp->mData.getName() << endl;
-					cout << "New Name: ";
-					getline(cin, name);
-					tmp->mData.setName(name);
-					break;
-				case 3: //Description
-					cout << "Current Description: \n" << tmp->mData.getDescription() << endl;
-					cout << "New Description: \n";
-					getline(cin, description);
-					tmp->mData.setDescription(description);
-					break;
-				case 4: //Club
-					cout << "Current Club Name: " << tmp->mData.getClubName() << endl;
-					cout << "New Club Name: ";
-					getline(cin, club);
-					tmp->mData.setClubName(club);
-					break;
-				case 5: //Location
-					cout << "Current Location Information: \n" << location << endl;
-					cout << "New Location Information: \n";
-					cin >> location;
-					tmp->mData.setLocation(location);
-					break;
-				case 6: //Source
-					Source source = tmp->mData.getSource();
-					cout << "Current Source Information: \n" << source << endl;
-					cout << "New Source Information: \n";
-					cin >> source;
-					tmp->mData.setSource(source);
-					break;
+					case -1:
+						complete = true;
+						return;
+					case 1: //Serial
+						cout << "Current Serial: " << tmp->mData.getSerial() << endl;
+						cout << "New Serial: ";
+						cin >> inputSerial;
+						tmp->mData.setSerial(inputSerial);
+						break;
+					case 2: //Name
+						cout << "Current Name: " << tmp->mData.getName() << endl;
+						cout << "New Name: ";
+						getline(cin, name);
+						tmp->mData.setName(name);
+						break;
+					case 3: //Description
+						cout << "Current Description: \n" << tmp->mData.getDescription() << endl;
+						cout << "New Description: \n";
+						getline(cin, description);
+						tmp->mData.setDescription(description);
+						break;
+					case 4: //Club
+						cout << "Current Club Name: " << tmp->mData.getClubName() << endl;
+						cout << "New Club Name: ";
+						getline(cin, club);
+						tmp->mData.setClubName(club);
+						break;
+					case 5: //Location
+						cout << "Current Location Information: \n" << location << endl;
+						cout << "New Location Information: \n";
+						cin >> location;
+						tmp->mData.setLocation(location);
+						break;
+					case 6: //Source
+						Source source = tmp->mData.getSource();
+						cout << "Current Source Information: \n" << source << endl;
+						cout << "New Source Information: \n";
+						cin >> source;
+						tmp->mData.setSource(source);
+						break;
+					default: break;
 				}
+				saveItems(items);
 			} while (!complete);
 
 			return;
@@ -240,7 +242,7 @@ void changeUser(LinkedList<User> *users, string username) {
 	// TODO
 }
 
-void export(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs) {
+void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs) {
 	string extension, fileName;
 
 	do {
