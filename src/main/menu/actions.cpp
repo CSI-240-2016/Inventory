@@ -145,7 +145,7 @@ void changeItem(LinkedList<Item> *items, int serial) {
 	while (tmp != NULL) {
 		if (tmp->mData.getSerial() == serial) {
 			do {
-				displayMenuWithPrompt(MENU_CHANGE_ITEM, MENU_CHANGE_ITEM_SIZE, choice, "Change Item Menu", "Enter a choice: ");
+				displayMenuWithPrompt(MENU_CHANGE_ITEM, MENU_CHANGE_ITEM_SIZE, choice, "Modify Item Menu", "Enter a choice: ");
 
 				clear();
 
@@ -184,7 +184,7 @@ void changeItem(LinkedList<Item> *items, int serial) {
 						tmp->mData.setLocation(location);
 						break;
 					case 6: //Source
-						Source source = tmp->mData.getSource();
+						source = tmp->mData.getSource();
 						cout << "Current Source Information: \n" << source << endl;
 						cout << "New Source Information: \n";
 						cin >> source;
@@ -239,31 +239,74 @@ bool removeUser(LinkedList<User> *users, string username) {
 }
 
 void changeUser(LinkedList<User> *users, string username) {
-	// TODO
+	Node<User> *tmp = users->getHead(), *before = NULL;
+	bool complete = false;
+	string input;
+	int choice;
+
+	while (tmp != NULL && !complete) {
+		if (tmp->mData.getUsername() != username) continue;
+		do {
+			clear();
+
+			displayMenuWithPrompt(MENU_CHANGE_USER, MENU_CHANGE_USER_SIZE, choice, "Modify User Menu", "Enter a choice: ");
+
+			switch (choice) {
+				case -1:
+					complete = true;
+					return;
+				case 1: // Name
+					cout << "Current Name: " << tmp->mData.getName() << endl;
+					cout << "New Name: ";
+					getline(cin, input);
+					tmp->mData.setName(input);
+					break;
+				case 2: // Username
+					cout << "Current Username: " << tmp->mData.getUsername() << endl;
+					cout << "New Username: ";
+					getline(cin, input);
+					tmp->mData.setUsername(input);
+					break;
+				case 3: // Password
+					cout << "Current Password: " << tmp->mData.getPassword() << endl;
+					cout << "New Password: ";
+					getline(cin, input);
+					tmp->mData.setPassword(input);
+					break;
+				default: break;
+			}
+			saveUsers(users);
+		} while (!complete);
+	}
+
+	cout << "No such user with username " << username << ".\n";
 }
 
 void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs) {
 	string extension, fileName;
 
+	extension = "xml";
+	/*
 	do {
-		extension = cinString("Enter extension (csv or xls): ");
-		if (extension != "csv" && extension != "xls")
+		extension = cinString("Enter extension (xml): ");
+		if (extension != "xml")
 			cout << "Invalid extension.\n";
-	} while (extension != "csv" && extension != "xls");
+	} while (extension != "xml");
+	*/
 
-	fileName = cinString("Enter file name: ");
+	fileName = cinString("Enter file name (w/o ext): ");
 
 	ofstream file;
-	file.open(fileName + "." + extension, ios::trunc);
+	file.open(fileName + "." + extension, ios::out);
 	if (file.is_open()) {
 		
 		if (extension == "xml") {
 			file
 				<< "<?xml version=\"1.0\"?>" << '\n'
 				<< "<Workbook"
-					<< " xmlns=\"urn:schemas - microsoft - com : office : spreadsheet\""
-					<< " xmlns:o=\"urn:schemas - microsoft - com : office : office\""
-					<< " xmlns:x=\"urn:schemas - microsoft - com : office : excel\""
+					<< " xmlns=\"urn:schemas-microsoft-com:office:spreadsheet\""
+					<< " xmlns:o=\"urn:schemas-microsoft-com:office:office\""
+					<< " xmlns:x=\"urn:schemas-microsoft-com:office:excel\""
 					<< " xmlns:ss=\"urn:schemas-microsoft-com:office:spreadsheet\""
 					<< " xmlns:html=\"http://www.w3.org/TR/REC-html40\""
 				<< ">" << '\n'
@@ -271,18 +314,245 @@ void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Lo
 
 			// ~~~~~~~~~ Start: Items ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-			int columns = 1;
 			file
-				<< "<Worksheet ss:Name=\"Items\">" << '\n'
-				<< "<Table x:FullRows=\"" << (1 + items->getCount()) << "\" x:FullColumns=\"" << columns << "\">" << '\n'
+				<< "\t<Worksheet ss:Name=\"Items\">" << '\n'
+				<< "\t\t<Table "
+					<< "ss:ExpandedRowCount=\"" << (1 + items->getCount()) << "\" "
+					<< "ss:ExpandedColumnCount=\"" << 4 << "\" "
+					<< "ss:DefaultRowHeight=\"" << 15 << "\" "
+					<< ">" << '\n'
+				<< "\t\t"
+					<< "<Column ss:Width=\"" << 32 << "\"/>\n"
+				<< "\t\t"
+					<< "<Column ss:Width=\"" << 42 << "\"/>\n"
+				<< "\t\t"
+					<< "<Column ss:Width=\"" << 102 << "\"/>\n"
+				<< "\t\t"
+					<< "<Column ss:Width=\"" << 27 << "\"/>\n"
 			;
 
 			file
-				<< "</Table>" << '\n'
-				<< "</Worksheet>" << '\n'
+				<< "\t\t\t<Row>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Serial</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Name</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Description</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Club</Data></Cell>\n"
+				<< "\t\t\t</Row>\n"
+			;
+
+			Node<Item> *tmpItem = items->getHead();
+			while (tmpItem != NULL) {
+				file
+					<< "\t\t\t<Row>\n"
+						// Serial
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"Number\">"
+								<< tmpItem->mData.getSerial()
+							<< "</Data></Cell>\n"
+						// Name
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpItem->mData.getName()
+							<< "</Data></Cell>\n"
+						// Description
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpItem->mData.getDescription()
+							<< "</Data></Cell>\n"
+						// Club
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpItem->mData.getClubName()
+							<< "</Data></Cell>\n"
+					<< "\t\t\t</Row>\n"
+				;
+				tmpItem = tmpItem->mNext;
+			}
+
+			file
+				<< "\t\t</Table>" << '\n'
+				<< "\t</Worksheet>" << '\n'
 			;
 			
 			// ~~~~~~~~~~~ End: Items ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			// ~~~~~~~~~ Start: Users ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			file
+				<< "\t<Worksheet ss:Name=\"Users\">" << '\n'
+				<< "\t\t<Table "
+					<< "ss:ExpandedRowCount=\"" << (1 + users->getCount()) << "\" "
+					<< "ss:ExpandedColumnCount=\"" << 3 << "\" "
+					<< "ss:DefaultRowHeight=\"" << 15 << "\" "
+					<< ">" << '\n'
+			;
+
+			file
+				<< "\t\t\t<Row>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Username</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Name</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">Password</Data></Cell>\n"
+				<< "\t\t\t</Row>\n"
+			;
+
+			Node<User> *tmpUser = users->getHead();
+			while (tmpUser != NULL) {
+				file
+					<< "\t\t\t<Row>\n"
+						// Username
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpUser->mData.getUsername()
+							<< "</Data></Cell>\n"
+						// Name
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpUser->mData.getName()
+							<< "</Data></Cell>\n"
+						// Password
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpUser->mData.getPassword()
+							<< "</Data></Cell>\n"
+					<< "\t\t\t</Row>\n"
+				;
+				tmpUser = tmpUser->mNext;
+			}
+
+			file
+				<< "\t\t</Table>" << '\n'
+				<< "\t</Worksheet>" << '\n'
+			;
+
+			// ~~~~~~~~~~~ End: Items ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			// ~~~~~~~~~ Start: Logs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+			file
+				<< "\t<Worksheet ss:Name=\"Logs\">" << '\n'
+				<< "\t\t<Table "
+					<< "ss:ExpandedRowCount=\"" << (1 + logs->getCount()) << "\" "
+					<< "ss:ExpandedColumnCount=\"" << 12 << "\" "
+					<< "ss:DefaultRowHeight=\"" << 15 << "\" "
+					<< ">" << '\n'
+			;
+
+			file
+				<< "\t\t\t<Row>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Item Serial"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Item Name"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Club"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Date Out"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Date Expected Back"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Date In"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked Out By (Name)"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked Out By (Username)"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked Out To"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked In By (Name)"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked In By (Username)"
+					<< "</Data></Cell>\n"
+					<< "\t\t\t\t<Cell><Data ss:Type=\"String\">"
+						<< "Checked In From"
+					<< "</Data></Cell>\n"
+				<< "\t\t\t</Row>\n"
+			;
+
+			Node<Log> *tmpLog = logs->getHead();
+			while (tmpLog != NULL) {
+				file
+					<< "\t\t\t<Row>\n"
+						// Username
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"Number\">"
+								<< tmpLog->mData.getSerial()
+							<< "</Data></Cell>\n"
+						// Name
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getName()
+							<< "</Data></Cell>\n"
+						// Club
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getClubName()
+							<< "</Data></Cell>\n"
+						// Date Out
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"Date\">"
+								<< tmpLog->mData.getDateOut().toString("mm/dd/yyyy")
+							<< "</Data></Cell>\n"
+						// Date In Expected
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"Date\">"
+								<< tmpLog->mData.getDateInExpected().toString("mm/dd/yyyy")
+							<< "</Data></Cell>\n"
+						// Date In
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"Date\">"
+								<< tmpLog->mData.getDateIn().toString("mm/dd/yyyy")
+							<< "</Data></Cell>\n"
+						// Out By Name
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getOutByName()
+							<< "</Data></Cell>\n"
+						// Out By Username
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getOutByUsername()
+							<< "</Data></Cell>\n"
+						// Out To
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getOutToName()
+							<< "</Data></Cell>\n"
+						// In By Name
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getInByName()
+							<< "</Data></Cell>\n"
+						// In By Username
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getInByUsername()
+							<< "</Data></Cell>\n"
+						// In From
+						<< "\t\t\t\t"
+							<< "<Cell><Data ss:Type=\"String\">"
+								<< tmpLog->mData.getInFromName()
+							<< "</Data></Cell>\n"
+					<< "\t\t\t</Row>\n"
+				;
+				tmpLog = tmpLog->mNext;
+			}
+
+			file
+				<< "\t\t</Table>" << '\n'
+				<< "\t</Worksheet>" << '\n'
+			;
+
+			// ~~~~~~~~~~~ End: Logs ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 			file << "</Workbook>";
 
@@ -290,5 +560,9 @@ void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Lo
 
 	}
 	file.close();
+
+}
+
+void checkInOut(LinkedList<Item> *items, int serial) {
 
 }

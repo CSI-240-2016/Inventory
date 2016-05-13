@@ -15,8 +15,10 @@
  */
 void run(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs) {
 	bool shouldExit, loggedIn = false;
+	string username = "";
 	do {
-		shouldExit = runMenuMain(users, items, logs, loggedIn);
+		shouldExit = runMenuMain(users, items, logs, loggedIn, username);
+		if (!loggedIn) username = "";
 	} while (!shouldExit);
 }
 
@@ -24,7 +26,7 @@ void run(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs
  * PRE:  the data lists
  * POST: true if the program should shutdown
  */
-bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs, bool &loggedIn) {
+bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs, bool &loggedIn, string &username) {
 
 	int choice;
 
@@ -41,7 +43,7 @@ bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Lo
 				runMenuItem(items, choice, loggedIn);
 				break;
 			case 2: // Login
-				loggedIn = logInUser(users);
+				loggedIn = logInUser(users, username);
 				break;
 			default: break;
 		}
@@ -54,19 +56,22 @@ bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Lo
 		switch (choice) {
 			case -1:
 				return true;
-			case 1: // Items
+			case 1: // Check In/Out
+				checkInOut(items, cinInteger("Enter item serial: "));
+				break;
+			case 2: // Items
 				runMenuItem(items, choice, loggedIn);
 				break;
-			case 2: // Users
-				runMenuUsers(users, choice);
+			case 3: // Users
+				runMenuUsers(users, choice, username);
 				break;
-			case 3: // Logs
+			case 4: // Logs
 
 				break;
-			case 4: // Export
-
+			case 5: // Export
+				exportExcel(items, users, logs);
 				break;
-			case 5: // Logout
+			case 6: // Logout
 				loggedIn = false;
 				cout << "\nYou have been logged out.\n\n";
 				pause();
@@ -153,7 +158,7 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn) {
  * PRE:  The user data, the choice variable
  * POST: None
  */
-void runMenuUsers(LinkedList<User> *users, int &choice) {
+void runMenuUsers(LinkedList<User> *users, int &choice, string &username) {
 
 	displayMenuWithPrompt(MENU_USER_ADMIN, MENU_USER_ADMIN_SIZE, choice, "User Menu", "Enter a choice: ");
 
@@ -162,7 +167,7 @@ void runMenuUsers(LinkedList<User> *users, int &choice) {
 			addUser(users, cinString("Enter User UserName: "));
 			break;
 		case 2: // Modify
-			changeUser(users, cinString("Enter User UserName: "));
+			changeUser(users, username);
 			break;
 		case 3: // Remove
 			clear();
@@ -182,14 +187,14 @@ void runMenuUsers(LinkedList<User> *users, int &choice) {
 * PRE:  the user list
 * POST: log in the user with details entered by user
 */
-bool logInUser(LinkedList<User> *users) {
+bool logInUser(LinkedList<User> *users, string &username) {
 
 	if (users->getHead() == NULL) {
 		cout << "There are no users. Please contact the systems administrator.\n";
 		return false;
 	}
 	
-	string username, password, junk;
+	string password, junk;
 	Node<User> *tmp;
 
 	do {

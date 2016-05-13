@@ -50,4 +50,6 @@ void changeUser(	LinkedList<User> *users, string username);
 
 void exportExcel(LinkedList<Item> *items, LinkedList<User> *users, LinkedList<Log> *logs);
 
+void checkInOut(LinkedList<Item> *items, int serial);
+
 #endif //INVENTORY_ACTIONSPUBLIC_H

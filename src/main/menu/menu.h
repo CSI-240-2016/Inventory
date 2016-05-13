@@ -18,8 +18,8 @@ const string	MENU_GENERAL_PUBLIC[] = { "Items", "Log In as Admin" };
 const int		MENU_ITEM_PUBLIC_SIZE = 2;
 const string	MENU_ITEM_PUBLIC[] = { "View Items In", "View Items Out" };
 
-const int		MENU_GENERAL_ADMIN_SIZE = 5;
-const string	MENU_GENERAL_ADMIN[] = { "Items", "Users", "Logs", "Export", "Logout" };
+const int		MENU_GENERAL_ADMIN_SIZE = 6;
+const string	MENU_GENERAL_ADMIN[] = { "Check In/Out", "Items", "Users", "Logs", "Export", "Logout" };
 
 const int		MENU_ITEM_ADMIN_SIZE = 8;
 const string	MENU_ITEM_ADMIN[] = {
@@ -43,7 +43,7 @@ void run(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs
  * PRE:  the data lists
  * POST: true if the program should shutdown
  */
-bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs, bool &loggedIn);
+bool runMenuMain(LinkedList<User> *users, LinkedList<Item> *items, LinkedList<Log> *logs, bool &loggedIn, string &username);
 
 /** PURPOSE: Display the item menu & take user input
  * PRE:  The item data, the choice variable
@@ -55,12 +55,12 @@ void runMenuItem(LinkedList<Item> *items, int &choice, bool loggedIn);
  * PRE:  The user data, the choice variable
  * POST: None
  */
-void runMenuUsers(LinkedList<User> *users, int &choice);
+void runMenuUsers(LinkedList<User> *users, int &choice, string &username);
 
 /** PURPOSE: Take user input in order to log in a user
  * PRE:  the user list
  * POST: if the user logged in
  */
-bool logInUser(LinkedList<User> *users);
+bool logInUser(LinkedList<User> *users, string &username);
 
 #endif //INVENTORY_MENU_H

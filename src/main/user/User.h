@@ -10,6 +10,11 @@
 
 using namespace std;
 
+const int		MENU_CHANGE_USER_SIZE = 3;
+const string	MENU_CHANGE_USER[] = {
+	"Name", "Username", "Password"
+};
+
 class User {
 
 	private:
